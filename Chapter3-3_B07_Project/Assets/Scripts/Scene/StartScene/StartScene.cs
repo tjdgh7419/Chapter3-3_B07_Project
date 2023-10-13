@@ -19,7 +19,7 @@ public class StartScene : MonoBehaviour
 
     void OpenUI_Start()
     {
-        
+        LoadSceneManager.LoadScene("UI_DEV_Scene");
     }
 
     void OpenUI_Preferences()
