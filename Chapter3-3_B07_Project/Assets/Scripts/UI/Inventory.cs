@@ -24,6 +24,7 @@ public class Inventory : MonoBehaviour
 	public TextMeshProUGUI selectedItemTypeTitle;
 	public TextMeshProUGUI selectedItemTypeDescription;
 	public TextMeshProUGUI selectedItemStatTitle;
+	public TextMeshProUGUI selectedItemStatType;
 	public TextMeshProUGUI selectedItemStatDescription;
 	public GameObject equipButton;
 	public GameObject useButton;
@@ -51,6 +52,10 @@ public class Inventory : MonoBehaviour
 			uiSlot[i].Clear();
 		}
 		ClearSelectedItemWindow();
+
+		AddItem(GameManager.Instance.itemManager.HpPotion);
+		AddItem(GameManager.Instance.itemManager.MpPotion);
+		AddItem(GameManager.Instance.itemManager.Sword);
 	}
 
 	public void Toggle()
@@ -152,23 +157,42 @@ public class Inventory : MonoBehaviour
 			case ItemType.Consumable:
 				{
 					selectedItemTypeDescription.text = "소모품";
+					if(selectedItem.item.Ctype == ConsumableType.HP)
+					{
+						selectedItemStatType.text = selectedItem.item.Ctype.ToString() + " " + "+";
+						selectedItemStatDescription.text = selectedItem.item.consumableDatas[0].value.ToString();	
+					}
+					else if(selectedItem.item.Ctype == ConsumableType.MP)
+					{
+						selectedItemStatType.text = selectedItem.item.Ctype.ToString() + " " + "+";
+						selectedItemStatDescription.text = selectedItem.item.consumableDatas[0].value.ToString();
+
+					}
+					else
+					{
+						selectedItemStatType.text = selectedItem.item.Ctype.ToString() + " " + "+";
+						selectedItemStatDescription.text = selectedItem.item.consumableDatas[0].value.ToString();
+					}
+						
 					break;
 				}
 			case ItemType.Equipable:
 				{
 					selectedItemTypeDescription.text = "장비";
+					selectedItemStatType.text = "공격력" + " " + "+";
+					selectedItemStatDescription.text = selectedItem.item.AttackPower.ToString() ;
 					break;
 				}
 		}
+		
 		selectedItemName.text = selectedItem.item.ItemName;
 		selectedItemDescription.text = selectedItem.item.ItemDescription;
-		selectedItemStatDescription.text = selectedItem.item.AttackPower.ToString();
-		selectedItemStatTitle.gameObject.SetActive(true);
-		selectedItemTypeTitle.gameObject.SetActive(true);
+		selectedItemStatTitle.text = "아이템 효과";
+		selectedItemTypeTitle.text = "아이템 타입";
 		useButton.SetActive(selectedItem.item.type == ItemType.Consumable);
 		equipButton.SetActive(selectedItem.item.type == ItemType.Equipable && !uiSlot[index].equipped);
-		equipButton.SetActive(selectedItem.item.type == ItemType.Equipable && uiSlot[index].equipped);
-		dropButton.SetActive(selectedItem.item.type != ItemType.Equipable);
+		unEquipButton.SetActive(selectedItem.item.type == ItemType.Equipable && uiSlot[index].equipped);
+		dropButton.SetActive(true);
 	}
 
 	public void OnUseButton()
@@ -250,7 +274,7 @@ public class Inventory : MonoBehaviour
 		selectedItemStatTitle.text = string.Empty;
 		selectedItemTypeDescription.text = string.Empty;
 		selectedItemTypeTitle.text = string.Empty;
-
+		selectedItemStatType.text = string.Empty;
 		equipButton.SetActive(false);
 		dropButton.SetActive(false);
 		unEquipButton.SetActive(false);

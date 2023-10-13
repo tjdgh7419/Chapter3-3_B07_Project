@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class ItemManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public ItemData HpPotion;
+    public ItemData MpPotion;
+    public ItemData Sword;
+   
     void Start()
     {
-        
+        GameManager.Instance.itemManager = this;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+  
 }

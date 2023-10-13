@@ -13,7 +13,8 @@ public enum ItemType
 public enum ConsumableType
 {
 	HP,
-	MP
+	MP,
+	Speed
 }
 
 //public enum WeaponStat
@@ -34,6 +35,7 @@ public class ItemData : ScriptableObject
 	public string ItemName;
 	public string ItemDescription;
 	public ItemType type;
+	public ConsumableType Ctype;
 	public Sprite icon;
 
 	[Header("Stat")]
