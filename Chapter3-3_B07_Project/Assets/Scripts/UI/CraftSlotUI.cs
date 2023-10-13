@@ -1,18 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CraftSlotUI : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+	public Button button;
+	public Image icon;
+	private CraftData curSlot;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	public int index;
+
+	public void Set(CraftData slot)
+	{
+		curSlot = slot;
+		icon.gameObject.SetActive(true);
+		icon.sprite = slot.Image;
+	}
+
+	public void OnCraftItemClick()
+	{
+
+	}
 }

@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 
 	public ItemManager itemManager;
 	public Inventory inventory;
+	public Craft craft;
 	public EquipManager equipManager;
 	public CraftManager craftManager;
 	private void Awake()

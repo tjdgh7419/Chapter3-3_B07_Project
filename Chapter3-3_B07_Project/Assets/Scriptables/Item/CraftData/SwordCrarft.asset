@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4adb97298916934797d6768f963692e, type: 3}
   m_Name: SwordCrarft
   m_EditorClassIdentifier: 
-  Image: {fileID: 0}
-  resources: []
-  resourceCount: 
-  Result: {fileID: 0}
+  Image: {fileID: 21300000, guid: 08d5ec2d201ece949a5e428ba3ea0e63, type: 3}
+  resources:
+  - {fileID: 11400000, guid: fabdb4ca7df36cd4b8a76abb5807c0c4, type: 2}
+  resourceCount: 02000000
+  Result: {fileID: 11400000, guid: f94d020980219e947be9cb39907cdba5, type: 2}

@@ -12,13 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a29a52bca0aaf942be0d9f61e563c3e, type: 3}
   m_Name: MP_Potion
   m_EditorClassIdentifier: 
-  ItemName: 
-  ItemDescription: 
-  type: 0
-  icon: {fileID: 0}
+  ItemName: "\uB9C8\uB098 \uD3EC\uC158"
+  ItemDescription: "\uB9C8\uB098\uB97C \uCC44\uC6CC\uC90D\uB2C8\uB2E4."
+  type: 2
+  Ctype: 1
+  icon: {fileID: 21300000, guid: 10876d86c0d0c7948ab7c3f219be6325, type: 3}
   AttackPower: 0
-  canStack: 0
-  maxStackAmount: 0
-  consumableDatas: []
+  canStack: 1
+  maxStackAmount: 50
+  consumableDatas:
+  - type: 1
+    value: 30
   equipPrefab: {fileID: 0}
   audio: []
