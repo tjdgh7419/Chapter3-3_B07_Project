@@ -170,6 +170,30 @@ public class Inventory : MonoBehaviour
 		RemoveSelectedItem();
 	}
 
+	public void OnDropButton()
+	{
+		RemoveSelectedItem();
+	}
+
+	public void OnEquipButton()
+	{
+		if (uiSlot[curEquipIndex].equipped)
+		{
+			UnEquip(curEquipIndex);
+		}
+
+		uiSlot[selectedItemIndex].equipped = true;
+
+		GameManager.Instance.equipManager.EquipNew(selectedItem.item);
+		UpdateUI();
+		SelectItem(selectedItemIndex);
+	}
+
+	public void UnEquipButton()
+	{
+		UnEquip(selectedItemIndex);
+	}
+
 	private void RemoveSelectedItem()
 	{
 		selectedItem.quantity--;
@@ -178,8 +202,23 @@ public class Inventory : MonoBehaviour
 		{
 			if (uiSlot[selectedItemIndex].equipped)
 			{
-				//UnEquip();
+				UnEquip(selectedItemIndex);
 			}
+			selectedItem.item = null;
+			ClearSelectedItemWindow();
+		}
+		UpdateUI();
+	}
+
+	private void UnEquip(int index)
+	{
+		uiSlot[index].equipped = false;
+		GameManager.Instance.equipManager.UnEquip();
+		UpdateUI();
+
+		if(selectedItemIndex == index)
+		{
+			SelectItem(index);
 		}
 	}
 

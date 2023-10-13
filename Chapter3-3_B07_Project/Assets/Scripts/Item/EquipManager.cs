@@ -4,15 +4,26 @@ using UnityEngine;
 
 public class EquipManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public Equip curEquip;
+	public Transform equipParant;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	private void Start()
+	{
+		GameManager.Instance.equipManager = this;
+	}
+
+	public void EquipNew(ItemData item)
+	{
+		UnEquip();
+		curEquip = Instantiate(item.equipPrefab, equipParant).GetComponent<Equip>();
+	}
+
+	public void UnEquip()
+	{
+		if(curEquip != null)
+		{
+			Destroy(curEquip.gameObject);
+			curEquip = null;	
+		}
+	}
 }

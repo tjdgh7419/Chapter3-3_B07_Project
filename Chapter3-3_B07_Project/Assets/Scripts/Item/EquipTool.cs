@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class EquipTool : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [Header("Combat")]
+    public bool doesDealDamage;
+    public int damage;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    private Animator animator;
+    private Camera _cam;
+    private bool attacking;
+    private bool isHit;
 }
