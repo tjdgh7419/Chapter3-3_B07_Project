@@ -42,7 +42,6 @@ public class ItemSlotUI : MonoBehaviour
 
     public void OnButtonClick()
     {
-        //GameManager.Instance.inventory.SelectItem(index); <- 게임매니저가 만들어졌을 때
-        Inventory.SelectItem(index);
+        GameManager.Instance.inventory.SelectItem(index);    
 	}
 }

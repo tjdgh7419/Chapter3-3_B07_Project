@@ -36,7 +36,7 @@ public class Inventory : MonoBehaviour
 
 	private void Start()
 	{
-		//GameManager.Instance.inventory = this; 게임매니저가 생겼을 때
+		GameManager.Instance.inventory = this;
 		inventoryWindow.SetActive(false);
 		slots = new ItemSlot[uiSlot.Length];
 
@@ -150,6 +150,37 @@ public class Inventory : MonoBehaviour
 		equipButton.SetActive(selectedItem.item.type == ItemType.Equipable && !uiSlot[index].equipped);
 		equipButton.SetActive(selectedItem.item.type == ItemType.Equipable && uiSlot[index].equipped);
 		dropButton.SetActive(selectedItem.item.type != ItemType.Equipable);
+	}
+
+	public void OnUseButton()
+	{
+		if(selectedItem.item.type == ItemType.Consumable)
+		{
+			for(int i = 0; i < selectedItem.item.consumableDatas.Length; i++)
+			{
+				switch (selectedItem.item.consumableDatas[i].type)
+				{
+					case ConsumableType.HP:
+						break; // 플레이어 컨디션 매니저가 생겼을 때
+					case ConsumableType.MP:
+						break;
+				}
+			}
+		}
+		RemoveSelectedItem();
+	}
+
+	private void RemoveSelectedItem()
+	{
+		selectedItem.quantity--;
+
+		if(selectedItem.quantity <= 0)
+		{
+			if (uiSlot[selectedItemIndex].equipped)
+			{
+				//UnEquip();
+			}
+		}
 	}
 
 	private void ClearSelectedItemWindow()
