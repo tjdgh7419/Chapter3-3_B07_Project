@@ -252,7 +252,6 @@ MonoBehaviour:
   button: {fileID: 18199438}
   icon: {fileID: 936834167}
   quantitiyTxt: {fileID: 1809143084}
-  outline: {fileID: 0}
   index: 0
   equipped: 0
 --- !u!114 &18199440
@@ -1142,7 +1141,6 @@ MonoBehaviour:
   button: {fileID: 263137199}
   icon: {fileID: 1691992665}
   quantitiyTxt: {fileID: 760845605}
-  outline: {fileID: 0}
   index: 0
   equipped: 0
 --- !u!114 &263137201
@@ -2027,7 +2025,6 @@ MonoBehaviour:
   button: {fileID: 498176890}
   icon: {fileID: 928003250}
   quantitiyTxt: {fileID: 1447117784}
-  outline: {fileID: 0}
   index: 0
   equipped: 0
 --- !u!114 &498176892
@@ -3096,7 +3093,6 @@ MonoBehaviour:
   button: {fileID: 828704555}
   icon: {fileID: 1357755054}
   quantitiyTxt: {fileID: 836477391}
-  outline: {fileID: 0}
   index: 0
   equipped: 0
 --- !u!114 &828704557
@@ -4971,7 +4967,6 @@ MonoBehaviour:
   button: {fileID: 1348545232}
   icon: {fileID: 624542854}
   quantitiyTxt: {fileID: 1888959430}
-  outline: {fileID: 0}
   index: 0
   equipped: 0
 --- !u!114 &1348545234
@@ -5143,7 +5138,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   button: {fileID: 1360834582}
   icon: {fileID: 986085570}
-  curSlot: {fileID: 0}
   index: 0
 --- !u!114 &1360834582
 MonoBehaviour:
@@ -5368,7 +5362,6 @@ MonoBehaviour:
   button: {fileID: 1365703367}
   icon: {fileID: 1368639969}
   quantitiyTxt: {fileID: 271495927}
-  outline: {fileID: 0}
   index: 0
   equipped: 0
 --- !u!114 &1365703369
@@ -5614,7 +5607,6 @@ MonoBehaviour:
   button: {fileID: 1388288312}
   icon: {fileID: 361758254}
   quantitiyTxt: {fileID: 987261014}
-  outline: {fileID: 0}
   index: 0
   equipped: 0
 --- !u!114 &1388288314
@@ -6298,7 +6290,6 @@ MonoBehaviour:
   button: {fileID: 1460523317}
   icon: {fileID: 413085393}
   quantitiyTxt: {fileID: 2101580426}
-  outline: {fileID: 0}
   index: 0
   equipped: 0
 --- !u!114 &1460523319
@@ -6680,7 +6671,6 @@ MonoBehaviour:
   button: {fileID: 1503952797}
   icon: {fileID: 1692518778}
   quantitiyTxt: {fileID: 140035193}
-  outline: {fileID: 0}
   index: 0
   equipped: 0
 --- !u!114 &1503952799
@@ -7399,7 +7389,6 @@ MonoBehaviour:
   button: {fileID: 1678297098}
   icon: {fileID: 526442873}
   quantitiyTxt: {fileID: 1088459946}
-  outline: {fileID: 0}
   index: 0
   equipped: 0
 --- !u!1 &1687474813
@@ -7531,7 +7520,6 @@ MonoBehaviour:
   button: {fileID: 1687474816}
   icon: {fileID: 248799448}
   quantitiyTxt: {fileID: 1088520131}
-  outline: {fileID: 0}
   index: 0
   equipped: 0
 --- !u!114 &1687474818
@@ -8093,7 +8081,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   button: {fileID: 1748604946}
   icon: {fileID: 65832731}
-  curSlot: {fileID: 0}
   index: 0
 --- !u!1 &1781881977
 GameObject:
@@ -8802,7 +8789,6 @@ MonoBehaviour:
   - {fileID: 263137200}
   - {fileID: 1348545233}
   inventoryWindow: {fileID: 912805314}
-  selectedItemIndex: 0
   selectedItemName: {fileID: 468024367}
   selectedItemDescription: {fileID: 1604563607}
   selectedItemTypeTitle: {fileID: 2101941723}
@@ -8814,7 +8800,6 @@ MonoBehaviour:
   useButton: {fileID: 1008001208}
   dropButton: {fileID: 1402415546}
   unEquipButton: {fileID: 969865737}
-  curEquipIndex: 0
 --- !u!4 &1984000132
 Transform:
   m_ObjectHideFlags: 0
@@ -8909,10 +8894,7 @@ MonoBehaviour:
   - {fileID: 1748604949}
   - {fileID: 1360834581}
   - {fileID: 2146008183}
-  slots: []
   CraftWindow: {fileID: 1659802257}
-  selectedCraftItem: {fileID: 0}
-  selectedCraftItemIndex: 0
   matarial: {fileID: 1494802482}
   CraftItemName: {fileID: 1560729335}
   CraftItemDescription: {fileID: 1545808171}
@@ -9111,7 +9093,6 @@ MonoBehaviour:
   button: {fileID: 2015189523}
   icon: {fileID: 1440895660}
   quantitiyTxt: {fileID: 506866140}
-  outline: {fileID: 0}
   index: 0
   equipped: 0
 --- !u!114 &2015189525
@@ -9751,7 +9732,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   button: {fileID: 2146008184}
   icon: {fileID: 1781881979}
-  curSlot: {fileID: 0}
   index: 0
 --- !u!114 &2146008184
 MonoBehaviour:
