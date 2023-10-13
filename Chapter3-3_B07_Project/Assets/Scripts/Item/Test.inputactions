@@ -1,0 +1,34 @@
+{
+    "name": "Test",
+    "maps": [
+        {
+            "name": "Inventory",
+            "id": "87903214-8640-4297-b66b-5c85b53b514c",
+            "actions": [
+                {
+                    "name": "Inventory",
+                    "type": "Button",
+                    "id": "11693b31-3264-4ab1-95f1-e6a6dfc51b01",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "856cb918-0d0c-4601-8737-0c8198f472c8",
+                    "path": "<Keyboard>/tab",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Inventory",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

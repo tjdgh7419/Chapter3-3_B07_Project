@@ -7,8 +7,8 @@ using UnityEngine.InputSystem;
 
 public class ItemSlot
 {
-    public ItemData item;
-    public int quantity;
+	public ItemData item;
+	public int quantity;
 }
 public class Inventory : MonoBehaviour
 {
@@ -21,6 +21,10 @@ public class Inventory : MonoBehaviour
 	private int selectedItemIndex;
 	public TextMeshProUGUI selectedItemName;
 	public TextMeshProUGUI selectedItemDescription;
+	public TextMeshProUGUI selectedItemTypeTitle;
+	public TextMeshProUGUI selectedItemTypeDescription;
+	public TextMeshProUGUI selectedItemStatTitle;
+	public TextMeshProUGUI selectedItemStatDescription;
 	public GameObject equipButton;
 	public GameObject useButton;
 	public GameObject dropButton;
@@ -40,7 +44,7 @@ public class Inventory : MonoBehaviour
 		inventoryWindow.SetActive(false);
 		slots = new ItemSlot[uiSlot.Length];
 
-		for(int i = 0; i < slots.Length; i++)
+		for (int i = 0; i < slots.Length; i++)
 		{
 			slots[i] = new ItemSlot();
 			uiSlot[i].index = i;
@@ -63,7 +67,7 @@ public class Inventory : MonoBehaviour
 
 	public void OnInventoryButton(InputAction.CallbackContext context)
 	{
-		if(context.phase == InputActionPhase.Started)
+		if (context.phase == InputActionPhase.Started)
 		{
 			Toggle();
 		}
@@ -74,7 +78,7 @@ public class Inventory : MonoBehaviour
 		if (item.canStack)
 		{
 			ItemSlot slotInfo = GetItemStack(item);
-			if(slotInfo != null)
+			if (slotInfo != null)
 			{
 				slotInfo.quantity++;
 				UpdateUI();
@@ -84,7 +88,7 @@ public class Inventory : MonoBehaviour
 
 		ItemSlot emptySlotInfo = GetEmptySlot();
 
-		if(emptySlotInfo != null)
+		if (emptySlotInfo != null)
 		{
 			emptySlotInfo.item = item;
 			emptySlotInfo.quantity = 1;
@@ -96,7 +100,7 @@ public class Inventory : MonoBehaviour
 
 	private void UpdateUI()
 	{
-		for(int i = 0; i < slots.Length; i++)
+		for (int i = 0; i < slots.Length; i++)
 		{
 			if (slots[i].item != null)
 			{
@@ -111,7 +115,7 @@ public class Inventory : MonoBehaviour
 
 	private ItemSlot GetItemStack(ItemData item)
 	{
-		for(int i = 0; i < slots.Length; i++)
+		for (int i = 0; i < slots.Length; i++)
 		{
 			if (slots[i].item == item && slots[i].quantity < item.maxStackAmount)
 			{
@@ -123,7 +127,7 @@ public class Inventory : MonoBehaviour
 
 	private ItemSlot GetEmptySlot()
 	{
-		for(int i = 0; i < slots.Length; i++)
+		for (int i = 0; i < slots.Length; i++)
 		{
 			if (slots[i].item == null)
 			{
@@ -143,9 +147,24 @@ public class Inventory : MonoBehaviour
 		selectedItem = slots[index];
 		selectedItemIndex = index;
 
+		switch (selectedItem.item.type)
+		{
+			case ItemType.Consumable:
+				{
+					selectedItemTypeDescription.text = "소모품";
+					break;
+				}
+			case ItemType.Equipable:
+				{
+					selectedItemTypeDescription.text = "장비";
+					break;
+				}
+		}
 		selectedItemName.text = selectedItem.item.ItemName;
 		selectedItemDescription.text = selectedItem.item.ItemDescription;
-
+		selectedItemStatDescription.text = selectedItem.item.AttackPower.ToString();
+		selectedItemStatTitle.gameObject.SetActive(true);
+		selectedItemTypeTitle.gameObject.SetActive(true);
 		useButton.SetActive(selectedItem.item.type == ItemType.Consumable);
 		equipButton.SetActive(selectedItem.item.type == ItemType.Equipable && !uiSlot[index].equipped);
 		equipButton.SetActive(selectedItem.item.type == ItemType.Equipable && uiSlot[index].equipped);
@@ -154,9 +173,9 @@ public class Inventory : MonoBehaviour
 
 	public void OnUseButton()
 	{
-		if(selectedItem.item.type == ItemType.Consumable)
+		if (selectedItem.item.type == ItemType.Consumable)
 		{
-			for(int i = 0; i < selectedItem.item.consumableDatas.Length; i++)
+			for (int i = 0; i < selectedItem.item.consumableDatas.Length; i++)
 			{
 				switch (selectedItem.item.consumableDatas[i].type)
 				{
@@ -198,7 +217,7 @@ public class Inventory : MonoBehaviour
 	{
 		selectedItem.quantity--;
 
-		if(selectedItem.quantity <= 0)
+		if (selectedItem.quantity <= 0)
 		{
 			if (uiSlot[selectedItemIndex].equipped)
 			{
@@ -216,7 +235,7 @@ public class Inventory : MonoBehaviour
 		GameManager.Instance.equipManager.UnEquip();
 		UpdateUI();
 
-		if(selectedItemIndex == index)
+		if (selectedItemIndex == index)
 		{
 			SelectItem(index);
 		}
@@ -227,6 +246,10 @@ public class Inventory : MonoBehaviour
 		selectedItem = null;
 		selectedItemName.text = string.Empty;
 		selectedItemDescription.text = string.Empty;
+		selectedItemStatDescription.text = string.Empty;
+		selectedItemStatTitle.text = string.Empty;
+		selectedItemTypeDescription.text = string.Empty;
+		selectedItemTypeTitle.text = string.Empty;
 
 		equipButton.SetActive(false);
 		dropButton.SetActive(false);
