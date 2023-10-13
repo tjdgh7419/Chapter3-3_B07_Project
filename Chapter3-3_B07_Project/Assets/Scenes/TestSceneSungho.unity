@@ -6906,14 +6906,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dab6c1a4d06ff7947ac94a9b5e482a07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiSlot: []
-  inventoryWindow: {fileID: 0}
-  selectedItemName: {fileID: 0}
-  selectedItemDescription: {fileID: 0}
-  equipButton: {fileID: 0}
-  useButton: {fileID: 0}
-  dropButton: {fileID: 0}
-  unEquipButton: {fileID: 0}
+  uiSlot:
+  - {fileID: 1678297099}
+  - {fileID: 1388288313}
+  - {fileID: 2015189524}
+  - {fileID: 1687474817}
+  - {fileID: 1503952798}
+  - {fileID: 828704556}
+  - {fileID: 1460523318}
+  - {fileID: 1365703368}
+  - {fileID: 18199439}
+  - {fileID: 498176891}
+  - {fileID: 263137200}
+  - {fileID: 1348545233}
+  inventoryWindow: {fileID: 912805314}
+  selectedItemName: {fileID: 468024367}
+  selectedItemDescription: {fileID: 1604563607}
+  equipButton: {fileID: 1948983558}
+  useButton: {fileID: 1008001208}
+  dropButton: {fileID: 1402415546}
+  unEquipButton: {fileID: 969865737}
 --- !u!4 &1984000132
 Transform:
   m_ObjectHideFlags: 0
