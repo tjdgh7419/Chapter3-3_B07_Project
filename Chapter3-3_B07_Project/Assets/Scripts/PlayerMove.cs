@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-    [SerializeField] Transform a, b;
-    public LineRenderer lineRenderer; // LineRenderer 컴포넌트
+    /*[SerializeField] Transform a, b;*/
+    //public R lineRenderer; // LineRenderer 컴포넌트
 
     void Start()
     {
-        lineRenderer.positionCount = 2; // 라인은 두 점으로 구성됩니다.
+        /*lineRenderer.positionCount = 2; // 라인은 두 점으로 구성됩니다.
         float distance = Vector3.Distance(a.position, b.position);
 
         // 라인 렌더러에 시작점과 끝점을 설정합니다.
         lineRenderer.SetPosition(0, a.position);
-        lineRenderer.SetPosition(1, b.position);
+        lineRenderer.SetPosition(1, b.position);*/
     }
 
     public float speed = 100f; // 캐릭터 이동 속도
