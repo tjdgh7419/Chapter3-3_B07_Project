@@ -12,7 +12,6 @@ public class ProducerPanel : StartSceneBase
         {
             float time = Time.deltaTime;
             rectTransform.position += new Vector3(0 , time * 100, 0);
-            Debug.Log(rectTransform.position.y);
         }
         else
         {
