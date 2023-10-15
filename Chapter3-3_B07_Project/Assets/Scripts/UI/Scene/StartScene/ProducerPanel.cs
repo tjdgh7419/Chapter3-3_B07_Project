@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProducerPanel : StartSceneBase
+public class ProducerPanel : StartUIBase
 {
     [SerializeField] RectTransform rectTransform;
 

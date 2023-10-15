@@ -1,13 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class StartSceneBase : MonoBehaviour
+public class UIBase : MonoBehaviour
 {
     [SerializeField] private Button closeButton;
 
-    private void Start()
+    private void Awake()
     {
         closeButton.onClick.AddListener(Close);
     }
@@ -15,6 +17,5 @@ public class StartSceneBase : MonoBehaviour
     protected virtual void Close()
     {
         gameObject.SetActive(false);
-        UIManager.Instance.OpenUI<ButtonsPanel>();
     }
 }

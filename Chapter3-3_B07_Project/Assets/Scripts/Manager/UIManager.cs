@@ -13,6 +13,10 @@ public class UIManager : MonoBehaviour
         Instance = this;
 
         InitUIList();
+        /*
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        */
     }
     private void InitUIList()
     {
@@ -30,13 +34,6 @@ public class UIManager : MonoBehaviour
     {
         var obj = _uiList[typeof(T).Name];
         obj.SetActive(true);
-        return obj.GetComponent<T>();
-    }
-
-    public T CloseUI<T>()
-    {
-        var obj = _uiList[typeof(T).Name];
-        obj.SetActive(false);
         return obj.GetComponent<T>();
     }
 }

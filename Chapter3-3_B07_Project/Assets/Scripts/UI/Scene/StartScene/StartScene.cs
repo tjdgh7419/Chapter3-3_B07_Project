@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class StartScene : MonoBehaviour
 {
+    [SerializeField] private GameObject buttons;
     [SerializeField] private Button startButton;
     [SerializeField] private Button PreferencesButton;
     [SerializeField] private Button ProducerButton;
@@ -15,6 +16,8 @@ public class StartScene : MonoBehaviour
         PreferencesButton.onClick.AddListener(OpenUI_Preferences);
         ProducerButton.onClick.AddListener(OpenUI_Producer);
         UIManager.Instance.OpenUI<ButtonsPanel>();
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     void OpenUI_Start()
@@ -25,11 +28,12 @@ public class StartScene : MonoBehaviour
     void OpenUI_Preferences()
     {
         UIManager.Instance.OpenUI<PreferencesPanel>();
-        UIManager.Instance.CloseUI<ButtonsPanel>();
+        buttons.SetActive(false);
     }
+
     void OpenUI_Producer()
     {
         UIManager.Instance.OpenUI<ProducerPanel>();
-        UIManager.Instance.CloseUI<ButtonsPanel>();
+        buttons.SetActive(false);
     }
 }
