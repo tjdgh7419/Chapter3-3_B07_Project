@@ -17,12 +17,13 @@ public class NPC : MonoBehaviour
     public float detectDistance;
 
     public NpcSO npcSO;
-    private float playerDistance;
+    protected float playerDistance;
     public float fieldOfView = 120f;
     private bool canTalk;
-    [SerializeField] private GameObject player, talkPos, NamePos, button, buttonPos, Canvas;
+    [SerializeField] private GameObject talkPos, NamePos, buttonPos, Canvas;
+    [SerializeField] protected GameObject player, button;
     GameObject image = null;
-    [SerializeField] TextMeshProUGUI talk, _name;
+    [SerializeField] protected TextMeshProUGUI talk, _name;
     protected virtual void Awake()
     {
         
@@ -76,7 +77,7 @@ public class NPC : MonoBehaviour
             canTalk = false;
         }
     }
-    bool IsPlayerInFieldOfView()
+    protected bool IsPlayerInFieldOfView()
     {
         Vector3 directionToPlayer = player.transform.position - transform.position;
         float angle = Vector3.Angle(transform.forward, directionToPlayer);
