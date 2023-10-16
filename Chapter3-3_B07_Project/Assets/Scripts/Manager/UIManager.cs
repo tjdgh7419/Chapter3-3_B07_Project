@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -27,7 +28,7 @@ public class UIManager : MonoBehaviour
         */
     }
 
-    /* 
+    /*
     // 게임신에서 체력과 마나 닳는거 확인하기 위해 작성
     private void Update()
     {
@@ -48,7 +49,8 @@ public class UIManager : MonoBehaviour
                 player.Healing(10f, "MP");
             }
         }
-    }*/
+    }
+    */
 
     private void InitUIList()
     {
