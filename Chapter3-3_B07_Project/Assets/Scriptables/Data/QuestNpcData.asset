@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5269a04bb6062964d84d126838b6c822, type: 3}
+  m_Name: QuestNpcData
+  m_EditorClassIdentifier: 
+  npcType: 0
+  speed: 0
+  npcName: "\uCC30\uB9AC"
+  npcLine:
+  - "\uC800 \uC880 \uB3C4\uC640\uC8FC\uC2E4\uC218 \uC788\uB098\uC694?"
+  - "\uD55C\uBC88\uB9CC \uB3C4\uC640\uC8FC\uC138\uC694."
+  - "\uB3C4\uC640\uC8FC\uC154\uC11C \uAC10\uC0AC\uD569\uB2C8\uB2E4."
+  interact: 0
+  canMove: 0
+  ui: {fileID: 5739435650713479840, guid: 524f4066bff44ca4f9d48de428f2df65, type: 3}
+  target:
+    serializedVersion: 2
+    m_Bits: 0
