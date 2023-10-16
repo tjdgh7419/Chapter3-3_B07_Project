@@ -7,9 +7,10 @@ using UnityEngine.UI;
 
 public class UIBase : MonoBehaviour
 {
+    [Header("Buttons")]
     [SerializeField] private Button closeButton;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         closeButton.onClick.AddListener(Close);
     }
