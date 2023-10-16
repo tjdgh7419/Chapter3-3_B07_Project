@@ -8,8 +8,9 @@ public class PausePanel : GameUIBase
     [SerializeField] private Button quitButton;
     [SerializeField] private Button preferencesButton;
 
-    private void Start()
+    protected override void Awake()
     {
+        base.Awake();
         continueButton.onClick.AddListener(Close);
         quitButton.onClick.AddListener(OpenUI_Quit);
         preferencesButton.onClick.AddListener(OpenUI_Preferences);
@@ -21,6 +22,7 @@ public class PausePanel : GameUIBase
         uiPopUp.SetAction("나가기","메인화면으로 돌아가시겠습니까?\n(현재까지의 정보가 모두 사라집니다)",() => LoadSceneManager.LoadScene("StartScene"));
         
     }
+
     void OpenUI_Preferences()
     {
         UIManager.Instance.OpenUI<PreferencesPanel>();
