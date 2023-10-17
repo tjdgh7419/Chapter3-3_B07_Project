@@ -53,7 +53,7 @@ public class Craft : MonoBehaviour
 
 	public void SelectCraftItem(int index)
 	{
-		if (slots[index] == null)
+		if (slots[index].item == null)
 		{
 			return;
 		}
@@ -74,7 +74,6 @@ public class Craft : MonoBehaviour
 
 	private CraftSlot GetEmptySlot()
 	{
-		Debug.Log("4");
 		for (int i = 0; i < slots.Length; i++)
 		{
 			if (slots[i].item == null)
@@ -113,6 +112,10 @@ public class Craft : MonoBehaviour
 
 	private void CraftItemList()
 	{
-		AddItem(GameManager.Instance.craftManager.swordCraft);
+		CraftManager data = GameManager.Instance.craftManager;
+		for(int i = 0; i < data.craftItem.Length; i++)
+		{
+			AddItem(data.craftItem[i]);
+		}
 	}
 }
