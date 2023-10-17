@@ -14,14 +14,13 @@ public class Craft : MonoBehaviour
 	public CraftSlotUI[] uiSlot;
 	private CraftSlot[] slots;
 	public GameObject CraftWindow;
+	public MaterialSlotUI[] mUislot;
 
 	[Header("Selected CraftItem")]
 	private CraftSlot selectedCraftItem;
 	private int selectedCraftItemIndex;
-	public Image matarial;
 	public TextMeshProUGUI CraftItemName;
 	public TextMeshProUGUI CraftItemDescription;
-	public TextMeshProUGUI matarialQuantity;
 	public GameObject craftButton;
 
 	private void Start()
@@ -58,12 +57,15 @@ public class Craft : MonoBehaviour
 		{
 			return;
 		}
+		ClearCraftUI();
 		selectedCraftItem = slots[index];
 		selectedCraftItemIndex = index;
-
-		matarial.gameObject.SetActive(true);
-		matarial.sprite = selectedCraftItem.item.resources[0].icon;
-		matarialQuantity.text = selectedCraftItem.item.resourceCount[0].ToString();
+		for(int i = 0; i < selectedCraftItem.item.resources.Length; i++)
+		{
+			mUislot[i].mSlot.SetActive(true);
+			mUislot[i].mIcon.sprite = selectedCraftItem.item.resources[i].icon;
+			mUislot[i].mQuantitiy.text = selectedCraftItem.item.resourceCount[i].ToString();
+		}
 		CraftItemName.text = selectedCraftItem.item.Result.ItemName;
 		CraftItemDescription.text = selectedCraftItem.item.Result.ItemDescription;
 
@@ -102,10 +104,11 @@ public class Craft : MonoBehaviour
 	{
 		CraftItemName.text = string.Empty;
 		CraftItemDescription.text = string.Empty;
-		matarial.gameObject.SetActive(false);
-		matarialQuantity.text = string.Empty;
-
 		craftButton.SetActive (false);
+		for (int i = 0; i < mUislot.Length; i++)
+		{
+			mUislot[i].mSlot.SetActive(false);
+		}
 	}
 
 	private void CraftItemList()
