@@ -33,4 +33,10 @@ public class QuestPanel : GameUIBase
         questInfoText.text = $"{info}";
         questResultText.text = $"Äù½ºÆ® º¸»ó\n{result}";
     }
+
+    protected override void Close()
+    {
+        base.Close();
+        GameManager.Instance.interactionManager.CallCloseWindow();
+    }
 }
