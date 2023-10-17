@@ -2090,51 +2090,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 663688919009725785, guid: 639259b97fb338d4d92cadbd12dc9251,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 378.9698
-      objectReference: {fileID: 0}
-    - target: {fileID: 663688919009725785, guid: 639259b97fb338d4d92cadbd12dc9251,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 146.3523
-      objectReference: {fileID: 0}
-    - target: {fileID: 663688919009725785, guid: 639259b97fb338d4d92cadbd12dc9251,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 663688919009725785, guid: 639259b97fb338d4d92cadbd12dc9251,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 271
-      objectReference: {fileID: 0}
-    - target: {fileID: 663688919009725785, guid: 639259b97fb338d4d92cadbd12dc9251,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -141
-      objectReference: {fileID: 0}
-    - target: {fileID: 765781668433902778, guid: 639259b97fb338d4d92cadbd12dc9251,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 180
-      objectReference: {fileID: 0}
-    - target: {fileID: 765781668433902778, guid: 639259b97fb338d4d92cadbd12dc9251,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.000015259
-      objectReference: {fileID: 0}
-    - target: {fileID: 765781668433902778, guid: 639259b97fb338d4d92cadbd12dc9251,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 271
-      objectReference: {fileID: 0}
-    - target: {fileID: 765781668433902778, guid: 639259b97fb338d4d92cadbd12dc9251,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -23.174
-      objectReference: {fileID: 0}
     - target: {fileID: 1221214781788530674, guid: 639259b97fb338d4d92cadbd12dc9251,
         type: 3}
       propertyPath: m_RootOrder
@@ -2418,6 +2373,8 @@ MonoBehaviour:
   HpPotion: {fileID: 11400000, guid: 4b7ddc4c660f9ca4cac578f0f559e807, type: 2}
   MpPotion: {fileID: 11400000, guid: 62f3f362f35323d4db0138f154e57de4, type: 2}
   Sword: {fileID: 11400000, guid: f94d020980219e947be9cb39907cdba5, type: 2}
+  crystal: {fileID: 11400000, guid: fabdb4ca7df36cd4b8a76abb5807c0c4, type: 2}
+  Gold: {fileID: 11400000, guid: f3b8c94828eb7b249aa2a89ee1143a18, type: 2}
 --- !u!4 &1331165707
 Transform:
   m_ObjectHideFlags: 0
