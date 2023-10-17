@@ -25,7 +25,7 @@ public class QuestPanel : GameUIBase
     void OpenUI_Quest()
     {
         var uiPopUp = UIManager.Instance.OpenUI<UIPopUp>();
-        uiPopUp.SetAction("퀘스트", "정말로 퀘스트를 수락하시겠습니까?", asdfasdf);
+        uiPopUp.SetAction("퀘스트", "정말로 퀘스트를 수락하시겠습니까?", YesClick);
     }
 
     public void SetQuest(string info, string result)
@@ -34,7 +34,7 @@ public class QuestPanel : GameUIBase
         questResultText.text = $"퀘스트 보상\n{result}";
     }
 
-    private void asdfasdf()
+    private void YesClick()
     {
         questListPanel.SetQuestList(questInfoText.text);
         gameObject.SetActive(false);
