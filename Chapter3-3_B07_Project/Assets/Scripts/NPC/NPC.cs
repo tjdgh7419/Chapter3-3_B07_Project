@@ -35,8 +35,8 @@ public class NPC : MonoBehaviour
         talk.gameObject.SetActive(false);
         _name.transform.position = NamePos.transform.position;
         _name.text = npcSO.npcName;
-        //GameManager.Instance.interactionManager.OnShowWindow += StartInteract;
-        //GameManager.Instance.interactionManager.OnCloseWindow += FinishInteraction;
+        GameManager.Instance.interactionManager.OnShowWindow += StartInteract;
+        GameManager.Instance.interactionManager.OnCloseWindow += FinishInteraction;
     }
     protected virtual void Update()
     {
@@ -97,8 +97,8 @@ public class NPC : MonoBehaviour
     {
         if(npcSO.interact && npcAI == NPCAIState.Interact)
         {
-            window.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
+            window.SetActive(true);
             canTalk = false;
         }
     }

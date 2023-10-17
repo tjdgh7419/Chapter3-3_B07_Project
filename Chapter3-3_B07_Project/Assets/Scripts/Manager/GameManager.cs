@@ -10,7 +10,9 @@ public class GameManager : MonoBehaviour
 	public EquipManager equipManager;
 	public CraftManager craftManager;
 	public UIManager uiManager;
-
+	public InteractionManager interactionManager;
+	public RoundManager roundManager;
+	public MonsterManager monsterManager;
 	public Inventory inventory;
 	public Craft craft;
 	private void Awake()
