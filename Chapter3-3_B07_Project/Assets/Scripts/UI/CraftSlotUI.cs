@@ -26,6 +26,6 @@ public class CraftSlotUI : MonoBehaviour
 
 	public void OnCraftItemClick()
 	{
-		Debug.Log(curSlot.item.Result.ItemName);
+		GameManager.Instance.craft.SelectCraftItem(index);
 	}
 }

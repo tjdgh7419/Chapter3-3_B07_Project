@@ -37,7 +37,7 @@ public class Craft : MonoBehaviour
 			uiSlot[i].Clear();
 		}
 		ClearCraftUI();
-		AddItem(GameManager.Instance.craftManager.swordCraft);
+		CraftItemList();
 	}
 	
 	public void AddItem(CraftData recipe)
@@ -61,6 +61,9 @@ public class Craft : MonoBehaviour
 		selectedCraftItem = slots[index];
 		selectedCraftItemIndex = index;
 
+		matarial.gameObject.SetActive(true);
+		matarial.sprite = selectedCraftItem.item.resources[0].icon;
+		matarialQuantity.text = selectedCraftItem.item.resourceCount[0].ToString();
 		CraftItemName.text = selectedCraftItem.item.Result.ItemName;
 		CraftItemDescription.text = selectedCraftItem.item.Result.ItemDescription;
 
