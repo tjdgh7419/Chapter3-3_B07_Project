@@ -4,15 +4,19 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-
+public class CraftSlot
+{
+	public CraftData item;
+	public int idx;
+}
 public class Craft : MonoBehaviour
 {
 	public CraftSlotUI[] uiSlot;
-	private CraftData[] slots;
+	private CraftSlot[] slots;
 	public GameObject CraftWindow;
 
 	[Header("Selected CraftItem")]
-	private CraftData selectedCraftItem;
+	private CraftSlot selectedCraftItem;
 	private int selectedCraftItemIndex;
 	public Image matarial;
 	public TextMeshProUGUI CraftItemName;
@@ -23,26 +27,26 @@ public class Craft : MonoBehaviour
 	private void Start()
 	{
 		GameManager.Instance.craft = this;
-		CraftWindow.SetActive(false);
-		slots = new CraftData[uiSlot.Length];
+		
+		slots = new CraftSlot[uiSlot.Length];
 
 		for(int i = 0; i < slots.Length; i++)
 		{
-			slots[i] = new CraftData();
+			slots[i] = new CraftSlot();
 			uiSlot[i].index = i;
+			uiSlot[i].Clear();
 		}
 		ClearCraftUI();
-		CraftItemList();
+		AddItem(GameManager.Instance.craftManager.swordCraft);
 	}
 	
 	public void AddItem(CraftData recipe)
 	{
-		Debug.Log("1");
-		CraftData emptySlot = GetEmptySlot();
+		CraftSlot emptySlot = GetEmptySlot();
 		if(emptySlot != null)
 		{
-			Debug.Log("add");
-			emptySlot = recipe;
+			emptySlot.item = recipe;
+			emptySlot.idx = 1;
 			UpdateCraftUI();
 			return;
 		}
@@ -57,25 +61,22 @@ public class Craft : MonoBehaviour
 		selectedCraftItem = slots[index];
 		selectedCraftItemIndex = index;
 
-		CraftItemName.text = selectedCraftItem.Result.ItemName;
-		CraftItemDescription.text = selectedCraftItem.Result.ItemDescription;
+		CraftItemName.text = selectedCraftItem.item.Result.ItemName;
+		CraftItemDescription.text = selectedCraftItem.item.Result.ItemDescription;
 
 		craftButton.SetActive(true);
 	}
 
-	CraftData GetEmptySlot()
+	private CraftSlot GetEmptySlot()
 	{
 		Debug.Log("4");
 		for (int i = 0; i < slots.Length; i++)
 		{
-			Debug.Log("3");
-			if (slots[i] == null)
+			if (slots[i].item == null)
 			{
-				Debug.Log("2");
 				return slots[i];
 			}
 		}
-		Debug.Log("5");
 		return null;
 	}
 
@@ -83,13 +84,13 @@ public class Craft : MonoBehaviour
 	{
 		for(int i = 0; i < slots.Length; i++)
 		{
-			if (slots[i] != null)
+			if (slots[i].item != null)
 			{
 				uiSlot[i].Set(slots[i]);
 			}
 			else
 			{
-				return;
+				uiSlot[i].Clear();
 			}
 		}
 	}

@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+
 public class ItemSlot
 {
 	public ItemData item;
@@ -62,10 +63,12 @@ public class Inventory : MonoBehaviour
 	{
 		if (inventoryWindow.activeInHierarchy)
 		{
+			Cursor.lockState = CursorLockMode.None;
 			inventoryWindow.SetActive(false);
 		}
 		else
 		{
+			Cursor.lockState = CursorLockMode.None;
 			inventoryWindow.SetActive(true);
 		}
 	}
