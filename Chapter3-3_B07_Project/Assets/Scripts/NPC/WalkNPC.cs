@@ -23,6 +23,7 @@ public class WalkNPC : NPC
     }
     protected override void Start()
     {
+        npcSO.npcType = 1;
         _name.text = npcSO.npcName;
         npcAI = NPCAIState.Walk;
         talk.gameObject.SetActive(false);
@@ -30,31 +31,46 @@ public class WalkNPC : NPC
     }
     protected override void Update()
     {
-        base.Update();
-        if(npcAI == NPCAIState.Walk)
+        playerDistance = Vector3.Distance(transform.position, player.transform.position);
+        switch (npcAI)
         {
-            agent.speed = npcSO.speed;
-            agent.isStopped = false;
-            WalkUpdate();
-        }
-        if(playerDistance < safeDistance)
-        {
-            if (playerDistance > detectDistance || !IsPlayerInFieldOfView())
-            {
-                agent.isStopped = false;
-                NavMeshPath path = new NavMeshPath();
-                if (agent.CalculatePath(player.transform.position, path))
+            case NPCAIState.Idle:
                 {
-                    agent.SetDestination(player.transform.position);
+                    PassiveUpdate();
                 }
-            }
-            else if(playerDistance < detectDistance)
-            {
-                CanMove(false);
-                agent.speed = 0;
-                npcAI = NPCAIState.Interact;
-            }
+                break;
+            case NPCAIState.Interact:
+                {
+                    InteractUpdate();
+                }
+                break;
+            case NPCAIState.Walk:
+                {
+                    agent.speed = npcSO.speed;
+                    agent.isStopped = false;
+                    WalkUpdate();
+                    if (playerDistance < safeDistance)
+                    {
+                        if (playerDistance > detectDistance || !IsPlayerInFieldOfView())
+                        {
+                            agent.isStopped = false;
+                            NavMeshPath path = new NavMeshPath();
+                            if (agent.CalculatePath(player.transform.position, path))
+                            {
+                                agent.SetDestination(player.transform.position + new Vector3(2f, 0, 1f));
+                            }
+                        }
+                        else if (playerDistance < detectDistance)
+                        {
+                            CanMove(false);
+                            agent.speed = 0;
+                            npcAI = NPCAIState.Interact;
+                        }
+                    }
+                }
+                break;
         }
+        
     }
     private void WalkUpdate()
     {

@@ -13,7 +13,7 @@ public enum NPCAIState
 public class NPC : MonoBehaviour
 {
     [Header("AI")]
-    protected NPCAIState npcAI;
+    public NPCAIState npcAI;
     public float detectDistance;
 
     public NpcSO npcSO;
@@ -30,6 +30,7 @@ public class NPC : MonoBehaviour
     }
     protected virtual void Start()
     {
+        npcSO.npcType = 0;
         npcAI = NPCAIState.Idle;
         talk.transform.position = talkPos.transform.position;
         talk.gameObject.SetActive(false);
@@ -65,8 +66,12 @@ public class NPC : MonoBehaviour
                 npcAI = NPCAIState.Interact;
             }
         }
+        else if(npcSO.npcType == 1 && npcAI != NPCAIState.Walk)
+        {
+            npcAI = NPCAIState.Walk;
+        }
     }
-    private void InteractUpdate()
+    protected void InteractUpdate()
     {
         if (!npcSO.interact)
         {
