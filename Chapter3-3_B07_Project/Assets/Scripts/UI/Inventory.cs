@@ -33,7 +33,7 @@ public class Inventory : MonoBehaviour
 	public GameObject unEquipButton;
 
 	private int curEquipIndex;
-	private Dictionary<ItemData, int> ItemTotalCount;
+	public Dictionary<ItemData, int> ItemTotalCount;
 
 	private void Awake()
 	{
@@ -54,9 +54,8 @@ public class Inventory : MonoBehaviour
 		}
 		ClearSelectedItemWindow();
 
-		AddItem(GameManager.Instance.itemManager.HpPotion);
-		AddItem(GameManager.Instance.itemManager.MpPotion);
-		AddItem(GameManager.Instance.itemManager.Sword);
+		AddItem(GameManager.Instance.itemManager.crystal);
+		AddItem(GameManager.Instance.itemManager.Gold);
 	}
 
 	public void Toggle()
@@ -87,7 +86,7 @@ public class Inventory : MonoBehaviour
 		{
 			ItemSlot slotInfo = GetItemStack(item);
 			if (slotInfo != null)
-			{
+			{				
 				slotInfo.quantity++;
 				UpdateUI();
 				return;
@@ -98,8 +97,12 @@ public class Inventory : MonoBehaviour
 
 		if (emptySlotInfo != null)
 		{
+		
 			emptySlotInfo.item = item;
-			emptySlotInfo.quantity = 1;
+			emptySlotInfo.quantity = 100;
+			
+			ItemTotalCount.Add(emptySlotInfo.item, emptySlotInfo.quantity);
+						
 			UpdateUI();
 			return;
 		}

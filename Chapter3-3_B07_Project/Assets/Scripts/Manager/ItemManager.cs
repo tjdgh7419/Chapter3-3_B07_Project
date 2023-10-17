@@ -7,6 +7,8 @@ public class ItemManager : MonoBehaviour
     public ItemData HpPotion;
     public ItemData MpPotion;
     public ItemData Sword;
+    public ItemData crystal;
+    public ItemData Gold;
    
     void Start()
     {

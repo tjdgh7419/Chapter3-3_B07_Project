@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,11 +24,11 @@ public class Craft : MonoBehaviour
 	public TextMeshProUGUI CraftItemName;
 	public TextMeshProUGUI CraftItemDescription;
 	public GameObject craftButton;
-
+	private CraftManager data;
 	private void Start()
 	{
 		GameManager.Instance.craft = this;
-		
+		data = GameManager.Instance.craftManager;
 		slots = new CraftSlot[uiSlot.Length];
 
 		for(int i = 0; i < slots.Length; i++)
@@ -112,10 +114,47 @@ public class Craft : MonoBehaviour
 
 	private void CraftItemList()
 	{
-		CraftManager data = GameManager.Instance.craftManager;
 		for(int i = 0; i < data.craftItem.Length; i++)
 		{
 			AddItem(data.craftItem[i]);
 		}
+	}
+
+	public void OnCraftButton()
+	{
+		Inventory inventoryData = GameManager.Instance.inventory;
+		if (MakableChk())
+		{
+			Debug.Log("제작 불가능");
+		}
+		else
+		{
+			Debug.Log("제작 가능");
+		}
+		
+	}
+
+	public bool MakableChk()
+	{
+		Inventory inventoryData = GameManager.Instance.inventory;
+		for (int i = 0; i < selectedCraftItem.item.resources.Length; i++)
+		{
+			for (int j = 0; j < inventoryData.slots.Length; j++)
+			{
+				if (selectedCraftItem.item.resources[i] == inventoryData.slots[j].item)			
+				{
+					if(selectedCraftItem.item.resourceCount[i] <= inventoryData.slots[j].quantity)
+					{
+						continue;
+					}
+					else
+					{
+						return true;
+					}
+				}
+				
+			}
+		}
+		return false;
 	}
 }
