@@ -12,7 +12,6 @@ public class UIPopUp : GameUIBase
     [SerializeField] private TextMeshProUGUI explanationText;
 
     private Action OnConfirm;
-    private Action OnQuest;
 
     protected virtual void Awake()
     {
@@ -20,13 +19,12 @@ public class UIPopUp : GameUIBase
         cheackButton.onClick.AddListener(Confirm);
     }
 
-    public void SetAction(string _headingText, string _explanationText, Action onConfirm = null, Action onQuest = null)
+    public void SetAction(string _headingText, string _explanationText, Action onConfirm = null)
     {
         headingText.text = _headingText;
         explanationText.text = _explanationText;
 
         OnConfirm = onConfirm;
-        OnQuest = onQuest;
     }
 
     void Confirm()
@@ -36,8 +34,6 @@ public class UIPopUp : GameUIBase
             OnConfirm();
             OnConfirm = null;
         }*/
-        OnQuest?.Invoke();
-        OnQuest = null;
         OnConfirm?.Invoke();
         OnConfirm = null;
 
