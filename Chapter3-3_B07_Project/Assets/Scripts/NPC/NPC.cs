@@ -26,7 +26,7 @@ public class NPC : MonoBehaviour
     [SerializeField] protected TextMeshProUGUI talk, _name;
     protected virtual void Awake()
     {
-        
+        player = GameObject.FindWithTag("Player");
     }
     protected virtual void Start()
     {
