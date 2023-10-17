@@ -19,17 +19,18 @@ public class SaveSetting : MonoBehaviour
     private void Start()
     {
         saveButton.onClick.AddListener(OnPreferencesSave);
+        OnPreferencesSave();
     }
 
     public void OnPreferencesSave()
     {
-        UIManager.Instance.SetAudioSetting(MasterSlider.value, MusicSlider.value, EffactSlider.value);
+        SoundManager.Instance.SetAudioSetting(MasterSlider.value, MusicSlider.value, EffactSlider.value);
         UIManager.Instance.SetGraphicSetting(EffactToggle.isOn, ShadowToggle.isOn);
     }
 
     public void CallAudioSetting()
     {
-        float[] audios = UIManager.Instance.GetAudioSetting();
+        float[] audios = SoundManager.Instance.GetAudioSetting();
         MasterSlider.value = audios[0];
         MusicSlider.value = audios[1];
         EffactSlider.value = audios[2];
