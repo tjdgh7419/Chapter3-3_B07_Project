@@ -36,7 +36,7 @@ Transform:
   - {fileID: 539861688901334002}
   - {fileID: 6089040520596694678}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &5581046455382795435
 Rigidbody:
@@ -98,16 +98,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8204758e14388d43b5b7eefbf40403b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectDistance: 2
-  safeDitance: 0
+  npcAI: 0
+  detectDistance: 5
   npcSO: {fileID: 11400000, guid: 1f0bf17f2f6520c43b97f1a7de4f5de1, type: 2}
   fieldOfView: 120
-  player: {fileID: 0}
   talkPos: {fileID: 1090829305006546456}
   NamePos: {fileID: 1917903408948064040}
-  button: {fileID: 0}
   buttonPos: {fileID: 8552550632888666093}
-  Canvas: {fileID: 0}
+  window: {fileID: 0}
+  player: {fileID: 0}
   talk: {fileID: 0}
   _name: {fileID: 0}
 --- !u!1 &1090829305006546456
