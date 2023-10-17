@@ -35,8 +35,8 @@ public class NPC : MonoBehaviour
         talk.gameObject.SetActive(false);
         _name.transform.position = NamePos.transform.position;
         _name.text = npcSO.npcName;
-        GameManager.Instance.interactionManager.OnShowWindow += StartInteract;
-        GameManager.Instance.interactionManager.OnCloseWindow += FinishInteraction;
+        //GameManager.Instance.interactionManager.OnShowWindow += StartInteract;
+        //GameManager.Instance.interactionManager.OnCloseWindow += FinishInteraction;
     }
     protected virtual void Update()
     {
