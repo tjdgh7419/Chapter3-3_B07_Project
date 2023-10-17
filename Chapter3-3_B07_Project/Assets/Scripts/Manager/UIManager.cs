@@ -27,18 +27,18 @@ public class UIManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         */
     }
-
     /*
     // 게임신에서 체력과 마나 닳는거 확인하기 위해 작성
     private void Update()
     {
         if (SceneManager.GetActiveScene().name == "UI_DEV_Scene")
         {
-            var player = _uiList["PlayerUI"].GetComponent<PlayerUI>();
+            var player = _uiList["DamageIndicator"].GetComponent<DamageIndicator>();
             if (Input.GetMouseButtonDown(0))
             {
-                player.TakeDamage(10f);
-                player.TakeDamage(10f, "MP");
+                player.Flash();
+                //player.TakeDamage(10f);
+                //player.TakeDamage(10f, "MP");
             }
             else if (Input.GetMouseButtonDown(1))
             {
@@ -49,8 +49,7 @@ public class UIManager : MonoBehaviour
                 player.Healing(10f, "MP");
             }
         }
-    }
-    */
+    }*/
 
     private void InitUIList()
     {
