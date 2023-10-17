@@ -27,7 +27,6 @@ public class WalkNPC : NPC
         _name.text = npcSO.npcName;
         npcAI = NPCAIState.Walk;
         talk.gameObject.SetActive(false);
-        button.gameObject.SetActive(false);
     }
     protected override void Update()
     {

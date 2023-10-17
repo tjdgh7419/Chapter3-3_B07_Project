@@ -20,9 +20,8 @@ public class NPC : MonoBehaviour
     protected float playerDistance;
     public float fieldOfView = 120f;
     private bool canTalk;
-    [SerializeField] private GameObject talkPos, NamePos, buttonPos, Canvas;
-    [SerializeField] protected GameObject player, button;
-    GameObject image = null;
+    [SerializeField] private GameObject talkPos, NamePos, buttonPos, window;
+    [SerializeField] protected GameObject player;
     [SerializeField] protected TextMeshProUGUI talk, _name;
     protected virtual void Awake()
     {
@@ -35,9 +34,9 @@ public class NPC : MonoBehaviour
         talk.transform.position = talkPos.transform.position;
         talk.gameObject.SetActive(false);
         _name.transform.position = NamePos.transform.position;
-        button.transform.position = buttonPos.transform.position;
-        button.gameObject.SetActive(false);
         _name.text = npcSO.npcName;
+        //GameManager.Instance.interactionManager.OnShowWindow += StartInteract;
+        //GameManager.Instance.interactionManager.OnCloseWindow += FinishInteraction;
     }
     protected virtual void Update()
     {
@@ -75,11 +74,11 @@ public class NPC : MonoBehaviour
     {
         if (!npcSO.interact)
         {
+            npcSO.interact = true;
             if (canTalk)
             {
                 InvokeRepeating("NpcTalk", 0.1f, 2.5f);
             }
-            canTalk = false;
         }
     }
     protected bool IsPlayerInFieldOfView()
@@ -91,35 +90,34 @@ public class NPC : MonoBehaviour
     void NpcTalk()
     {
         talk.gameObject.SetActive(true);
-        button.gameObject.SetActive(true);
         int rand = Random.Range(0, 2);
         talk.text = npcSO.npcLine[rand].ToString();
     }
     public void StartInteract()
     {
-        if(image == null)
+        if(npcSO.interact && npcAI == NPCAIState.Interact)
         {
-            npcSO.interact = true;
-            image = Instantiate<GameObject>(npcSO.ui);
-            image.transform.SetParent(Canvas.transform, false);
-            CancelInvoke("NpcTalk");
+            window.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
+            canTalk = false;
         }
-        image.SetActive(true);
     }
-    public void Byebutton()
+    public void FinishInteraction()
     {
-        npcSO.interact = false;
-        image.SetActive(false);
-        talk.text = npcSO.npcLine[2].ToString();
-        StartCoroutine("CancelInteract");
+        if (npcSO.interact && npcAI == NPCAIState.Interact)
+        {
+            npcSO.interact = false;
+            talk.text = npcSO.npcLine[2].ToString();
+            StartCoroutine("CancelInteract");
+        }
     }
     IEnumerator CancelInteract()
     {
+        Cursor.lockState = CursorLockMode.Locked;
         npcAI = NPCAIState.Idle;
         fieldOfView = 0;
         yield return new WaitForSeconds(3f);
         talk.gameObject.SetActive(false);
-        button.gameObject.SetActive(false);
         fieldOfView = 120f;
     }
 }

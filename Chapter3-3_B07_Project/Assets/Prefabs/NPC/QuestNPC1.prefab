@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 123
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1965050794833863636
 Transform:
   m_ObjectHideFlags: 0
@@ -36,7 +36,7 @@ Transform:
   - {fileID: 7514627413442365759}
   - {fileID: 1102117276438662645}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &394183180514305567
 BoxCollider:
@@ -98,16 +98,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8204758e14388d43b5b7eefbf40403b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectDistance: 2
-  safeDitance: 0
+  npcAI: 0
+  detectDistance: 5
   npcSO: {fileID: 11400000, guid: e6e124732c3927342b25bc77d6b18bca, type: 2}
   fieldOfView: 120
-  player: {fileID: 0}
   talkPos: {fileID: 1872149775269922091}
   NamePos: {fileID: 3050905637514921279}
-  button: {fileID: 0}
   buttonPos: {fileID: 6960949764782201471}
-  Canvas: {fileID: 0}
+  window: {fileID: 0}
+  player: {fileID: 0}
   talk: {fileID: 0}
   _name: {fileID: 0}
 --- !u!1 &1872149775269922091

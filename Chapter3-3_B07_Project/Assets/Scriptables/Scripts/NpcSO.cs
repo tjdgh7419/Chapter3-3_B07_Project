@@ -13,6 +13,4 @@ public class NpcSO : ScriptableObject
     public string[] npcLine;
     public bool interact;
     public bool canMove;
-    public GameObject ui;
-    public LayerMask target;
 }
