@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - SaveButton
+  - Castle
   layers:
   - Default
   - TransparentFX

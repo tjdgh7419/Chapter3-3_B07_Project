@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a29a52bca0aaf942be0d9f61e563c3e, type: 3}
+  m_Name: MagicSword
+  m_EditorClassIdentifier: 
+  ItemName: "\uB9C8\uBC95 \uAC80"
+  ItemDescription: "\uB9C8\uBC95\uC744 \uC0AC\uC6A9\uD560 \uC218 \uC788\uB294 \uD2B9\uC218\uD55C
+    \uAC80\uC785\uB2C8\uB2E4"
+  type: 1
+  Ctype: 0
+  icon: {fileID: 21300000, guid: a332f9cc2040f6042a04c65fa9e4a000, type: 3}
+  AttackPower: 150
+  canStack: 0
+  maxStackAmount: 0
+  consumableDatas: []
+  equipPrefab: {fileID: 0}
+  audio: []
