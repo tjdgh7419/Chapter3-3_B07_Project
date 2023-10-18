@@ -217,6 +217,7 @@ GameObject:
   - component: {fileID: 446625170230072866}
   - component: {fileID: 2785166625288052478}
   - component: {fileID: 2263559256876973103}
+  - component: {fileID: 556082804750262309}
   m_Layer: 0
   m_Name: GameOver
   m_TagString: Untagged
@@ -308,6 +309,22 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &556082804750262309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2482156597515410816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65aa36175b645f042a342bdb3b912099, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameoverBG: {fileID: 1731639026248679115}
+  text: {fileID: 8292598388398491992}
+  buttton: {fileID: 8545118263000769175}
+  butttonText: {fileID: 68751100618200548}
 --- !u!1 &3150208106916943027
 GameObject:
   m_ObjectHideFlags: 0
@@ -320,7 +337,7 @@ GameObject:
   - component: {fileID: 4919758356721240223}
   - component: {fileID: 1731639026248679115}
   m_Layer: 0
-  m_Name: Image
+  m_Name: BG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -730,7 +747,7 @@ GameObject:
   - component: {fileID: 2766895149229881065}
   - component: {fileID: 68751100618200548}
   m_Layer: 0
-  m_Name: Text (TMP)
+  m_Name: buttonText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
