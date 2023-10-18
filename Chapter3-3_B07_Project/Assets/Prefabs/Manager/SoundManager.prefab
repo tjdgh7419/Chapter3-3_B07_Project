@@ -194,6 +194,7 @@ MonoBehaviour:
   slashSound: {fileID: 8300000, guid: 38ee8f4d971198147b39276da2f374fc, type: 3}
   creftSound: {fileID: 8300000, guid: cf65e7ff8ec7a874aabb88f96c7aa908, type: 3}
   damageSound: {fileID: 8300000, guid: bcaf332c06abd94409ba71ff776c82e7, type: 3}
+  hitSound: {fileID: 8300000, guid: 32a0a76771532bf49b994336662dcb68, type: 3}
 --- !u!1 &7109099706273709322
 GameObject:
   m_ObjectHideFlags: 0
