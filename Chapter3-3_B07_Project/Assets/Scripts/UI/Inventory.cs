@@ -58,6 +58,7 @@ public class Inventory : MonoBehaviour
 		AddItem(GameManager.Instance.itemManager.Gold);
 		AddItem(GameManager.Instance.itemManager.HpPotion);
 		AddItem(GameManager.Instance.itemManager.Sword);
+		AddItem(GameManager.Instance.itemManager.MpPotion);
 	}
 
 	public void Toggle()
@@ -212,6 +213,7 @@ public class Inventory : MonoBehaviour
 
 	public void OnUseButton()
 	{
+		PlayerUI playerUI = GameManager.Instance.uiManager.gameObject.GetComponentInChildren<PlayerUI>();
 		if (selectedItem.item.type == ItemType.Consumable)
 		{
 			for (int i = 0; i < selectedItem.item.consumableDatas.Length; i++)
@@ -219,8 +221,10 @@ public class Inventory : MonoBehaviour
 				switch (selectedItem.item.consumableDatas[i].type)
 				{
 					case ConsumableType.HP:
-						break; // 플레이어 컨디션 매니저가 생겼을 때
+						playerUI.Healing(selectedItem.item.consumableDatas[i].value, "HP");
+						break; 
 					case ConsumableType.MP:
+						playerUI.Healing(selectedItem.item.consumableDatas[i].value, "MP");
 						break;
 				}
 			}

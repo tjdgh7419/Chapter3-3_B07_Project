@@ -21,7 +21,7 @@ public class InputController : MonoBehaviour
 			action.performed += CallOnLookRotation;
 			action.canceled += CallOnLookRotation;
 			action = playerInput.actions.FindAction("Jump");
-			action.started += CallOnJump;
+			action.started += CallOnJump;			
 		}
 	}
 
