@@ -50,6 +50,7 @@ public class RoundManager : MonoBehaviour
         else
         {
             SpawnWithRound();
+            SoundManager.Instance.BackMusic.WaveOn();
             yield return new WaitForSeconds(roundDuration);
             currentRound++;
             isBreakTime = true;
