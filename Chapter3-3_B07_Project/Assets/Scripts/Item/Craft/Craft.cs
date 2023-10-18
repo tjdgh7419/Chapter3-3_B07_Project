@@ -184,6 +184,6 @@ public class Craft : MonoBehaviour
 
 	public void OnCraftExitButton()
 	{
-		
+		GameManager.Instance.interactionManager.OnCloseWindow();
 	}
 }

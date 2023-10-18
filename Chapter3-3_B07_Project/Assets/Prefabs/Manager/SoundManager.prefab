@@ -237,7 +237,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: b301f972344641e4690af04b01b46805, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -338,4 +338,4 @@ MonoBehaviour:
   StartSceneSound: {fileID: 8300000, guid: b301f972344641e4690af04b01b46805, type: 3}
   WaveOnSound: {fileID: 8300000, guid: de9d5338130096545a41c83aefa9e59b, type: 3}
   WaveOffSound: {fileID: 8300000, guid: 966a46015d4615142a4b6ce184ca46ba, type: 3}
-  ProducerSound: {fileID: 8300000, guid: 71b0852558fa7ba4eae5da0397eae3e5, type: 3}
+  ProducerSound: {fileID: 8300000, guid: 999a42695afff934ab95b87179410cf1, type: 3}
