@@ -10,18 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2a29a52bca0aaf942be0d9f61e563c3e, type: 3}
-  m_Name: MP_Potion
+  m_Name: Gold
   m_EditorClassIdentifier: 
-  ItemName: "\uB9C8\uB098 \uD3EC\uC158"
-  ItemDescription: "\uB9C8\uB098\uB97C \uCC44\uC6CC\uC90D\uB2C8\uB2E4."
-  type: 2
-  Ctype: 1
-  icon: {fileID: 21300000, guid: 10876d86c0d0c7948ab7c3f219be6325, type: 3}
+  ItemName: "\uACE8\uB4DC"
+  ItemDescription: "\uBB34\uAE30 \uC870\uD569\uC5D0 \uC0AC\uC6A9\uB429\uB2C8\uB2E4."
+  type: 0
+  Ctype: 0
+  icon: {fileID: 21300000, guid: 93b5b28db06f8d2439c780ec3aeb28d2, type: 3}
   AttackPower: 0
   canStack: 1
-  maxStackAmount: 999
-  consumableDatas:
-  - type: 1
-    value: 30
+  maxStackAmount: 5000
+  consumableDatas: []
   equipPrefab: {fileID: 0}
   audio: []

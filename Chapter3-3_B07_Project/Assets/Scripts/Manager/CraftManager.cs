@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class CraftManager : MonoBehaviour
 {
-    public CraftData swordCraft;
+    public CraftData[]craftItem;
+	
 
 	private void Start()
 	{
