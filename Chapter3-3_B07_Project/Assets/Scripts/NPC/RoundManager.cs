@@ -14,8 +14,8 @@ public class RoundManager : MonoBehaviour
         { 10, 0, 5 }, { 5, 5, 5 }, { 20, 0, 0 }, { 0, 20, 0 }, { 0, 0, 15 }
         , { 10, 10, 0 }, { 10, 10, 5 }, { 20, 20, 0 }, {20, 20, 15 }};
     public int currentRound = 1;
-    private float roundDuration = 180.0f; // 3분
-    private float breakDuration = 60.0f; // 1분
+    private float roundDuration = 60.0f; // 3분
+    private float breakDuration = 10.0f; // 1분
     private int totalRounds = 15;
     private bool isBreakTime = false;
 

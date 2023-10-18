@@ -8,7 +8,7 @@ public class ProducerPanel : StartUIBase
 
     private void Update()
     {
-        if (gameObject.active && rectTransform.position.y < 4040)
+        if (gameObject.active && rectTransform.position.y < 3540)
         {
             float time = Time.deltaTime;
             rectTransform.position += new Vector3(0 , time * 100, 0);
@@ -23,7 +23,7 @@ public class ProducerPanel : StartUIBase
     protected override void Close()
     {
         base.Close();
-        rectTransform.position = new Vector2(960, -1920);
+        rectTransform.position = new Vector2(960, -2420);
         SoundManager.Instance.BackMusic.StartScene();
     }
 }
