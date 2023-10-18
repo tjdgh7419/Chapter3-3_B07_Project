@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
 			return;
 		}
 		Instance = this;
+		SoundManager.Instance.BackMusic.WaveOff();
 	}
 
 	private void Start()
