@@ -31,6 +31,10 @@ public class MonsterManager : MonoBehaviour
             poolDict.Add(pool.type, objectPool);
         }
     }
+    private void Start()
+    {
+        //CreateEpicMob(troll, trollSpanPos);
+    }
     public GameObject SpawnFromPool(int type)
     {
         if (!poolDict.ContainsKey(type))
@@ -41,9 +45,11 @@ public class MonsterManager : MonoBehaviour
 
         return obj;
     }
-    void CreateEpicMob(GameObject mob)
+    void CreateEpicMob(GameObject mob, Transform pos)
     {
         GameObject obj = Instantiate(mob);
-
+        obj.transform.SetParent(pos, false);
+        obj.transform.position = new Vector3(140f, 145f, 870f);
+        obj.SetActive(true);
     }
 }

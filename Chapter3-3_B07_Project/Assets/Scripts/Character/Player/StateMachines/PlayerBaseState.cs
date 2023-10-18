@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
 public class PlayerBaseState : IState
@@ -45,11 +46,24 @@ public class PlayerBaseState : IState
         PlayerInput input = stateMachine.Player.Input;
         input.PlayerActions.Move.canceled += OnMoveCanceled;
         input.PlayerActions.Run.started += OnRunStarted;
-
+        input.PlayerActions.Interaction.started += OnInstraction;
+        input.PlayerActions.Pasue.started += OnPasue;
+        input.PlayerActions.Inventory.started += OnInventory;
         stateMachine.Player.Input.PlayerActions.Attack.performed += OnAttackPerformed;
         stateMachine.Player.Input.PlayerActions.Attack.canceled += OnAttackCanceled;
     }
-
+    protected virtual void OnInstraction(InputAction.CallbackContext context)
+    {
+        GameManager.Instance.interactionManager.CallShowWindow();
+    }
+    protected virtual void OnPasue(InputAction.CallbackContext context)
+    {
+        
+    }
+    protected virtual void OnInventory(InputAction.CallbackContext context)
+    {
+        
+    }
     protected virtual void RemoveInputActionsCallbacks()
     {
         PlayerInput input = stateMachine.Player.Input;

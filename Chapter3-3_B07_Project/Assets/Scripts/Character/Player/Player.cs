@@ -5,9 +5,10 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [field: Header("References")]
-    [field: SerializeField] public PlayerSO Data { get; private set; } 
+    [field: SerializeField] public PlayerSO Data { get; private set; }
 
-    
+    public float hp = 100f;
+
     [field: Header("Animations")]
     [field: SerializeField] public PlayerAnimationData AnimationData { get; private set; }
 
@@ -46,5 +47,9 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
         stateMachine.PhysicsUpdate();
+    }
+    public void TakeDamage(float damage)
+    {
+        hp -= damage;
     }
 }
