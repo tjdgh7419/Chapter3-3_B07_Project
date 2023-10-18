@@ -133,7 +133,7 @@ public class Craft : GameUIBase
 		else
 		{		
 			UIPopup.SetAction("제작", "제작에 성공하셨습니다.");
-			SoundManager.Instance.EffactMusic.EreftSoundPlay();
+			SoundManager.Instance.EffactMusic.CreftSoundPlay();
 			UIPopup.OffCheackButton();
 			for (int i = 0; i < selectedCraftItem.item.resources.Length; i++)
 			{
