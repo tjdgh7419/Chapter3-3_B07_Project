@@ -11,7 +11,7 @@ public class CraftSlot
 	public CraftData item;
 	public int idx;
 }
-public class Craft : MonoBehaviour
+public class Craft : GameUIBase
 {
 	public CraftSlotUI[] uiSlot;
 	private CraftSlot[] slots;
@@ -122,14 +122,19 @@ public class Craft : MonoBehaviour
 
 	public void OnCraftButton()
 	{
+		var UIPopup = UIManager.Instance.OpenUI<UIPopUp>();
 		Inventory inventoryData = GameManager.Instance.inventory;
 		if (MakableChk())
 		{
+			UIPopup.SetAction("제작", "제작에 실패하셨습니다.");
+			UIPopup.OffCheackButton();
 			return;
 		}
 		else
-		{
-			UIManager.Instance.OpenUI<UIPopUp>();
+		{		
+			UIPopup.SetAction("제작", "제작에 성공하셨습니다.");
+			SoundManager.Instance.EffactMusic.EreftSoundPlay();
+			UIPopup.OffCheackButton();
 			for (int i = 0; i < selectedCraftItem.item.resources.Length; i++)
 			{
 				for (int j = 0; j < inventoryData.slots.Length; j++)
@@ -181,9 +186,9 @@ public class Craft : MonoBehaviour
 		if (!chk) return true;
 		else return false;
 	}
-
 	public void OnCraftExitButton()
 	{
 		GameManager.Instance.interactionManager.OnCloseWindow();
+
 	}
 }
