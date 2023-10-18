@@ -10324,6 +10324,10 @@ MonoBehaviour:
   hp: 10
   speed: 10
   detectDistance: 10
+  items:
+  - {fileID: 11400000, guid: fabdb4ca7df36cd4b8a76abb5807c0c4, type: 2}
+  - {fileID: 11400000, guid: f3b8c94828eb7b249aa2a89ee1143a18, type: 2}
+  itemsCount: 0100000005000000
 --- !u!1 &2392838094066597716
 GameObject:
   m_ObjectHideFlags: 0

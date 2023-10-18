@@ -19,7 +19,7 @@ public class Monster : MonoBehaviour
     protected float attackTime;
     public float attackDistance;
     public float hp;
-
+    protected bool dead;
     public float speed;
     public float detectDistance;
     protected float playerDistance;
@@ -31,6 +31,9 @@ public class Monster : MonoBehaviour
     protected MobAIState aiState;
 
     protected float fieldOfView = 120f;
+
+    [SerializeField] protected ItemData[] items;
+    [SerializeField] protected int[] itemsCount;
     protected virtual void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -86,12 +89,7 @@ public class Monster : MonoBehaviour
                 agent.SetDestination(player.transform.position);
                 this.transform.LookAt(player.transform.position);
             }
-            else if (agent.CalculatePath(player.transform.position, path) && playerDistance > detectDistance)
-            {
-                agent.SetDestination(player.transform.position);
-                this.transform.LookAt(player.transform.position);
-            }
-            else
+            else if (playerDistance > detectDistance)
             {
                 Debug.Log("¹ßµ¿2");
                 aiState = MobAIState.Run;
@@ -121,10 +119,12 @@ public class Monster : MonoBehaviour
         hp -= damage;
         animator.SetTrigger("damage");
         StartCoroutine(SetDetectDistance());
-        if(hp <= 0)
+        if(hp <= 0f && !dead)
         {
-            animator.SetBool("dead", true);
-            gameObject.SetActive(false);
+            dead = true;
+            animator.SetTrigger("dead");
+            GiveItems();
+            Invoke("ActiveFalse", 2f);
         }
     }
     IEnumerator SetDetectDistance()
@@ -151,6 +151,20 @@ public class Monster : MonoBehaviour
             {
                 castle.TakeDamage(attack * 10);
                 gameObject.SetActive(false);
+            }
+        }
+    }
+    void ActiveFalse()
+    {
+        gameObject.SetActive(false);
+    }
+    void GiveItems()
+    {
+        for(int i = 0; i < items.Length; i++)
+        {
+            for(int j = 0; j < itemsCount[i]; j++)
+            {
+                GameManager.Instance.inventory.AddItem(items[i]);
             }
         }
     }

@@ -17,6 +17,8 @@ public class Goblin : Monster
         animator.SetBool("run", true);
         attack += GameManager.Instance.roundManager.currentRound * 0.5f;
         hp += GameManager.Instance.roundManager.currentRound * 1f;
+        itemsCount[0] += GameManager.Instance.roundManager.currentRound;
+        itemsCount[1] += GameManager.Instance.roundManager.currentRound * 2;
     }
     protected override void Update()
     {
