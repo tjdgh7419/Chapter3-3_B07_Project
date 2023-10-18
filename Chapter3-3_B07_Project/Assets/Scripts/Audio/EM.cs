@@ -37,7 +37,7 @@ public class EM : MonoBehaviour
         EMAudio.PlayOneShot(slashSound);
     }
 
-    public void EreftSoundPlay()
+    public void CreftSoundPlay()
     {
         EMAudio.PlayOneShot(creftSound);
     }
