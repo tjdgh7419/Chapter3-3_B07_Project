@@ -226,7 +226,7 @@ Transform:
   - {fileID: 597669468388467569}
   - {fileID: 7901558584120112007}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7818260179804863038
 MonoBehaviour:
@@ -499,6 +499,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8899454392370107086, guid: 3930d1394553ddb48a933f94003ea0bb,
+        type: 3}
+      propertyPath: golem
+      value: 
+      objectReference: {fileID: 6628013286753636951, guid: b8dae04e75797d04798a604f2a640b60,
+        type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

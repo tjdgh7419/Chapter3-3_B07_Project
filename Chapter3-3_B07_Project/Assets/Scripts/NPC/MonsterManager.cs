@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.PlayerSettings;
 
 public class MonsterManager : MonoBehaviour
 {
@@ -14,7 +15,7 @@ public class MonsterManager : MonoBehaviour
     public Transform spawnPos, hobSpanPos, trollSpanPos, castlePos;
     public List<Pool> pools;
     public Dictionary<int, Queue<GameObject>> poolDict;
-    [SerializeField] GameObject troll, hobGoblin;
+    [SerializeField] GameObject troll, hobGoblin, golem;
     private void Awake()
     {
         poolDict = new Dictionary<int, Queue<GameObject>>();
@@ -33,7 +34,8 @@ public class MonsterManager : MonoBehaviour
     }
     private void Start()
     {
-        //CreateEpicMob(troll, trollSpanPos);
+        CreateEpicMob(troll, trollSpanPos);
+        CreateEpicMob(hobGoblin, hobSpanPos);
     }
     public GameObject SpawnFromPool(int type)
     {
@@ -49,7 +51,12 @@ public class MonsterManager : MonoBehaviour
     {
         GameObject obj = Instantiate(mob);
         obj.transform.SetParent(pos, false);
-        obj.transform.position = new Vector3(140f, 145f, 870f);
+        obj.SetActive(true);
+    }
+    public void CreateBossMob()
+    {
+        GameObject obj = Instantiate(golem);
+        obj.transform.SetParent(spawnPos, false);
         obj.SetActive(true);
     }
 }

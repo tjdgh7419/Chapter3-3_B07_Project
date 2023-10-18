@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.InputSystem.XR;
 
 public class Monster : MonoBehaviour
 {
@@ -56,16 +55,6 @@ public class Monster : MonoBehaviour
                     aiState = MobAIState.Battle;
                     agent.isStopped = false;
                     animator.SetBool("run", true);
-                }
-                else
-                {
-                    SetDestination();
-                    if(agent.remainingDistance > 0.1f)
-                    {
-                        aiState = MobAIState.Run;
-                        agent.isStopped = false;
-                        animator.SetBool("run", true);
-                    }
                 }
                 break;
             case MobAIState.Battle:
