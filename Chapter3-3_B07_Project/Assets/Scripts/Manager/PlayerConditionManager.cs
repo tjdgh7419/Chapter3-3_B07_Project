@@ -12,7 +12,6 @@ public class condition
 	public float curValue;
 	public float maxValue;
 	public float startValue;
-	public float decayRate;
 	public Image uiBar;
 	public Image reduceUiBar;
 
@@ -21,13 +20,6 @@ public class condition
 		curValue = startValue;
 	}
 
-	public void Change(float amount)
-	{
-		curValue = Mathf.Clamp(curValue + amount, 0f, 100f);
-		uiBar.fillAmount = curValue / maxValue;
-		
-	}
-	
 	public bool IsZero()
 	{
 		return curValue <= 0f;
