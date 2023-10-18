@@ -16,6 +16,7 @@ public class EquipTool : Equip
     private bool attacking;
     private bool isHit;
 
+    public ParticleSystem swordEffect;
     private readonly int AnimAttack = Animator.StringToHash("Attack");
 
     protected virtual void Awake()
@@ -31,10 +32,27 @@ public class EquipTool : Equip
             attacking = true;
             animator.SetTrigger(AnimAttack);
             Invoke(nameof(AttackDelay), attackRate);
+            swordEffect.Play();
         }
 	}
+	//public void OnHit()
+	//{
+	//	Ray ray = _cam.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
 
-    private void AttackDelay()
+	//	isHit = Physics.Raycast(ray, out RaycastHit hit, attackDistance);
+	//	if (isHit)
+	//	{
+	//		if (doesGatherResources && hit.collider.TryGetComponent(out Resource resource))
+	//		{
+	//			if (GameManager.Instance.resourceDisplayUI != null)
+	//			{
+	//				resource.particle.Play();
+	//			}
+	//			resource.Gather();
+	//		}
+	//	}
+	//}
+	private void AttackDelay()
     {
         attacking = false;
     }

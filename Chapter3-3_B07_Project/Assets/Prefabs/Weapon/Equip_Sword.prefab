@@ -95,7 +95,7 @@ Transform:
   m_Children:
   - {fileID: 2526805688837555223}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &8734797180988529611
 Animator:
@@ -134,6 +134,7 @@ MonoBehaviour:
   attackDistance: 2
   doesDealDamage: 1
   damage: 10
+  swordEffect: {fileID: 5436023981332319159}
 --- !u!1 &7442354701819317821
 GameObject:
   m_ObjectHideFlags: 0
