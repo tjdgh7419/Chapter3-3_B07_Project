@@ -15,7 +15,7 @@ public class MonsterManager : MonoBehaviour
     public Transform spawnPos, hobSpanPos, trollSpanPos, castlePos;
     public List<Pool> pools;
     public Dictionary<int, Queue<GameObject>> poolDict;
-    [SerializeField] GameObject troll, hobGoblin, golem;
+    [SerializeField] GameObject golem;
     private void Awake()
     {
         poolDict = new Dictionary<int, Queue<GameObject>>();
@@ -32,11 +32,6 @@ public class MonsterManager : MonoBehaviour
             poolDict.Add(pool.type, objectPool);
         }
     }
-    private void Start()
-    {
-        CreateEpicMob(troll, trollSpanPos);
-        CreateEpicMob(hobGoblin, hobSpanPos);
-    }
     public GameObject SpawnFromPool(int type)
     {
         if (!poolDict.ContainsKey(type))
@@ -46,12 +41,6 @@ public class MonsterManager : MonoBehaviour
         poolDict[type].Enqueue(obj);
 
         return obj;
-    }
-    void CreateEpicMob(GameObject mob, Transform pos)
-    {
-        GameObject obj = Instantiate(mob);
-        obj.transform.SetParent(pos, false);
-        obj.SetActive(true);
     }
     public void CreateBossMob()
     {
