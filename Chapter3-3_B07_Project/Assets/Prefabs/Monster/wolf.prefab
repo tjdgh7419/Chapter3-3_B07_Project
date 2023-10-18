@@ -10004,6 +10004,10 @@ MonoBehaviour:
   hp: 8
   speed: 15
   detectDistance: 15
+  items:
+  - {fileID: 11400000, guid: fabdb4ca7df36cd4b8a76abb5807c0c4, type: 2}
+  - {fileID: 11400000, guid: f3b8c94828eb7b249aa2a89ee1143a18, type: 2}
+  itemsCount: 020000000a000000
 --- !u!195 &2130204941905315831
 NavMeshAgent:
   m_ObjectHideFlags: 0

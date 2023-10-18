@@ -20680,6 +20680,11 @@ MonoBehaviour:
   hp: 150
   speed: 4
   detectDistance: 12
+  items:
+  - {fileID: 11400000, guid: fabdb4ca7df36cd4b8a76abb5807c0c4, type: 2}
+  - {fileID: 11400000, guid: f3b8c94828eb7b249aa2a89ee1143a18, type: 2}
+  - {fileID: 11400000, guid: d5e95b910b2362649860f273ce807e3d, type: 2}
+  itemsCount: 0f0000009600000003000000
 --- !u!65 &3377364411093533481
 BoxCollider:
   m_ObjectHideFlags: 0
