@@ -1500,6 +1500,16 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6776400014536741793, guid: 1848f3415ccc7224a816829fb96f1d0b,
+        type: 3}
+      propertyPath: HPText
+      value: 
+      objectReference: {fileID: 805962180235977586}
+    - target: {fileID: 6776400014536741793, guid: 1848f3415ccc7224a816829fb96f1d0b,
+        type: 3}
+      propertyPath: MPText
+      value: 
+      objectReference: {fileID: 3787599788298771199}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
