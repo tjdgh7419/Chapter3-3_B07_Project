@@ -26,6 +26,9 @@ public class PlayerUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+
         maxHp = PCM.hp.maxValue;
         maxMp = PCM.mp.maxValue;
         currentHp = PCM.hp.curValue;
