@@ -28,7 +28,7 @@ public class PreferencesPanel : StartUIBase
         {
             base.Close();
         }
-        if (SceneManager.GetActiveScene().name == "UI_DEV_Scene")
+        if (SceneManager.GetActiveScene().name == "MainScene")
         {
             gameObject.SetActive(false);
             UIManager.Instance.OpenUI<PausePanel>();
