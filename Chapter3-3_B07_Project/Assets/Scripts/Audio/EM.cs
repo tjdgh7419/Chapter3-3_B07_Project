@@ -9,6 +9,7 @@ public class EM : MonoBehaviour
     [SerializeField] private AudioClip slashSound;
     [SerializeField] private AudioClip creftSound;
     [SerializeField] private AudioClip damageSound;
+    [SerializeField] private AudioClip hitSound;
     //[SerializeField] private AudioClip skillSound;
 
     private AudioSource EMAudio;
@@ -45,6 +46,11 @@ public class EM : MonoBehaviour
     public void DamageSoundPlay()
     {
         EMAudio.PlayOneShot(damageSound);
+    }
+
+    public void HitMonsterPlay()
+    {
+        EMAudio.PlayOneShot(hitSound);
     }
 
     /*public void SkillSound()

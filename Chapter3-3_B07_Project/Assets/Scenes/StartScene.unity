@@ -2568,36 +2568,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: SoundManager
       objectReference: {fileID: 0}
-    - target: {fileID: 1278902293325774887, guid: e89248477a548db4181d2eeb16913983,
-        type: 3}
-      propertyPath: ProducerSound
-      value: 
-      objectReference: {fileID: 8300000, guid: 999a42695afff934ab95b87179410cf1, type: 3}
-    - target: {fileID: 2933177155067776050, guid: e89248477a548db4181d2eeb16913983,
-        type: 3}
-      propertyPath: Loop
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2933177155067776050, guid: e89248477a548db4181d2eeb16913983,
-        type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: b301f972344641e4690af04b01b46805, type: 3}
-    - target: {fileID: 3943611015756192556, guid: e89248477a548db4181d2eeb16913983,
-        type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4919970788062450120, guid: e89248477a548db4181d2eeb16913983,
-        type: 3}
-      propertyPath: damageSound
-      value: 
-      objectReference: {fileID: 8300000, guid: bcaf332c06abd94409ba71ff776c82e7, type: 3}
-    - target: {fileID: 5288310352535493170, guid: e89248477a548db4181d2eeb16913983,
-        type: 3}
-      propertyPath: SaveButton
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 6278943114517697908, guid: e89248477a548db4181d2eeb16913983,
         type: 3}
       propertyPath: m_RootOrder
