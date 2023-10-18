@@ -52,7 +52,7 @@ public class PlayerUI : MonoBehaviour
         }
         else
         {
-            if (currentHp < _damage)
+            if (currentHp <= _damage)
             {
                 _damage = currentHp;
                 UIManager.Instance.OpenUI<GameOver>();
