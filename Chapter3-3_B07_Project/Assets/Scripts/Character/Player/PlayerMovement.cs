@@ -57,7 +57,7 @@ public class PlayerMovement : MonoBehaviour
 		if (isJump && isGrounded())
 		{
 			isJump = false;
-			_animator.SetBool(isJumpHash, false);
+			//_animator.SetBool(isJumpHash, false);
 		}
 	}
 
@@ -123,7 +123,7 @@ public class PlayerMovement : MonoBehaviour
 		{
 			_rigid.AddForce(Vector3.up * JumpForce, ForceMode.Impulse);
 			Invoke("SetJump", 0.1f);
-			_animator.SetBool(isJumpHash, true);
+			//_animator.SetBool(isJumpHash, true);
 		}
 	}
 

@@ -14,15 +14,14 @@ public class InputController : MonoBehaviour
 	{
 		if (TryGetComponent(out PlayerInput playerInput))
 		{
-			Debug.Log("11");
 			InputAction action = playerInput.actions.FindAction("Move");
 			action.performed += CallOnMove;
 			action.canceled += CallOnMove;
 			action = playerInput.actions.FindAction("Look");
 			action.performed += CallOnLookRotation;
 			action.canceled += CallOnLookRotation;
-			//action = playerInput.actions.FindAction("Jump");
-			//action.started += CallOnJump;
+			action = playerInput.actions.FindAction("Jump");
+			action.started += CallOnJump;
 		}
 	}
 
@@ -39,8 +38,8 @@ public class InputController : MonoBehaviour
 		OnLookRotation?.Invoke(mouseDelta);
 	}
 
-	//public void CallOnJump(InputAction.CallbackContext callbackContext)
-	//{
-	//	OnJump?.Invoke();
-	//}
+	public void CallOnJump(InputAction.CallbackContext callbackContext)
+	{
+		OnJump?.Invoke();
+	}
 }
