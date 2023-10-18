@@ -20,7 +20,7 @@ public class PausePanel : GameUIBase
     {
         var uiPopUp = UIManager.Instance.OpenUI<UIPopUp>();
         SoundManager.Instance.EffactMusic.Click2SoundPlay();
-        uiPopUp.SetAction("나가기","메인화면으로 돌아가시겠습니까?\n(현재까지의 정보가 모두 사라집니다)",() => LoadSceneManager.LoadScene("StartScene"));
+        uiPopUp.SetAction("나가기","메인화면으로 돌아가시겠습니까?\n(현재까지의 정보가 모두 사라집니다)",() => LoadSceneManager.LoadScene("StartScene"), () => UIManager.Instance.MouseUnlock());
     }
 
     void OpenUI_Preferences()
