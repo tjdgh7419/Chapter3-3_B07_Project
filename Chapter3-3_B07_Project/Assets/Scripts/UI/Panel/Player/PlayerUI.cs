@@ -1,72 +1,83 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerUI : MonoBehaviour
 {
+    [Header("PlayerCondition")]
+    [SerializeField] private PlayerConditionManager PCM;
+
     [Header("HP")]
     [SerializeField] private Image ReducedHPBar;
     [SerializeField] private Image CurrentHPBar;
+    [SerializeField] private TextMeshProUGUI HPText;
 
     [Header("MP")]
     [SerializeField] private Image ReducedMPBar;
     [SerializeField] private Image CurrentMPBar;
+    [SerializeField] private TextMeshProUGUI MPText;
 
-    [Range(0f, 1f)] private float hp = 1;
-    [Range(0f, 1f)] private float mp = 1;
+    private float maxHp;
+    private float maxMp;
+    private float currentHp;
+    private float currentMp;
 
     // Start is called before the first frame update
     void Start()
     {
+        maxHp = PCM.hp.maxValue;
+        maxMp = PCM.mp.maxValue;
+        currentHp = PCM.hp.curValue;
+        currentMp = PCM.mp.curValue;
 
+        UpdateBar();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void UpdateBar()
     {
-
+        HPText.text = $"{currentHp}/{maxHp}";
+        MPText.text = $"{currentMp}/{maxMp}";
     }
 
     public void TakeDamage(float _damage, string type = null)
     {
-        _damage /= 100;
         if (type == "MP")
         {
-            if (mp < _damage)
+            if (currentMp < _damage)
             {
-                _damage = mp;
+                _damage = currentMp;
             }
-            mp -= _damage;
+            currentMp -= _damage;
         }
         else
         {
-            if (hp < _damage)
+            if (currentHp < _damage)
             {
-                _damage = hp;
+                _damage = currentHp;
             }
-            hp -= _damage;
+            currentHp -= _damage;
         }
         StartCoroutine(TakeDamage(type));
     }
 
     public void Healing(float _heal, string type = null)
     {
-        _heal /= 100;
         if (type == "MP")
         {
-            if (mp + _heal >= 1)
+            if (currentMp + _heal >= maxMp)
             {
-                _heal = 1 - mp;
+                _heal = maxMp - currentMp;
             }
-            mp += _heal;
+            currentMp += _heal;
         }
         else
         {
-            if (hp + _heal >= 1)
+            if (currentHp + _heal >= maxHp)
             {
-                _heal = 1 - hp;
+                _heal = maxHp - currentHp;
             }
-            hp += _heal;
+            currentHp += _heal;
         }
         StartCoroutine(Healing(type));
     }
@@ -74,10 +85,11 @@ public class PlayerUI : MonoBehaviour
     IEnumerator TakeDamage(string type = null)
     {
         yield return null;
+        UpdateBar();
 
         if (type == "MP")
         {
-            CurrentMPBar.fillAmount = mp;
+            CurrentMPBar.fillAmount = currentMp / maxMp;
 
             while (true)
             {
@@ -87,12 +99,12 @@ public class PlayerUI : MonoBehaviour
                     ReducedMPBar.fillAmount = CurrentMPBar.fillAmount;
                     yield break;
                 }
-                ReducedMPBar.fillAmount = Mathf.Lerp(ReducedMPBar.fillAmount, mp, Time.deltaTime * 3);
+                ReducedMPBar.fillAmount = Mathf.Lerp(ReducedMPBar.fillAmount, currentMp / maxMp, Time.deltaTime * 3);
             }
         }
         else
         {
-            CurrentHPBar.fillAmount = hp;
+            CurrentHPBar.fillAmount = currentHp / maxHp;
 
             while (true)
             {
@@ -103,7 +115,7 @@ public class PlayerUI : MonoBehaviour
                     ReducedHPBar.fillAmount = CurrentHPBar.fillAmount;
                     yield break;
                 }
-                ReducedHPBar.fillAmount = Mathf.Lerp(ReducedHPBar.fillAmount, hp, Time.deltaTime * 3);
+                ReducedHPBar.fillAmount = Mathf.Lerp(ReducedHPBar.fillAmount, currentHp / maxHp, Time.deltaTime * 3);
             }
         }
     }
@@ -111,10 +123,11 @@ public class PlayerUI : MonoBehaviour
     IEnumerator Healing(string type = null)
     {
         yield return null;
-
+        UpdateBar();
+        
         if (type == "MP")
         {
-            ReducedMPBar.fillAmount = mp;
+            ReducedMPBar.fillAmount = currentMp / maxMp;
 
             while (true)
             {
@@ -124,12 +137,12 @@ public class PlayerUI : MonoBehaviour
                     CurrentMPBar.fillAmount = ReducedMPBar.fillAmount;
                     yield break;
                 }
-                CurrentMPBar.fillAmount = Mathf.Lerp(CurrentMPBar.fillAmount, mp, Time.deltaTime * 3);
+                CurrentMPBar.fillAmount = Mathf.Lerp(CurrentMPBar.fillAmount, currentMp / maxMp, Time.deltaTime * 3);
             }
         }
         else
         {
-            ReducedHPBar.fillAmount = hp;
+            ReducedHPBar.fillAmount = currentHp / maxHp;
 
             while (true)
             {
@@ -139,7 +152,7 @@ public class PlayerUI : MonoBehaviour
                     CurrentHPBar.fillAmount = ReducedHPBar.fillAmount;
                     yield break;
                 }
-                CurrentHPBar.fillAmount = Mathf.Lerp(CurrentHPBar.fillAmount, hp, Time.deltaTime * 3);
+                CurrentHPBar.fillAmount = Mathf.Lerp(CurrentHPBar.fillAmount, currentHp / maxHp, Time.deltaTime * 3);
             }
         }
     }
