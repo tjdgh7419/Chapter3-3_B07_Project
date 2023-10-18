@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
 	public RoundManager roundManager;
 	public MonsterManager monsterManager;
 	public Inventory inventory;
-	public Craft craft;
+	public CraftPanel craft;
 	public PlayerConditionManager playerConditionManager;
 	private void Awake()
 	{

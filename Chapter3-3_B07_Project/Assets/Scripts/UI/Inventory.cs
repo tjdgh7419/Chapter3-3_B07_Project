@@ -65,12 +65,12 @@ public class Inventory : MonoBehaviour
 	{
 		if (inventoryWindow.activeInHierarchy)
 		{
-			Cursor.lockState = CursorLockMode.None;
+			UIManager.Instance.MouseLock();
 			inventoryWindow.SetActive(false);
 		}
 		else
 		{
-			Cursor.lockState = CursorLockMode.None;
+			UIManager.Instance.MouseUnlock();
 			inventoryWindow.SetActive(true);
 		}
 	}

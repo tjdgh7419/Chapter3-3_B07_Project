@@ -50,6 +50,7 @@ public class InputController : MonoBehaviour
 	public void CallOnInteraction(InputAction.CallbackContext callbackContext)
 	{
 		GameManager.Instance.interactionManager.CallShowWindow();
+		UIManager.Instance.OpenUI<CraftPanel>();
 	}
 
 	public void CallOnPause(InputAction.CallbackContext callbackContext)

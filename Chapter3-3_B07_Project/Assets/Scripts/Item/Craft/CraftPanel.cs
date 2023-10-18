@@ -11,7 +11,7 @@ public class CraftSlot
 	public CraftData item;
 	public int idx;
 }
-public class Craft : GameUIBase
+public class CraftPanel : GameUIBase
 {
 	public CraftSlotUI[] uiSlot;
 	private CraftSlot[] slots;
