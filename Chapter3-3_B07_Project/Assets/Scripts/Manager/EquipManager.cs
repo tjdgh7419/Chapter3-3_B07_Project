@@ -18,7 +18,7 @@ public class EquipManager : MonoBehaviour
 		GameManager.Instance.equipManager = this;
 	}
 
-	public void onAttackInput(InputAction.CallbackContext context)
+	public void OnAttackInput(InputAction.CallbackContext context)
 	{
 		if(context.phase == InputActionPhase.Performed && curEquip != null && controller.isCanLook())
 		{

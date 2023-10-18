@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2231057045883064891}
   - component: {fileID: 8734797180988529611}
   - component: {fileID: 5727553010536785169}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Equip_Sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -138,6 +138,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Sword1_1_3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1753325093932854839, guid: a3884a940f9a8d3418a27008b045837c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3176889937409134673}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HobG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 170366746697970029}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Troll
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5823394224794524232}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Spawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 5766681533457156267}
   - component: {fileID: 1561326610729903630}
   - component: {fileID: 8381346566265775726}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Map
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -193,7 +193,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3780678122956581706}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Map 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -230,6 +230,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3780678122956581706}
     m_Modifications:
+    - target: {fileID: -8781348131477307252, guid: cc2eb20bfc61b39489dd901979d3ea4a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cc2eb20bfc61b39489dd901979d3ea4a,
         type: 3}
       propertyPath: m_RootOrder
@@ -289,6 +294,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MyCastle
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cc2eb20bfc61b39489dd901979d3ea4a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2115115420281294643, guid: cc2eb20bfc61b39489dd901979d3ea4a,
         type: 3}
@@ -398,6 +408,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bridge
       objectReference: {fileID: 0}
+    - target: {fileID: 3055461033971831536, guid: 0af95fc1ca1ad724aa76ab75a49ff097,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5665642779996172675, guid: 0af95fc1ca1ad724aa76ab75a49ff097,
         type: 3}
       propertyPath: m_RootOrder
@@ -456,7 +471,7 @@ PrefabInstance:
     - target: {fileID: 6455201830997628586, guid: 0af95fc1ca1ad724aa76ab75a49ff097,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 1946
+      value: 1949
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -481,6 +496,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Plane
+      objectReference: {fileID: 0}
+    - target: {fileID: 1929374795714900853, guid: 05e34ff0f40e5884ba57df35e03c48ac,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8695353740221810445, guid: 05e34ff0f40e5884ba57df35e03c48ac,
         type: 3}

@@ -21,5 +21,6 @@ MonoBehaviour:
   canStack: 0
   maxStackAmount: 0
   consumableDatas: []
-  equipPrefab: {fileID: 0}
+  equipPrefab: {fileID: 5345621735141882651, guid: 66763263a8849d244bec83639c9716ad,
+    type: 3}
   audio: []
