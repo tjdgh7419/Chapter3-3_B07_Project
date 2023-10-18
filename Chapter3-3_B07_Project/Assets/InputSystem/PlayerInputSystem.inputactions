@@ -2,7 +2,7 @@
     "name": "PlayerInputSystem",
     "maps": [
         {
-            "name": "psda",
+            "name": "Player",
             "id": "233dd041-01fe-4e70-9c1b-95283b33c183",
             "actions": [
                 {
@@ -45,6 +45,15 @@
                     "name": "Jump",
                     "type": "Button",
                     "id": "ff76037d-ba01-4846-9676-d46e7cf0c497",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Attack",
+                    "type": "Button",
+                    "id": "38ec6664-222c-4fa7-9e46-ce59d415ef15",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -148,6 +157,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c7d6cd94-1cce-4b00-a17f-4d14383bf37f",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Attack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
