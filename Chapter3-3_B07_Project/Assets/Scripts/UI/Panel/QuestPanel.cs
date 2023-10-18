@@ -25,6 +25,7 @@ public class QuestPanel : GameUIBase
     void OpenUI_Quest()
     {
         var uiPopUp = UIManager.Instance.OpenUI<UIPopUp>();
+        SoundManager.Instance.EffactMusic.Click2SoundPlay();
         uiPopUp.SetAction("퀘스트", "정말로 퀘스트를 수락하시겠습니까?", YesClick);
     }
 

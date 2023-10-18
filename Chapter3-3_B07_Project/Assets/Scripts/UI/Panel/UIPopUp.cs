@@ -37,6 +37,23 @@ public class UIPopUp : GameUIBase
         OnConfirm?.Invoke();
         OnConfirm = null;
 
+        OnCheackButton();
         Close();
+    }
+
+    public void OffCheackButton()
+    {
+        if (cheackButton.gameObject.active)
+        {
+            cheackButton.gameObject.SetActive(false);
+        }
+    }
+    
+    public void OnCheackButton()
+    {
+        if (!cheackButton.gameObject.active)
+        {
+            cheackButton.gameObject.SetActive(true);
+        }
     }
 }

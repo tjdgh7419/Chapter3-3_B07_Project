@@ -19,6 +19,7 @@ public class SaveSetting : MonoBehaviour
     private void Start()
     {
         saveButton.onClick.AddListener(OnPreferencesSave);
+        saveButton.onClick.AddListener(() => SoundManager.Instance.EffactMusic.Click2SoundPlay());
         OnPreferencesSave();
     }
 

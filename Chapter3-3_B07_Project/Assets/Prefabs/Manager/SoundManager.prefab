@@ -32,7 +32,7 @@ Transform:
   - {fileID: 7189052089337449507}
   - {fileID: 2429277916445739336}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5288310352535493170
 MonoBehaviour:
@@ -46,9 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a18c8420705ae8f4ab8147f3235c81d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BackMusic: {fileID: 2933177155067776050}
-  EffactMusic: {fileID: 3943611015756192556}
-  SaveButton: {fileID: 0}
+  BackMusic: {fileID: 1278902293325774887}
+  EffactMusic: {fileID: 4919970788062450120}
 --- !u!1 &5570904340210226210
 GameObject:
   m_ObjectHideFlags: 0
@@ -59,6 +58,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2429277916445739336}
   - component: {fileID: 3943611015756192556}
+  - component: {fileID: 4919970788062450120}
   m_Layer: 0
   m_Name: EM
   m_TagString: Untagged
@@ -92,7 +92,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -177,6 +177,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &4919970788062450120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5570904340210226210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a0aa6ab824458344b7134508c38b392, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clickSound1: {fileID: 8300000, guid: be9e0708ffade6a43934d5b5f42b786a, type: 3}
+  clickSound2: {fileID: 8300000, guid: 07bf0efe809af8a4cafac8272fcabf25, type: 3}
+  slashSound: {fileID: 8300000, guid: 38ee8f4d971198147b39276da2f374fc, type: 3}
+  creftSound: {fileID: 8300000, guid: cf65e7ff8ec7a874aabb88f96c7aa908, type: 3}
+  damageSound: {fileID: 8300000, guid: bcaf332c06abd94409ba71ff776c82e7, type: 3}
 --- !u!1 &7109099706273709322
 GameObject:
   m_ObjectHideFlags: 0
@@ -187,6 +204,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7189052089337449507}
   - component: {fileID: 2933177155067776050}
+  - component: {fileID: 1278902293325774887}
   m_Layer: 0
   m_Name: BGM
   m_TagString: Untagged
@@ -223,7 +241,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -305,3 +323,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1278902293325774887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7109099706273709322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b887e4c860aeb854bb413acf798e5d34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartSceneSound: {fileID: 8300000, guid: b301f972344641e4690af04b01b46805, type: 3}
+  WaveOnSound: {fileID: 8300000, guid: de9d5338130096545a41c83aefa9e59b, type: 3}
+  WaveOffSound: {fileID: 8300000, guid: 966a46015d4615142a4b6ce184ca46ba, type: 3}
+  ProducerSound: {fileID: 8300000, guid: 71b0852558fa7ba4eae5da0397eae3e5, type: 3}

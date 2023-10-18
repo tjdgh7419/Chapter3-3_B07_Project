@@ -32,6 +32,7 @@ public class PreferencesPanel : StartUIBase
         {
             gameObject.SetActive(false);
             UIManager.Instance.OpenUI<PausePanel>();
+            SoundManager.Instance.EffactMusic.Click1SoundPlay();
         }
         saveSetting.CallAudioSetting();
         saveSetting.CallGraphicSetting();
@@ -41,11 +42,13 @@ public class PreferencesPanel : StartUIBase
     {
         graphicPanel.SetActive(true);
         audioPanel.SetActive(false);
+        SoundManager.Instance.EffactMusic.Click2SoundPlay();
     }
     
     private void OnAudioPanel()
     {
         graphicPanel.SetActive(false);
         audioPanel.SetActive(true);
+        SoundManager.Instance.EffactMusic.Click2SoundPlay();
     }
 }

@@ -18,5 +18,6 @@ public class UIBase : MonoBehaviour
     protected virtual void Close()
     {
         gameObject.SetActive(false);
+        SoundManager.Instance.EffactMusic.Click1SoundPlay();
     }
 }

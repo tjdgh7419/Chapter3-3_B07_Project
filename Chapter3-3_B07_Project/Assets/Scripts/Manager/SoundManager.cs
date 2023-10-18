@@ -7,8 +7,11 @@ public class SoundManager : MonoBehaviour
 {
     public static SoundManager Instance;
 
-    [SerializeField] private AudioSource BackMusic;
-    [SerializeField] private AudioSource EffactMusic;
+    public BGM BackMusic;
+    public EM EffactMusic;
+
+    private AudioSource BGM;
+    private AudioSource EM;
 
     [Range(0f, 1f)] private static float MasterVolume = 1;
     [Range(0f, 1f)] private static float MusicVolume = 1;
@@ -18,8 +21,11 @@ public class SoundManager : MonoBehaviour
     {
         Instance = this;
 
-        BackMusic.volume = MasterVolume * MusicVolume;
-        EffactMusic.volume = MasterVolume * EffactVolume;
+        BGM = BackMusic.GetComponent<AudioSource>();
+        EM = EffactMusic.GetComponent<AudioSource>();
+
+        BGM.volume = MasterVolume * MusicVolume;
+        EM.volume = MasterVolume * EffactVolume;
     }
 
     public void SetAudioSetting(float master, float music, float efffact)
@@ -28,8 +34,8 @@ public class SoundManager : MonoBehaviour
         MusicVolume = music;
         EffactVolume = efffact;
 
-        BackMusic.volume = MasterVolume * MusicVolume;
-        EffactMusic.volume = MasterVolume * EffactVolume;
+        BGM.volume = MasterVolume * MusicVolume;
+        EM.volume = MasterVolume * EffactVolume;
     }
 
     //0¹ø ¸¶½ºÅÍº¼·ý 1¹ø ¹ÂÁ÷º¼·ý 2¹ø ÀÌÆåÆ®º¼·ý

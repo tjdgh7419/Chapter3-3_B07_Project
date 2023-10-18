@@ -901,21 +901,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: SoundManager
       objectReference: {fileID: 0}
-    - target: {fileID: 2933177155067776050, guid: e89248477a548db4181d2eeb16913983,
-        type: 3}
-      propertyPath: Loop
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2933177155067776050, guid: e89248477a548db4181d2eeb16913983,
-        type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: de9d5338130096545a41c83aefa9e59b, type: 3}
-    - target: {fileID: 5288310352535493170, guid: e89248477a548db4181d2eeb16913983,
-        type: 3}
-      propertyPath: SaveButton
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 6278943114517697908, guid: e89248477a548db4181d2eeb16913983,
         type: 3}
       propertyPath: m_RootOrder

@@ -16,7 +16,7 @@ public class DamageIndicator : MonoBehaviour
         {
             StopCoroutine(coroutine);
         }
-
+        gameObject.SetActive(true);
         damgeImage.gameObject.SetActive(true);
         coroutine = StartCoroutine(FadeAway());
     }
@@ -26,6 +26,8 @@ public class DamageIndicator : MonoBehaviour
         float startAlpha = 1f;
         float a = startAlpha;
 
+        SoundManager.Instance.EffactMusic.DamageSoundPlay();
+
         while (a > 0.0f)
         {
             a -= (startAlpha / flashSpeed) * Time.deltaTime;
@@ -33,6 +35,7 @@ public class DamageIndicator : MonoBehaviour
             yield return null;
         }
 
+        gameObject.SetActive(false);
         damgeImage.gameObject.SetActive(false);
         yield break;
     }
