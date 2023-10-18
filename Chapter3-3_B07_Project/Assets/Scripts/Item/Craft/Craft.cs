@@ -129,7 +129,6 @@ public class Craft : MonoBehaviour
 		}
 		else
 		{
-			//Debug.Log("제작 가능");
 			for (int i = 0; i < selectedCraftItem.item.resources.Length; i++)
 			{
 				for (int j = 0; j < inventoryData.slots.Length; j++)

@@ -37,7 +37,7 @@ public class Inventory : MonoBehaviour
 
 	private void Awake()
 	{
-		ItemTotalCount = new Dictionary<ItemData, int>();
+		
 	}
 
 	private void Start()
@@ -107,10 +107,8 @@ public class Inventory : MonoBehaviour
 			}
 			else
 			{
-				emptySlotInfo.quantity = 100;
-			}
-			
-			ItemTotalCount.Add(emptySlotInfo.item, emptySlotInfo.quantity);
+				emptySlotInfo.quantity = 200;
+			}		
 						
 			UpdateUI();
 			return;
