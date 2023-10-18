@@ -26,6 +26,12 @@ public class PausePanel : GameUIBase
     void OpenUI_Preferences()
     {
         UIManager.Instance.OpenUI<PreferencesPanel>();
-        Close();
+        gameObject.SetActive(false);
+    }
+
+    protected override void Close()
+    {
+        base.Close();
+        Time.timeScale = 1;
     }
 }
