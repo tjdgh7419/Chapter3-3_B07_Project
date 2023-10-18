@@ -129,6 +129,7 @@ public class Craft : MonoBehaviour
 		}
 		else
 		{
+			UIManager.Instance.OpenUI<UIPopUp>();
 			for (int i = 0; i < selectedCraftItem.item.resources.Length; i++)
 			{
 				for (int j = 0; j < inventoryData.slots.Length; j++)
@@ -179,5 +180,10 @@ public class Craft : MonoBehaviour
 		}
 		if (!chk) return true;
 		else return false;
+	}
+
+	public void OnCraftExitButton()
+	{
+		
 	}
 }
