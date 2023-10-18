@@ -126,13 +126,13 @@ public class Craft : GameUIBase
 		Inventory inventoryData = GameManager.Instance.inventory;
 		if (MakableChk())
 		{
-			UIPopup.SetAction("제작", "제작에 실패하셨습니다.");
+			UIPopup.SetAction("제작", "제작에 실패하셨습니다.", null , () => UIManager.Instance.MouseUnlock());
 			UIPopup.OffCheackButton();
 			return;
 		}
 		else
 		{		
-			UIPopup.SetAction("제작", "제작에 성공하셨습니다.");
+			UIPopup.SetAction("제작", "제작에 성공하셨습니다.", null, () => UIManager.Instance.MouseUnlock());
 			SoundManager.Instance.EffactMusic.CreftSoundPlay();
 			UIPopup.OffCheackButton();
 			for (int i = 0; i < selectedCraftItem.item.resources.Length; i++)

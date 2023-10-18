@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class UIBase : MonoBehaviour
 {
     [Header("Buttons")]
-    [SerializeField] private Button closeButton;
+    [SerializeField] protected Button closeButton;
 
     protected virtual void Awake()
     {
