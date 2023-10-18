@@ -186,3 +186,8 @@ MonoBehaviour:
   hp: 250
   speed: 10
   detectDistance: 20
+  items:
+  - {fileID: 11400000, guid: fabdb4ca7df36cd4b8a76abb5807c0c4, type: 2}
+  - {fileID: 11400000, guid: f3b8c94828eb7b249aa2a89ee1143a18, type: 2}
+  - {fileID: 11400000, guid: d5e95b910b2362649860f273ce807e3d, type: 2}
+  itemsCount: 14000000c800000005000000
