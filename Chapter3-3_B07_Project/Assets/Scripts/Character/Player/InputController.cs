@@ -21,9 +21,7 @@ public class InputController : MonoBehaviour
 			action.performed += CallOnLookRotation;
 			action.canceled += CallOnLookRotation;
 			action = playerInput.actions.FindAction("Jump");
-			action.started += CallOnJump;
-			action = playerInput.actions.FindAction("Attack");
-			action.started += OnAttack;
+			action.started += CallOnJump;			
 		}
 	}
 
@@ -43,11 +41,5 @@ public class InputController : MonoBehaviour
 	public void CallOnJump(InputAction.CallbackContext callbackContext)
 	{
 		OnJump?.Invoke();
-	}
-
-	public void OnAttack(InputAction.CallbackContext context)
-	{	
-		PlayerUI a = GameManager.Instance.uiManager.gameObject.GetComponentInChildren<PlayerUI>();
-		a.TakeDamage(20f, "MP");
 	}
 }
