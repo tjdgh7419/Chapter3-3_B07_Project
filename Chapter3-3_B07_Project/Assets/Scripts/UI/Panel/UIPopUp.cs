@@ -45,11 +45,11 @@ public class UIPopUp : GameUIBase
 
     void NotConfirm()
     {
+        OnCheackButton();
+        Close();
         UnConfirm?.Invoke();
         UnConfirm = null;
 
-        OnCheackButton();
-        Close();
     }
 
     public void OffCheackButton()
