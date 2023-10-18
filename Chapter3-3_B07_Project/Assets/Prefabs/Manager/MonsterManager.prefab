@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &508439404825515650
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6321746186897003581}
+  - component: {fileID: 8899454392370107086}
+  m_Layer: 0
+  m_Name: MonsterManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6321746186897003581
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 508439404825515650}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8899454392370107086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 508439404825515650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef6f8f41306910f4f967a2fab553fa53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPos: {fileID: 0}
+  hobSpanPos: {fileID: 0}
+  trollSpanPos: {fileID: 0}
+  castlePos: {fileID: 0}
+  pools:
+  - type: 0
+    prefab: {fileID: 2144178655791878038, guid: 1fcc345365f465040a09e675a9de9f97,
+      type: 3}
+    size: 20
+  - type: 1
+    prefab: {fileID: 2779154715075035626, guid: b34d66b18e8667647942630107c668cc,
+      type: 3}
+    size: 20
+  - type: 2
+    prefab: {fileID: 7010932551302364265, guid: 15b7c400c1cd4fb4cb450e8dbddc0cba,
+      type: 3}
+    size: 15
+  troll: {fileID: 6738365203139817036, guid: a3522105c1f5793408fbcbb3c50c12d7, type: 3}
+  hobGoblin: {fileID: 6337214028473264009, guid: 4a20be62983c2094a85dea8ef6500c7a,
+    type: 3}
