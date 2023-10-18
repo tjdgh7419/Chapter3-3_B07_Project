@@ -116,7 +116,7 @@ public class Monster : MonoBehaviour
             {
                 this.transform.LookAt(player.transform.position);
                 attackTime = Time.time;
-                player.GetComponent<Player>().TakeDamage(attack);
+                //player.GetComponent<Player>().TakeDamage(attack);
                 animator.SetTrigger("attack");
             }
         }
