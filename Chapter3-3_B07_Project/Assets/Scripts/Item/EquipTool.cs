@@ -35,24 +35,23 @@ public class EquipTool : Equip
             swordEffect.Play();
         }
 	}
-	//public void OnHit()
-	//{
-	//	Ray ray = _cam.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
+    public void OnHit()
+    {
+        Ray ray = _cam.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
 
-	//	isHit = Physics.Raycast(ray, out RaycastHit hit, attackDistance);
-	//	if (isHit)
-	//	{
-	//		if (doesGatherResources && hit.collider.TryGetComponent(out Resource resource))
-	//		{
-	//			if (GameManager.Instance.resourceDisplayUI != null)
-	//			{
-	//				resource.particle.Play();
-	//			}
-	//			resource.Gather();
-	//		}
-	//	}
-	//}
-	private void AttackDelay()
+        isHit = Physics.Raycast(ray, out RaycastHit hit, attackDistance);
+        if (isHit)
+        {
+            if (hit.collider.TryGetComponent(out Monster monster))
+            {
+                if (monster != null)
+                {            
+                    monster.TakeDamage(damage);
+                }
+            }
+        }
+    }
+    private void AttackDelay()
     {
         attacking = false;
     }
