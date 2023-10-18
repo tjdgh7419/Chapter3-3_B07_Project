@@ -37,6 +37,8 @@ public class UIManager : MonoBehaviour
 
     public T OpenUI<T>()
     {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
         var obj = _uiList[typeof(T).Name];
         obj.SetActive(true);
         return obj.GetComponent<T>();

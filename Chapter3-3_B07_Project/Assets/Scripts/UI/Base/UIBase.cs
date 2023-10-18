@@ -17,6 +17,8 @@ public class UIBase : MonoBehaviour
 
     protected virtual void Close()
     {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
         gameObject.SetActive(false);
         SoundManager.Instance.EffactMusic.Click1SoundPlay();
     }
