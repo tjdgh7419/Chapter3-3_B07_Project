@@ -21,7 +21,11 @@ public class InputController : MonoBehaviour
 			action.performed += CallOnLookRotation;
 			action.canceled += CallOnLookRotation;
 			action = playerInput.actions.FindAction("Jump");
-			action.started += CallOnJump;			
+			action.started += CallOnJump;
+			action = playerInput.actions.FindAction("Interaction");
+			action.started += CallOnInteraction;
+			action = playerInput.actions.FindAction("Pause");
+			action.started += CallOnPause;
 		}
 	}
 
@@ -41,5 +45,19 @@ public class InputController : MonoBehaviour
 	public void CallOnJump(InputAction.CallbackContext callbackContext)
 	{
 		OnJump?.Invoke();
+	}
+
+	public void CallOnInteraction(InputAction.CallbackContext callbackContext)
+	{
+		GameManager.Instance.interactionManager.CallShowWindow();
+	}
+
+	public void CallOnPause(InputAction.CallbackContext callbackContext)
+	{
+		if (Time.timeScale != 0)
+		{
+			UIManager.Instance.OpenUI<PausePanel>();
+			Time.timeScale = 0;			
+		}	
 	}
 }
