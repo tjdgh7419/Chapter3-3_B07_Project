@@ -34,6 +34,11 @@ public class ItemSlotUI : MonoBehaviour
         }
     }
 
+    public void CraftSet(ItemSlot slot)
+    {
+		quantitiyTxt.text = slot.quantity > 1 ? slot.quantity.ToString() : string.Empty;
+	}
+
     public void Clear()
     {
         curSlot = null;

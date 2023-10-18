@@ -31,7 +31,7 @@ public class Craft : MonoBehaviour
 		data = GameManager.Instance.craftManager;
 		slots = new CraftSlot[uiSlot.Length];
 
-		for(int i = 0; i < slots.Length; i++)
+		for (int i = 0; i < slots.Length; i++)
 		{
 			slots[i] = new CraftSlot();
 			uiSlot[i].index = i;
@@ -40,11 +40,11 @@ public class Craft : MonoBehaviour
 		ClearCraftUI();
 		CraftItemList();
 	}
-	
+
 	public void AddItem(CraftData recipe)
 	{
 		CraftSlot emptySlot = GetEmptySlot();
-		if(emptySlot != null)
+		if (emptySlot != null)
 		{
 			emptySlot.item = recipe;
 			emptySlot.idx = 1;
@@ -62,7 +62,7 @@ public class Craft : MonoBehaviour
 		ClearCraftUI();
 		selectedCraftItem = slots[index];
 		selectedCraftItemIndex = index;
-		for(int i = 0; i < selectedCraftItem.item.resources.Length; i++)
+		for (int i = 0; i < selectedCraftItem.item.resources.Length; i++)
 		{
 			mUislot[i].mSlot.SetActive(true);
 			mUislot[i].mIcon.sprite = selectedCraftItem.item.resources[i].icon;
@@ -88,7 +88,7 @@ public class Craft : MonoBehaviour
 
 	void UpdateCraftUI()
 	{
-		for(int i = 0; i < slots.Length; i++)
+		for (int i = 0; i < slots.Length; i++)
 		{
 			if (slots[i].item != null)
 			{
@@ -105,7 +105,7 @@ public class Craft : MonoBehaviour
 	{
 		CraftItemName.text = string.Empty;
 		CraftItemDescription.text = string.Empty;
-		craftButton.SetActive (false);
+		craftButton.SetActive(false);
 		for (int i = 0; i < mUislot.Length; i++)
 		{
 			mUislot[i].mSlot.SetActive(false);
@@ -114,7 +114,7 @@ public class Craft : MonoBehaviour
 
 	private void CraftItemList()
 	{
-		for(int i = 0; i < data.craftItem.Length; i++)
+		for (int i = 0; i < data.craftItem.Length; i++)
 		{
 			AddItem(data.craftItem[i]);
 		}
@@ -125,36 +125,60 @@ public class Craft : MonoBehaviour
 		Inventory inventoryData = GameManager.Instance.inventory;
 		if (MakableChk())
 		{
-			Debug.Log("제작 불가능");
+			return;
 		}
 		else
 		{
-			Debug.Log("제작 가능");
+			//Debug.Log("제작 가능");
+			for (int i = 0; i < selectedCraftItem.item.resources.Length; i++)
+			{
+				for (int j = 0; j < inventoryData.slots.Length; j++)
+				{
+					if (selectedCraftItem.item.resources[i] == inventoryData.slots[j].item)
+					{
+						inventoryData.slots[j].quantity -= selectedCraftItem.item.resourceCount[i];
+						if (inventoryData.slots[j].quantity <= 0)
+						{
+							inventoryData.uiSlot[j].CraftSet(inventoryData.slots[j]);
+							inventoryData.slots[j].item = null;
+							inventoryData.ClearSelectedItemWindow();
+							inventoryData.UpdateUI();
+							break;
+						}
+						inventoryData.uiSlot[j].CraftSet(inventoryData.slots[j]);
+						break;
+					}
+
+				}
+			}
+			inventoryData.AddItem(selectedCraftItem.item.Result);
 		}
-		
 	}
 
 	public bool MakableChk()
-	{
+	{		
 		Inventory inventoryData = GameManager.Instance.inventory;
+		bool chk = false;
 		for (int i = 0; i < selectedCraftItem.item.resources.Length; i++)
 		{
+			chk = false;
 			for (int j = 0; j < inventoryData.slots.Length; j++)
 			{
-				if (selectedCraftItem.item.resources[i] == inventoryData.slots[j].item)			
+				if (selectedCraftItem.item.resources[i] == inventoryData.slots[j].item)
 				{
-					if(selectedCraftItem.item.resourceCount[i] <= inventoryData.slots[j].quantity)
+					if (selectedCraftItem.item.resourceCount[i] <= inventoryData.slots[j].quantity)
 					{
-						continue;
+						chk = true;
+						break;					
 					}
 					else
 					{
 						return true;
 					}
-				}
-				
+				}			
 			}
 		}
-		return false;
+		if (!chk) return true;
+		else return false;
 	}
 }
