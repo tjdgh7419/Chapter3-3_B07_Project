@@ -17,10 +17,8 @@ public class UIManager : MonoBehaviour
         Instance = this;
 
         InitUIList();
-        /*
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
-        */
     }
 
     private void InitUIList()
