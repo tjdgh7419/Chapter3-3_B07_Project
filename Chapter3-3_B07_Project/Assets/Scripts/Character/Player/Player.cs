@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
     public ForceReceiver ForceReceiver { get; private set; }
 
     private void Awake()
-    {
+    {   
         AnimationData.Initialized();
 
         Rigidbody = GetComponentInChildren<Rigidbody>();
