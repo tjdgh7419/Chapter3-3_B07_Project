@@ -7,7 +7,9 @@ public class InteractionManager : MonoBehaviour
 {
     public Action OnShowWindow;
     public Action OnCloseWindow;
-    public void CallShowWindow()
+
+	
+	public void CallShowWindow()
     {
         OnShowWindow?.Invoke();
     }
