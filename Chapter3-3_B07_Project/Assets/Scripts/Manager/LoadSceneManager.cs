@@ -18,6 +18,7 @@ public class LoadSceneManager : MonoBehaviour
 
     public static void LoadScene(string _nextScene)
     {
+        Time.timeScale = 1.0f;
         nextScene = _nextScene;
         SceneManager.LoadScene("LoadingScene");
     }
@@ -36,8 +37,8 @@ public class LoadSceneManager : MonoBehaviour
             yield return null;
 
             timer += Time.deltaTime;
-
-            if(op.progress < 0.9f)      //불러온 정도가 90% 아래라면
+			
+			if (op.progress < 0.9f)      //불러온 정도가 90% 아래라면
             {
                 progressBar.fillAmount = Mathf.Lerp(progressBar.fillAmount, op.progress, timer);
                 progressText.text = $"로딩중...{(int)(progressBar.fillAmount * 100)}%";
