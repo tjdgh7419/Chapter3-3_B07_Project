@@ -141,6 +141,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65aa36175b645f042a342bdb3b912099, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameoverBG: {fileID: 92400683}
+  text: {fileID: 995119849}
+  buttton: {fileID: 1045836882}
+  butttonText: {fileID: 95559367}
+--- !u!114 &92400683 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1731639026248679115, guid: 58a6553811ad6ea409fb296da4ddb571,
+    type: 3}
+  m_PrefabInstance: {fileID: 4616256524015961417}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &95559367 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 68751100618200548, guid: 58a6553811ad6ea409fb296da4ddb571,
+    type: 3}
+  m_PrefabInstance: {fileID: 4616256524015961417}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &724656219
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -214,6 +242,30 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66763263a8849d244bec83639c9716ad, type: 3}
+--- !u!114 &995119849 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8292598388398491992, guid: 58a6553811ad6ea409fb296da4ddb571,
+    type: 3}
+  m_PrefabInstance: {fileID: 4616256524015961417}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1045836882 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8545118263000769175, guid: 58a6553811ad6ea409fb296da4ddb571,
+    type: 3}
+  m_PrefabInstance: {fileID: 4616256524015961417}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1534679347
 GameObject:
   m_ObjectHideFlags: 0
@@ -785,6 +837,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: UIManager
       objectReference: {fileID: 0}
+    - target: {fileID: 2289574260323580180, guid: 58a6553811ad6ea409fb296da4ddb571,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2289574260323580180, guid: 58a6553811ad6ea409fb296da4ddb571,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3150208106916943027, guid: 58a6553811ad6ea409fb296da4ddb571,
+        type: 3}
+      propertyPath: m_Name
+      value: BG
+      objectReference: {fileID: 0}
     - target: {fileID: 4173861040015374012, guid: 58a6553811ad6ea409fb296da4ddb571,
         type: 3}
       propertyPath: m_RootOrder
@@ -859,6 +926,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7757453619721988303, guid: 58a6553811ad6ea409fb296da4ddb571,
+        type: 3}
+      propertyPath: m_Name
+      value: buttonText
+      objectReference: {fileID: 0}
+    - target: {fileID: 8292598388398491992, guid: 58a6553811ad6ea409fb296da4ddb571,
+        type: 3}
+      propertyPath: m_fontColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8292598388398491992, guid: 58a6553811ad6ea409fb296da4ddb571,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4278190335
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
