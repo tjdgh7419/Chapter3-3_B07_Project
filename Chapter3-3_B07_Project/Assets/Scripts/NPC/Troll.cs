@@ -17,6 +17,7 @@ public class Troll : Monster
     protected override void Update()
     {
         base.Update();
+        hpBar.fillAmount = hp / maxHp;
     }
     protected override void SetDestination()
     {

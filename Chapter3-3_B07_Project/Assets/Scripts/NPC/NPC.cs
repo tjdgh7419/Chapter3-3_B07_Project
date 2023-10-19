@@ -99,7 +99,7 @@ public class NPC : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             if(window.TryGetComponent<QuestPanel>(out QuestPanel panel))
             {
-                //panel.quest = this.gameObject.GetComponent<Quest>();
+                panel.quest = this.gameObject.GetComponent<Quest>();
             }
             window.SetActive(true);
             canTalk = false;

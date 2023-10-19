@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class Monster : MonoBehaviour
 {
@@ -19,6 +20,7 @@ public class Monster : MonoBehaviour
     protected float attackTime;
     public float attackDistance;
     public float hp;
+    public float maxHp;
     protected bool dead;
     public float speed;
     public float detectDistance;
@@ -34,6 +36,7 @@ public class Monster : MonoBehaviour
 
     [SerializeField] protected ItemData[] items;
     [SerializeField] protected int[] itemsCount;
+    [SerializeField] protected Image hpBar;
     protected virtual void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -42,6 +45,8 @@ public class Monster : MonoBehaviour
     protected virtual void Start()
     {
         player = GameObject.FindWithTag("Player");
+        hp = maxHp;
+        dead = false;
         this.gameObject.name = mobName;
         agent.speed = speed;
         SetDestination();
@@ -70,7 +75,6 @@ public class Monster : MonoBehaviour
                 }
                 if (Vector3.Distance(this.transform.position, agent.destination) <= 0.1f)
                 {
-                    Debug.Log("발동");
                     agent.isStopped = true;
                     animator.SetBool("run", false);
                     aiState = MobAIState.Idle;
@@ -91,7 +95,6 @@ public class Monster : MonoBehaviour
             }
             else if (playerDistance > detectDistance)
             {
-                Debug.Log("발동2");
                 aiState = MobAIState.Run;
                 SetDestination();
             }

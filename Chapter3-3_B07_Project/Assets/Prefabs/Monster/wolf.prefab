@@ -9885,10 +9885,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2703566713483272235}
   - component: {fileID: 5687577233584512849}
-  - component: {fileID: 6078051547009954029}
   - component: {fileID: 1095056745379345616}
   - component: {fileID: 2525863985373498128}
   - component: {fileID: 2130204941905315831}
+  - component: {fileID: 2854566679333036240}
   m_Layer: 0
   m_Name: wolf
   m_TagString: Untagged
@@ -9936,27 +9936,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!135 &6078051547009954029
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2779154715075035626}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 8.49
-  m_Center: {x: 0, y: 8.4, z: -0.6}
 --- !u!54 &1095056745379345616
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -10002,12 +9981,14 @@ MonoBehaviour:
   attackDelay: 1.5
   attackDistance: 2.5
   hp: 8
+  maxHp: 8
   speed: 12
   detectDistance: 10
   items:
   - {fileID: 11400000, guid: fabdb4ca7df36cd4b8a76abb5807c0c4, type: 2}
   - {fileID: 11400000, guid: f3b8c94828eb7b249aa2a89ee1143a18, type: 2}
   itemsCount: 020000000a000000
+  hpBar: {fileID: 0}
 --- !u!195 &2130204941905315831
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -10030,6 +10011,27 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!65 &2854566679333036240
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2779154715075035626}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 10, y: 15, z: 20}
+  m_Center: {x: 0, y: 7, z: 0}
 --- !u!1 &3104812238452393824
 GameObject:
   m_ObjectHideFlags: 0
