@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
 	public Inventory inventory;
 	public CraftPanel craft;
 	public PlayerConditionManager playerConditionManager;
-	public GarphicManager garphicManager;
+	public GraphicManager garphicManager;
 
 	private void Awake()
 	{

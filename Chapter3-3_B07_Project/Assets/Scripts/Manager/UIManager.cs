@@ -7,10 +7,6 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
 
-    [Header("Shadow")]
-    public static bool Effact = true;
-    public static bool Shadow = true;
-
     private Dictionary<string, GameObject> _uiList = new Dictionary<string, GameObject>();
     private void Awake()
     {
@@ -38,18 +34,6 @@ public class UIManager : MonoBehaviour
         var obj = _uiList[typeof(T).Name];
         obj.SetActive(true);
         return obj.GetComponent<T>();
-    }
-
-    public void SetGraphicSetting(bool _effact, bool _shadow)
-    {
-        Effact = _effact;
-        Shadow = _shadow;
-    }
-
-    //0¹ø ÀÌÆåÆ® 1¹ø ½¦µµ¿ì
-    public bool[] GetGraphicSetting()
-    {
-        return new bool[] { Effact, Shadow};
     }
 
     public void MouseUnlock()
