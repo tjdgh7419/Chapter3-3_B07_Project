@@ -6,6 +6,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
+	public Player player;
+
 	public ItemManager itemManager;
 	public EquipManager equipManager;
 	public CraftManager craftManager;

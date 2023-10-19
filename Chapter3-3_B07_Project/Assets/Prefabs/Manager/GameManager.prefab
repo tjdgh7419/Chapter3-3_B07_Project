@@ -297,6 +297,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c940fd5ac4a71847a5b2a7b7e169689, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   itemManager: {fileID: 4488258469864013408}
   equipManager: {fileID: 0}
   craftManager: {fileID: 2232305960620276338}

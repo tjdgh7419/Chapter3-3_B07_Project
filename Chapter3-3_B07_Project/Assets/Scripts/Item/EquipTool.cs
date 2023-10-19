@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -20,6 +21,8 @@ public class EquipTool : Equip
     public ParticleSystem swordEffect;
     private readonly int AnimAttack = Animator.StringToHash("Attack");
 
+    private int count = 0;
+
     protected virtual void Awake()
     {
         _cam = Camera.main;
@@ -37,11 +40,26 @@ public class EquipTool : Equip
             attacking = true;
             animator.SetTrigger(AnimAttack);
             Invoke(nameof(AttackDelay), attackRate);
-            swordEffect.Play();
+            SkillOn();
         }
 	}
 
-	public void OnHit()
+    private void SkillOn()
+    {
+        swordEffect.Play();
+        if (gameObject.name == "Equip_MagicSword(Clone)")
+        {
+            GraphicManager.Instance.Effacts.transform.GetChild(count).transform.position = GraphicManager.Instance.SpawnPoint.transform.position;
+            GraphicManager.Instance.Effacts.transform.GetChild(count).GetComponent<Electro>().UseSkill(GraphicManager.Instance.SpawnPoint.transform.position - GameManager.Instance.player.transform.position);
+            count++;
+            if (count >= GraphicManager.Instance.Effacts.transform.childCount)
+            {
+                count = 0;
+            }
+        }
+    }
+
+    public void OnHit()
     {
 		Ray ray = _cam.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
         isHit = Physics.Raycast(ray, out RaycastHit hit, attackDistance);

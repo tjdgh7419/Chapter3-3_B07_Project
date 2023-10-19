@@ -72,7 +72,7 @@ MonoBehaviour:
   attackDistance: 4
   doesDealDamage: 1
   damage: 100
-  swordEffect: {fileID: 0}
+  swordEffect: {fileID: 4270874550463374850}
 --- !u!1 &8019919304076374766
 GameObject:
   m_ObjectHideFlags: 0
@@ -129,7 +129,7 @@ ParticleSystem:
   startDelay:
     serializedVersion: 2
     minMaxState: 0
-    scalar: 0
+    scalar: 0.15
     minScalar: 0
     maxCurve:
       serializedVersion: 2

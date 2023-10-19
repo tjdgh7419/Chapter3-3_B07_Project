@@ -11,15 +11,11 @@ public class Electro : MonoBehaviour
 
     public float timer;
 
-    public void Start()
-    {
-        UseSkill();
-    }
-
-    public void UseSkill()
+    public void UseSkill(Vector3 dir)
     {
         gameObject.SetActive(true);
         effactStart?.Invoke();
+        gameObject.GetComponent<Rigidbody>().AddForce(dir*1000);
     }
 
     public void Update()
@@ -35,7 +31,6 @@ public class Electro : MonoBehaviour
 
     public void EffactSettingHow(bool effact)
     {
-        gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(10,0,0));
         if (effact)
         {
             GameObject go = Instantiate(prefabs, this.transform);
