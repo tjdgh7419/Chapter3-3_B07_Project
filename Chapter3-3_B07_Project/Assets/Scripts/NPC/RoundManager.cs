@@ -91,6 +91,7 @@ public class RoundManager : MonoBehaviour
         for (int i = 0; i < monstersCount[currentRound - 1, type]; i++)
         {
             monsterObject = monsterManager.SpawnFromPool(type);
+            monsterObject.transform.position = monsterManager.spawnPos.position;
             monsterObject.SetActive(true);
             yield return new WaitForSeconds(0.3f);
         }
