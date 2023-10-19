@@ -323,7 +323,7 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 1
+  m_Height: 2
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
@@ -341,11 +341,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 5
   mobName: "\uACE8\uB818"
-  attack: 50
+  attack: 20
   attackDelay: 4
   attackDistance: 5
-  hp: 250
-  maxHp: 250
+  hp: 100
+  maxHp: 100
   speed: 10
   detectDistance: 20
   items:

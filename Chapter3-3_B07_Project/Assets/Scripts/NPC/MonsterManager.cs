@@ -24,8 +24,7 @@ public class MonsterManager : MonoBehaviour
             Queue<GameObject> objectPool = new Queue<GameObject>();
             for(int i = 0; i< pool.size; i++)
             {
-                GameObject obj = Instantiate(pool.prefab);
-                obj.transform.SetParent(spawnPos, false);
+                GameObject obj = Instantiate(pool.prefab, spawnPos);
                 obj.SetActive(false);
                 objectPool.Enqueue(obj);
             }
@@ -44,8 +43,7 @@ public class MonsterManager : MonoBehaviour
     }
     public void CreateBossMob()
     {
-        GameObject obj = Instantiate(golem);
-        obj.transform.SetParent(spawnPos, false);
+        GameObject obj = Instantiate(golem, spawnPos);
         obj.SetActive(true);
     }
 }
