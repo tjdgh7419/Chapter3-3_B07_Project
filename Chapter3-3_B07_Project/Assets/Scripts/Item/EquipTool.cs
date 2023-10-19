@@ -35,7 +35,7 @@ public class EquipTool : Equip
 
 	public override void OnAttackInput()
 	{
-		if(!attacking)
+        if (!attacking )
         {
             attacking = true;
             animator.SetTrigger(AnimAttack);
@@ -72,7 +72,6 @@ public class EquipTool : Equip
             {
 				if (monster != null)
                 {
-                    Debug.Log(damage);
                     monster.TakeDamage(damage);
                     GameManager.Instance.garphicManager.MonsterHit(hit.point);
                 }
