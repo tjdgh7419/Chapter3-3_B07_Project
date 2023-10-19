@@ -18,6 +18,17 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] private Image CurrentMPBar;
     [SerializeField] private TextMeshProUGUI MPText;
 
+    [Header("Castle")]
+    [SerializeField] private Castle castle;
+    [SerializeField] private TextMeshProUGUI castleHealthText;
+
+    [Header("Round")]
+    [SerializeField] private TextMeshProUGUI monsterNameText;
+    [SerializeField] private TextMeshProUGUI monsterAtkText;
+    [SerializeField] private TextMeshProUGUI monsterHPText;
+
+    private RoundManager round;
+
     private float maxHp;
     private float maxMp;
     private float currentHp;
@@ -29,12 +40,26 @@ public class PlayerUI : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
 
+        round = GameManager.Instance.roundManager;
+
         maxHp = PCM.hp.maxValue;
         maxMp = PCM.mp.maxValue;
         currentHp = PCM.hp.curValue;
         currentMp = PCM.mp.curValue;
 
         UpdateBar();
+    }
+
+    private void UpdateRoundInfo()
+    {
+        monsterNameText.text = $"{round.monsterObject.GetComponent<Monster>().name}";
+        monsterAtkText.text = $"{round.monsterObject.GetComponent<Monster>().attack}";
+        monsterHPText.text = $"{round.monsterObject.GetComponent<Monster>().hp}";
+    }
+
+    private void UpdateCastleHP()
+    {
+        castleHealthText.text = $"{castle.hp}/{castle.maxHp}";
     }
 
     private void UpdateBar()

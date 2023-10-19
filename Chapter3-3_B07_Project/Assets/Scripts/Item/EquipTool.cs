@@ -47,6 +47,7 @@ public class EquipTool : Equip
                 if (monster != null)
                 {            
                     monster.TakeDamage(damage);
+                    GameManager.Instance.garphicManager.MonsterHit(hit.point);
                 }
             }
         }

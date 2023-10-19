@@ -19,6 +19,8 @@ public class RoundManager : MonoBehaviour
     private int totalRounds = 15;
     private bool isBreakTime = true;
 
+    [HideInInspector]public GameObject monsterObject;
+
     private MonsterManager monsterManager;
     private void Start()
     {
@@ -88,9 +90,9 @@ public class RoundManager : MonoBehaviour
     {
         for (int i = 0; i < monstersCount[currentRound - 1, type]; i++)
         {
-            GameObject obj = monsterManager.SpawnFromPool(type);
-            obj.transform.position = monsterManager.spawnPos.position;
-            obj.SetActive(true);
+            monsterObject = monsterManager.SpawnFromPool(type);
+            monsterObject.transform.position = monsterManager.spawnPos.position;
+            monsterObject.SetActive(true);
             yield return new WaitForSeconds(0.3f);
         }
         

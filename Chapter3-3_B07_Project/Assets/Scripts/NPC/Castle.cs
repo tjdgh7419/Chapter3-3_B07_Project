@@ -4,7 +4,15 @@ using UnityEngine;
 
 public class Castle : MonoBehaviour
 {
-    float hp = 1000f;  
+    [HideInInspector]
+    public float maxHp = 1000;
+    public float hp;
+
+    private void Start()
+    {
+        hp = maxHp;
+    }
+
     public void TakeDamage(float damage)
     {
         hp -= damage;
