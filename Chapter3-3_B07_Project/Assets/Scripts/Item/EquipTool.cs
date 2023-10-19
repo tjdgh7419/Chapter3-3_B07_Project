@@ -50,7 +50,7 @@ public class EquipTool : Equip
         if (gameObject.name == "Equip_MagicSword(Clone)")
         {
             GraphicManager.Instance.Effacts.transform.GetChild(count).transform.position = GraphicManager.Instance.SpawnPoint.transform.position;
-            GraphicManager.Instance.Effacts.transform.GetChild(count).GetComponent<Electro>().UseSkill(GraphicManager.Instance.SpawnPoint.transform.position - new Vector3(GameManager.Instance.player.transform.position.x, 1.5f, GameManager.Instance.player.transform.position.z));
+            GraphicManager.Instance.Effacts.transform.GetChild(count).GetComponent<Electro>().UseSkill(GraphicManager.Instance.SpawnPoint.transform.position - new Vector3(GameManager.Instance.player.transform.position.x, GameManager.Instance.player.transform.position.y + 1.5f, GameManager.Instance.player.transform.position.z));
             count++;
             if (count >= GraphicManager.Instance.Effacts.transform.childCount)
             {
