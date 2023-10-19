@@ -119,6 +119,7 @@ public class Monster : MonoBehaviour
             {
                 var pu = UIManager.Instance.OpenUI<PlayerUI>();
                 pu.TakeDamage(attack);
+                UIManager.Instance.MouseLock();
             }
         }
     }
