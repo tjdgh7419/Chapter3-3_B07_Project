@@ -8636,6 +8636,21 @@ PrefabInstance:
       propertyPath: castle
       value: 
       objectReference: {fileID: 437918347}
+    - target: {fileID: 490527553911681294, guid: 31e74623b58569c449e1a7fbe1105e75,
+        type: 3}
+      propertyPath: monsterHPText
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 490527553911681294, guid: 31e74623b58569c449e1a7fbe1105e75,
+        type: 3}
+      propertyPath: monsterAtkText
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 490527553911681294, guid: 31e74623b58569c449e1a7fbe1105e75,
+        type: 3}
+      propertyPath: monsterNameText
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 797727097997640520, guid: 31e74623b58569c449e1a7fbe1105e75,
         type: 3}
       propertyPath: m_AnchorMax.y
