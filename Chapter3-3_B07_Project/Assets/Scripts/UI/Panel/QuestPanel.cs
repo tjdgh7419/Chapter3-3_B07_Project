@@ -21,15 +21,24 @@ public class QuestPanel : GameUIBase
         base.Awake();
         acceptButton.onClick.AddListener(OpenUI_Quest);
     }
-    /*private void OnEnable()
+    private void OnEnable()
     {
         SetQuest(quest);
-    }*/
+    }
     void OpenUI_Quest()
     {
         var uiPopUp = UIManager.Instance.OpenUI<UIPopUp>();
         SoundManager.Instance.EffactMusic.Click2SoundPlay();
-        uiPopUp.SetAction("퀘스트", "정말로 퀘스트를 수락하시겠습니까?", YesClick);
+		if (!GameManager.Instance.questManager.questDict.ContainsKey(quest.questId))
+		{
+			uiPopUp.SetAction("퀘스트", "정말로 퀘스트를 수락하시겠습니까?", YesClick, UIManager.Instance.MouseUnlock);
+		}
+		else
+		{
+			uiPopUp.SetAction("오류", "이미 받은 퀘스트입니다.", null, ()=>gameObject.SetActive(false));
+            uiPopUp.OffCheackButton();
+		}
+		
     }
 
     public void SetQuest(Quest quest)
@@ -44,5 +53,5 @@ public class QuestPanel : GameUIBase
         GameManager.Instance.questManager.AddQuest(quest);
         gameObject.SetActive(false);
         GameManager.Instance.interactionManager.CallCloseWindow();
-    }
+    }       
 }
