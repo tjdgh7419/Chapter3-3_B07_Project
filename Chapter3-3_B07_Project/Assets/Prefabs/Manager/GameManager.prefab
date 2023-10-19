@@ -50,6 +50,50 @@ MonoBehaviour:
   crystal: {fileID: 11400000, guid: fabdb4ca7df36cd4b8a76abb5807c0c4, type: 2}
   Gold: {fileID: 11400000, guid: f3b8c94828eb7b249aa2a89ee1143a18, type: 2}
   MagicSword: {fileID: 11400000, guid: bd9b909ac78121948a9086a0acb2bf9c, type: 2}
+--- !u!1 &2431458082935628115
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 902176546818653632}
+  - component: {fileID: 5083516087717006473}
+  m_Layer: 0
+  m_Name: QuestManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &902176546818653632
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2431458082935628115}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2199237152631321830}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5083516087717006473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2431458082935628115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 636de5d58374f35469e553c3f2893be1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5292250852785198316
 GameObject:
   m_ObjectHideFlags: 0
@@ -237,6 +281,7 @@ Transform:
   - {fileID: 7901558584120112007}
   - {fileID: 6511809489279556837}
   - {fileID: 4631418965016719949}
+  - {fileID: 902176546818653632}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -259,6 +304,7 @@ MonoBehaviour:
   interactionManager: {fileID: 167487681451888577}
   roundManager: {fileID: 978026721318659993}
   monsterManager: {fileID: 4728099685020300660}
+  questManager: {fileID: 5083516087717006473}
   inventory: {fileID: 0}
   craft: {fileID: 0}
   playerConditionManager: {fileID: 1948924649133726427}

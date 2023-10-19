@@ -40,10 +40,7 @@ public class EquipTool : Equip
             swordEffect.Play();
         }
 	}
-	private void OnDrawGizmosSelected()
-    {
-        Gizmos.DrawRay(_cam.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0)));
-    }
+
 	public void OnHit()
     {
 		Ray ray = _cam.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
