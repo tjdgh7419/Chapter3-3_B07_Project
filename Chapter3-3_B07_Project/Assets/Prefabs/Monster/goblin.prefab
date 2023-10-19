@@ -10184,8 +10184,8 @@ GameObject:
   - component: {fileID: 7888164314498349216}
   - component: {fileID: 8539499254299597430}
   - component: {fileID: 5875696019723208996}
-  - component: {fileID: 5794195368330785125}
   - component: {fileID: 7603221165341915405}
+  - component: {fileID: 6567462548205601190}
   m_Layer: 0
   m_Name: goblin
   m_TagString: Untagged
@@ -10283,8 +10283,32 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!65 &5794195368330785125
-BoxCollider:
+--- !u!114 &7603221165341915405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2144178655791878038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c680e429a1c293941b36df3e87ab14c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  mobName: "\uACE0\uBE14\uB9B0"
+  attack: 1
+  attackDelay: 2
+  attackDistance: 2.5
+  hp: 10
+  speed: 8
+  detectDistance: 10
+  items:
+  - {fileID: 11400000, guid: fabdb4ca7df36cd4b8a76abb5807c0c4, type: 2}
+  - {fileID: 11400000, guid: f3b8c94828eb7b249aa2a89ee1143a18, type: 2}
+  itemsCount: 0100000005000000
+--- !u!135 &6567462548205601190
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -10302,32 +10326,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 5, y: 15, z: 5}
-  m_Center: {x: 0, y: 7, z: 0}
---- !u!114 &7603221165341915405
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2144178655791878038}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c680e429a1c293941b36df3e87ab14c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 0
-  mobName: "\uACE0\uBE14\uB9B0"
-  attack: 2.5
-  attackDelay: 1
-  attackDistance: 4
-  hp: 10
-  speed: 10
-  detectDistance: 10
-  items:
-  - {fileID: 11400000, guid: fabdb4ca7df36cd4b8a76abb5807c0c4, type: 2}
-  - {fileID: 11400000, guid: f3b8c94828eb7b249aa2a89ee1143a18, type: 2}
-  itemsCount: 0100000005000000
+  m_Radius: 7.49
+  m_Center: {x: 0, y: 7.39, z: 0.39}
 --- !u!1 &2392838094066597716
 GameObject:
   m_ObjectHideFlags: 0

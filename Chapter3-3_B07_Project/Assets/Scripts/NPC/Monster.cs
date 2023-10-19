@@ -103,9 +103,19 @@ public class Monster : MonoBehaviour
             {
                 this.transform.LookAt(player.transform.position);
                 attackTime = Time.time;
-				var pu = UIManager.Instance.OpenUI<PlayerUI>();
-				pu.TakeDamage(attack);
+                OnHit();
 				animator.SetTrigger("attack");
+            }
+        }
+    }
+    void OnHit()
+    {
+        if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, attackDistance))
+        {
+            if (hit.collider.CompareTag("Player"))
+            {
+                var pu = UIManager.Instance.OpenUI<PlayerUI>();
+                pu.TakeDamage(attack);
             }
         }
     }
@@ -125,6 +135,7 @@ public class Monster : MonoBehaviour
             dead = true;
             animator.SetTrigger("dead");
             GiveItems();
+            //GameManager.Instance.questManager.ClearQuest(type);
             Invoke("ActiveFalse", 2f);
         }
     }

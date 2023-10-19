@@ -45,7 +45,8 @@ public class EquipTool : Equip
             if (hit.collider.TryGetComponent(out Monster monster))
             {
                 if (monster != null)
-                {            
+                {
+                    Debug.Log(damage);
                     monster.TakeDamage(damage);
                     GameManager.Instance.garphicManager.MonsterHit(hit.point);
                 }

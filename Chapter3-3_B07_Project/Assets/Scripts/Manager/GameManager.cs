@@ -26,12 +26,13 @@ public class GameManager : MonoBehaviour
 			return;
 		}
 		Instance = this;
-		SoundManager.Instance.BackMusic.WaveOff();
+	
 	}
 
 	private void Start()
 	{
 		uiManager.OpenUI<PlayerUI>();
+		SoundManager.Instance.BackMusic.WaveOff();
 	}
 
 }

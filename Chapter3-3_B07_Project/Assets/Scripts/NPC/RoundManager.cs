@@ -14,8 +14,8 @@ public class RoundManager : MonoBehaviour
         { 10, 0, 5 }, { 5, 5, 5 }, { 20, 0, 0 }, { 0, 20, 0 }, { 0, 0, 15 }
         , { 10, 10, 0 }, { 10, 10, 5 }, { 20, 20, 0 }, {20, 20, 15 }};
     public int currentRound = 0;
-    private float roundDuration = 120.0f; // 2분
-    private float breakDuration = 30.0f; // 0.5분
+    private float roundDuration = 30.0f; // 2분
+    private float breakDuration = 10.0f; // 0.5분
     private int totalRounds = 15;
     private bool isBreakTime = true;
 
@@ -36,8 +36,8 @@ public class RoundManager : MonoBehaviour
 
     private IEnumerator StartRound()
     {
-        roundDuration = 120f;
-        breakDuration = 30f;
+        roundDuration = 30f;
+        breakDuration = 10f;
         if (currentRound > totalRounds)
         {
             // 게임 종료
@@ -47,7 +47,7 @@ public class RoundManager : MonoBehaviour
 
         if (isBreakTime)
         {
-            // 쉬는 시간
+            SoundManager.Instance.BackMusic.WaveOff();
             yield return new WaitForSeconds(breakDuration);
             isBreakTime = false;
         }
@@ -62,6 +62,7 @@ public class RoundManager : MonoBehaviour
 
         UpdateRoundText();
         StartCoroutine(StartRound());
+        yield break;
     }
     public void SpawnWithRound()
     {

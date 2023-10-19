@@ -15,10 +15,11 @@ public class Goblin : Monster
         aiState = MobAIState.Run;
         agent.isStopped = false;
         animator.SetBool("run", true);
-        attack += GameManager.Instance.roundManager.currentRound * 0.5f;
-        hp += GameManager.Instance.roundManager.currentRound * 1f;
-        itemsCount[0] += GameManager.Instance.roundManager.currentRound;
-        itemsCount[1] += GameManager.Instance.roundManager.currentRound * 2;
+        int round = GameManager.Instance.roundManager.currentRound - 1;
+        attack += round * 0.2f;
+        hp += round * 0.5f;
+        itemsCount[0] += round;
+        itemsCount[1] += round * 2;
     }
     protected override void Update()
     {
