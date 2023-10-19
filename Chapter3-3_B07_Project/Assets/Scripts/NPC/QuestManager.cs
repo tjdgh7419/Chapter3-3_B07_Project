@@ -17,6 +17,7 @@ public class QuestManager : MonoBehaviour
             questDict[id].QuestClear();
             var ui = UIManager.Instance.OpenUI<QuestListPanel>();
             ui.ClearQuest(id);
+            UIManager.Instance.IsOnUI = false;
             ui.gameObject.SetActive(false);
             UIManager.Instance.MouseLock();
         }
