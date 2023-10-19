@@ -5,46 +5,38 @@ using UnityEngine;
 
 public class Electro : MonoBehaviour
 {
-	[SerializeField] private GameObject prefabs;
+    [SerializeField] private GameObject prefabs;
 
-	private Action effactStart;
+    private Action effactStart;
 
-	public float timer;
+    public float timer;
 
-	public void UseSkill(Vector3 dir)
-	{
-		gameObject.SetActive(true);
-		effactStart?.Invoke();
-		gameObject.GetComponent<Rigidbody>().AddForce(dir * 1000);
-	}
+    public void UseSkill(Vector3 dir)
+    {
+        gameObject.SetActive(true);
+        effactStart?.Invoke();
+        gameObject.GetComponent<Rigidbody>().AddForce(dir*1000);
+    }
 
-	public void Update()
-	{
-		timer += Time.deltaTime;
+    public void Update()
+    {
+        timer += Time.deltaTime;
 
-		if (timer > 5)
-		{
-			timer = 0;
-			gameObject.SetActive(false);
-		}
-	}
+        if(timer > 1)
+        {
+            timer = 0;
+            GetComponent<Rigidbody>().velocity = Vector3.zero;
+            gameObject.SetActive(false);
+        }
+    }
 
-	public void EffactSettingHow(bool effact)
-	{
-		if (effact)
-		{
-			GameObject go = Instantiate(prefabs, this.transform);
-			effactStart = () => go.GetComponent<ParticleSystem>().Play();
-		}
-		gameObject.SetActive(false);
-	}
-
-	private void OnTriggerEnter(Collider other)
-	{
-		if (other.tag == "Monster")
-		{
-			var data = other.GetComponent<Monster>();
-			data.TakeDamage(80f);
-		}
-	}
+    public void EffactSettingHow(bool effact)
+    {
+        if (effact)
+        {
+            GameObject go = Instantiate(prefabs, this.transform);
+            effactStart = () => go.GetComponent<ParticleSystem>().Play();
+        }
+        gameObject.SetActive(false);
+    }
 }

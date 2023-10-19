@@ -45,6 +45,7 @@ public class QuestListPanel : GameUIBase
 
     private void GiveupQuest(int i)
     {
+        GameManager.Instance.questManager.questDict.Remove(questList[i].questId);
         questList.RemoveAt(i);
         for(int j = 0; j < questList.Count; j++)
         {
