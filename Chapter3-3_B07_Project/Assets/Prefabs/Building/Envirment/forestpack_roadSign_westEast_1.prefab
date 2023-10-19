@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 5251677402524075975}
   - component: {fileID: 3008745067681522033}
   - component: {fileID: 8316654128977311727}
-  - component: {fileID: 8121902661455126515}
   m_Layer: 0
   m_Name: forestpack_roadSign_westEast_1
   m_TagString: Untagged
@@ -33,7 +32,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5251677402524075975
 MeshFilter:
@@ -107,22 +106,3 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 5b51913d07f805546855136f7b5feb44, type: 3}
---- !u!205 &8121902661455126515
-LODGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1650158582635574735}
-  serializedVersion: 2
-  m_LocalReferencePoint: {x: -0.09841174, y: 0.38177305, z: -0.016747877}
-  m_Size: 1.051388
-  m_FadeMode: 0
-  m_AnimateCrossFading: 0
-  m_LastLODIsBillboard: 0
-  m_LODs:
-  - screenRelativeHeight: 0.39616254
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 3008745067681522033}
-  m_Enabled: 1
