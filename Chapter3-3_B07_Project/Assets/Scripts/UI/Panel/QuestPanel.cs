@@ -21,10 +21,10 @@ public class QuestPanel : GameUIBase
         base.Awake();
         acceptButton.onClick.AddListener(OpenUI_Quest);
     }
-    private void OnEnable()
+    /*private void OnEnable()
     {
         SetQuest(quest);
-    }
+    }*/
     void OpenUI_Quest()
     {
         var uiPopUp = UIManager.Instance.OpenUI<UIPopUp>();
