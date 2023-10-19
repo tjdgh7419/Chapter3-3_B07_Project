@@ -28,11 +28,14 @@ public class GraphicManager : MonoBehaviour
 
     void Start()
     {
-        for (int i = 0; i < 3; i++)
+        if (electroPrefab != null && Effacts != null)
         {
-            GameObject go = Instantiate(electroPrefab,Effacts.transform);
-            go.GetComponent<Electro>().EffactSettingHow(Effact);
-            prefabs.Add(go);
+            for (int i = 0; i < 3; i++)
+            {
+                GameObject go = Instantiate(electroPrefab, Effacts.transform);
+                go.GetComponent<Electro>().EffactSettingHow(Effact);
+                prefabs.Add(go);
+            }
         }
 
         if (Effact)
