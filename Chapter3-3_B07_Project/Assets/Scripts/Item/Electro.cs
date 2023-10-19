@@ -47,6 +47,6 @@ public class Electro : MonoBehaviour
 			var data = other.GetComponent<Monster>();
 			data.TakeDamage(80f);
 		}
-		other.gameObject.SetActive(false);
+		gameObject.SetActive(false);
 	}
 }
