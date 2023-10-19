@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEditor.PlayerSettings;
 
 public class MonsterManager : MonoBehaviour
 {
@@ -14,7 +16,7 @@ public class MonsterManager : MonoBehaviour
     public Transform spawnPos, hobSpanPos, trollSpanPos, castlePos;
     public List<Pool> pools;
     public Dictionary<int, Queue<GameObject>> poolDict;
-    [SerializeField] GameObject troll, hobGoblin;
+    [SerializeField] GameObject golem;
     private void Awake()
     {
         poolDict = new Dictionary<int, Queue<GameObject>>();
@@ -23,8 +25,12 @@ public class MonsterManager : MonoBehaviour
             Queue<GameObject> objectPool = new Queue<GameObject>();
             for(int i = 0; i< pool.size; i++)
             {
-                GameObject obj = Instantiate(pool.prefab);
-                obj.transform.SetParent(spawnPos, false);
+                float spawnX = Random.Range(spawnPos.position.x - 10, spawnPos.position.x + 10);
+                float spawnZ = Random.Range(spawnPos.position.z - 10, spawnPos.position.z + 10);
+
+                Vector3 ranPos = new Vector3(spawnX, spawnPos.position.y, spawnZ);
+
+                GameObject obj = Instantiate(pool.prefab, ranPos, Quaternion.identity);
                 obj.SetActive(false);
                 objectPool.Enqueue(obj);
             }
@@ -41,9 +47,9 @@ public class MonsterManager : MonoBehaviour
 
         return obj;
     }
-    void CreateEpicMob(GameObject mob)
+    public void CreateBossMob()
     {
-        GameObject obj = Instantiate(mob);
-
+        GameObject obj = Instantiate(golem, spawnPos);
+        obj.SetActive(true);
     }
 }

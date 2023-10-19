@@ -19,7 +19,7 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: c257574b1b8ee104582a93ecac457485, type: 3}
   AttackPower: 0
   canStack: 1
-  maxStackAmount: 50
+  maxStackAmount: 999
   consumableDatas:
   - type: 2
     value: 5

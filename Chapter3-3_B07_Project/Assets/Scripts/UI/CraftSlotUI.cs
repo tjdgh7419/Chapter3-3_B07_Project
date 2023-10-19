@@ -7,19 +7,25 @@ public class CraftSlotUI : MonoBehaviour
 {
 	public Button button;
 	public Image icon;
-	private CraftData curSlot;
+	private CraftSlot curSlot;
 
 	public int index;
 
-	public void Set(CraftData slot)
+	public void Set(CraftSlot slot)
 	{
 		curSlot = slot;
 		icon.gameObject.SetActive(true);
-		icon.sprite = slot.Image;
+		icon.sprite = slot.item.Image;
+	}
+
+	public void Clear()
+	{
+		curSlot = null;
+		icon.gameObject.SetActive(false);
 	}
 
 	public void OnCraftItemClick()
 	{
-
+		GameManager.Instance.craft.SelectCraftItem(index);
 	}
 }

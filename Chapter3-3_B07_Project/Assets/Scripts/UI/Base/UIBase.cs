@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class UIBase : MonoBehaviour
 {
     [Header("Buttons")]
-    [SerializeField] private Button closeButton;
+    [SerializeField] protected Button closeButton;
 
     protected virtual void Awake()
     {
@@ -17,6 +17,10 @@ public class UIBase : MonoBehaviour
 
     protected virtual void Close()
     {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
         gameObject.SetActive(false);
+        SoundManager.Instance.EffactMusic.Click1SoundPlay();
+        UIManager.Instance.IsOnUI = false;
     }
 }

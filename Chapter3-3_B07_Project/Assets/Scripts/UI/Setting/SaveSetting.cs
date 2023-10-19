@@ -19,13 +19,14 @@ public class SaveSetting : MonoBehaviour
     private void Start()
     {
         saveButton.onClick.AddListener(OnPreferencesSave);
+        saveButton.onClick.AddListener(() => SoundManager.Instance.EffactMusic.Click2SoundPlay());
         OnPreferencesSave();
     }
 
     public void OnPreferencesSave()
     {
         SoundManager.Instance.SetAudioSetting(MasterSlider.value, MusicSlider.value, EffactSlider.value);
-        UIManager.Instance.SetGraphicSetting(EffactToggle.isOn, ShadowToggle.isOn);
+        GraphicManager.Instance.SetGraphicSetting(EffactToggle.isOn, ShadowToggle.isOn);
     }
 
     public void CallAudioSetting()
@@ -38,7 +39,7 @@ public class SaveSetting : MonoBehaviour
 
     public void CallGraphicSetting()
     {
-        bool[] graphic = UIManager.Instance.GetGraphicSetting();
+        bool[] graphic = GraphicManager.Instance.GetGraphicSetting();
         EffactToggle.isOn = graphic[0];
         ShadowToggle.isOn = graphic[1];
     }

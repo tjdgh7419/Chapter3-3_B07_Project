@@ -6,6 +6,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
+	public Player player;
+
 	public ItemManager itemManager;
 	public EquipManager equipManager;
 	public CraftManager craftManager;
@@ -13,8 +15,12 @@ public class GameManager : MonoBehaviour
 	public InteractionManager interactionManager;
 	public RoundManager roundManager;
 	public MonsterManager monsterManager;
+	public QuestManager questManager;
 	public Inventory inventory;
-	public Craft craft;
+	public CraftPanel craft;
+	public PlayerConditionManager playerConditionManager;
+	public GraphicManager garphicManager;
+
 	private void Awake()
 	{
 		if (Instance != null && Instance != this)
@@ -23,11 +29,14 @@ public class GameManager : MonoBehaviour
 			return;
 		}
 		Instance = this;
+	
 	}
 
 	private void Start()
 	{
 		uiManager.OpenUI<PlayerUI>();
+		UIManager.Instance.IsOnUI = false;
+		SoundManager.Instance.BackMusic.WaveOff();
 	}
 
 }

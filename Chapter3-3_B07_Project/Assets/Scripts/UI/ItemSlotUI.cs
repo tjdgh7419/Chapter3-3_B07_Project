@@ -24,6 +24,7 @@ public class ItemSlotUI : MonoBehaviour
     {
         curSlot = slot;
         icon.gameObject.SetActive(true);
+        
         icon.sprite = slot.item.icon;
         quantitiyTxt.text = slot.quantity > 1 ? slot.quantity.ToString() : string.Empty;
 
@@ -32,6 +33,11 @@ public class ItemSlotUI : MonoBehaviour
             outline.enabled = equipped;
         }
     }
+
+    public void CraftSet(ItemSlot slot)
+    {
+		quantitiyTxt.text = slot.quantity > 1 ? slot.quantity.ToString() : string.Empty;
+	}
 
     public void Clear()
     {

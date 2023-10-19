@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 394183180514305567}
   - component: {fileID: 8464777747357874667}
   - component: {fileID: 5835340338042056085}
+  - component: {fileID: 6430715134503211814}
   m_Layer: 0
   m_Name: QuestNPC1
   m_TagString: Untagged
@@ -84,7 +85,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!114 &5835340338042056085
 MonoBehaviour:
@@ -109,6 +110,26 @@ MonoBehaviour:
   player: {fileID: 0}
   talk: {fileID: 0}
   _name: {fileID: 0}
+--- !u!114 &6430715134503211814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1741520653726991846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bad4119a0cbf8f04885c61e55c034d8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questId: 3
+  questCompenExplan: 
+  questName: "\uD649 \uACE0\uBE14\uB9B0 \uD1F4\uCE58"
+  questExplan: "\uD649 \uACE0\uBE14\uB9B0\uC880 \uC7A1\uC544\uC918"
+  questCompenItems:
+  - {fileID: 11400000, guid: fabdb4ca7df36cd4b8a76abb5807c0c4, type: 2}
+  - {fileID: 11400000, guid: f3b8c94828eb7b249aa2a89ee1143a18, type: 2}
+  questCompenItemsCount: 0800000050000000
 --- !u!1 &1872149775269922091
 GameObject:
   m_ObjectHideFlags: 0

@@ -29,7 +29,6 @@ public class NPC : MonoBehaviour
     }
     protected virtual void Start()
     {
-        npcSO.npcType = 0;
         npcAI = NPCAIState.Idle;
         talk.transform.position = talkPos.transform.position;
         talk.gameObject.SetActive(false);
@@ -97,8 +96,13 @@ public class NPC : MonoBehaviour
     {
         if(npcSO.interact && npcAI == NPCAIState.Interact)
         {
-            Cursor.lockState = CursorLockMode.None;
+            UIManager.Instance.MouseUnlock();
+            if(window.TryGetComponent<QuestPanel>(out QuestPanel panel))
+            {
+                panel.quest = this.gameObject.GetComponent<Quest>();
+            }
             window.SetActive(true);
+            UIManager.Instance.IsOnUI = true;
             canTalk = false;
         }
     }
@@ -113,7 +117,6 @@ public class NPC : MonoBehaviour
     }
     IEnumerator CancelInteract()
     {
-        Cursor.lockState = CursorLockMode.Locked;
         npcAI = NPCAIState.Idle;
         fieldOfView = 0;
         yield return new WaitForSeconds(3f);

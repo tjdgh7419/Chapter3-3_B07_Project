@@ -10,14 +10,16 @@ public class RoundManager : MonoBehaviour
     public TextMeshProUGUI roundText;
     public TextMeshProUGUI timerText;
     public int[,] monstersCount =
-        { {10, 0, 0 }, { 0, 10, 0 }, { 5, 5, 0 }, { 0, 0, 10 }, { 0, 5, 5 },
+        { {10, 0, 0 }, { 0, 10, 0 }, { 5, 5, 0 }, { 4, 4, 4 }, { 0, 5, 5 },
         { 10, 0, 5 }, { 5, 5, 5 }, { 20, 0, 0 }, { 0, 20, 0 }, { 0, 0, 15 }
         , { 10, 10, 0 }, { 10, 10, 5 }, { 20, 20, 0 }, {20, 20, 15 }};
-    public int currentRound = 1;
-    private float roundDuration = 180.0f; // 3분
-    private float breakDuration = 60.0f; // 1분
+    public int currentRound = 0;
+    private float roundDuration = 30.0f; // 2분
+    private float breakDuration = 10.0f; // 0.5분
     private int totalRounds = 15;
-    private bool isBreakTime = false;
+    private bool isBreakTime = true;
+
+    [HideInInspector]public GameObject monsterObject;
 
     private MonsterManager monsterManager;
     private void Start()
@@ -34,6 +36,8 @@ public class RoundManager : MonoBehaviour
 
     private IEnumerator StartRound()
     {
+        roundDuration = 30f;
+        breakDuration = 10f;
         if (currentRound > totalRounds)
         {
             // 게임 종료
@@ -43,13 +47,14 @@ public class RoundManager : MonoBehaviour
 
         if (isBreakTime)
         {
-            // 쉬는 시간
+            SoundManager.Instance.BackMusic.WaveOff();
             yield return new WaitForSeconds(breakDuration);
             isBreakTime = false;
         }
         else
         {
             SpawnWithRound();
+            SoundManager.Instance.BackMusic.WaveOn();
             yield return new WaitForSeconds(roundDuration);
             currentRound++;
             isBreakTime = true;
@@ -57,11 +62,11 @@ public class RoundManager : MonoBehaviour
 
         UpdateRoundText();
         StartCoroutine(StartRound());
+        yield break;
     }
     public void SpawnWithRound()
     {
-        Debug.Log(monstersCount[currentRound - 1, 0]);
-        if (currentRound != 15)
+        if (currentRound % 5 != 0)
         {
             if (monstersCount[currentRound - 1, 0] > 0)
             {
@@ -76,14 +81,17 @@ public class RoundManager : MonoBehaviour
                 StartCoroutine(SummonMonster(2));
             }
         }
+        else
+        {
+            GameManager.Instance.monsterManager.CreateBossMob();
+        }
     }
     IEnumerator SummonMonster(int type)
     {
         for (int i = 0; i < monstersCount[currentRound - 1, type]; i++)
         {
-            GameObject obj = monsterManager.SpawnFromPool(type);
-            obj.transform.position = monsterManager.spawnPos.position;
-            obj.SetActive(true);
+            monsterObject = monsterManager.SpawnFromPool(type);
+            monsterObject.SetActive(true);
             yield return new WaitForSeconds(0.3f);
         }
         
@@ -93,13 +101,13 @@ public class RoundManager : MonoBehaviour
         // 타이머 표시
         if (isBreakTime)
         {
-            
-            timerText.text = "Break Time: 00 : " + Mathf.Ceil(breakDuration - Time.timeSinceLevelLoad);
+            breakDuration -= Time.deltaTime;
+            timerText.text = "Break Time: 00 : " + (int)breakDuration;
         }
         else
         {
-            int time = (int)Mathf.Ceil(roundDuration - Time.timeSinceLevelLoad);
-            timerText.text = $"{time / 60} : {time % 60}";
+            roundDuration -= Time.deltaTime;
+            timerText.text = $"{(int)roundDuration / 60} : {(int)roundDuration % 60}";
         }
     }
 }

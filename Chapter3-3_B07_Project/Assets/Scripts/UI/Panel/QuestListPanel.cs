@@ -14,7 +14,7 @@ public class QuestListPanel : GameUIBase
 
     [Header("QuestText")]
     [SerializeField] private TextMeshProUGUI[] QuestText = new TextMeshProUGUI[3];
-
+    List<Quest> questList = new List<Quest>();
     private int count = 0;
     // Start is called before the first frame update
     void Start()
@@ -28,14 +28,15 @@ public class QuestListPanel : GameUIBase
         }
     }
 
-    public string SetQuestList(string quest)
+    public string SetQuestList(Quest quest)
     {
-        if(count == 3)
+        if(count == 3 || GameManager.Instance.questManager.questDict.ContainsKey(quest.questId))
         {
             return "퀘스트 추가에 실패하였습니다.";
         }
-
-        QuestText[count].text = quest;
+        GameManager.Instance.questManager.AddQuest(quest);
+        questList.Add(quest);
+        QuestText[count].text = quest.questExplan;
         QuestText[count].gameObject.SetActive(true);
 
         count++;
@@ -44,9 +45,23 @@ public class QuestListPanel : GameUIBase
 
     private void GiveupQuest(int i)
     {
-        if (i != 2)
+        GameManager.Instance.questManager.questDict.Remove(questList[i].questId);
+        questList.RemoveAt(i);
+        for (int j = 0; j < questList.Count; j++)
         {
-            QuestText[i].text = QuestText[i + 1].text;
+            QuestText[j].text = questList[j].questExplan;
+        }
+        count--;
+        QuestText[count].text = "";
+        QuestText[count].gameObject.SetActive(false);
+    }
+    public void ClearQuest(int id)
+    {
+        questList.Remove(GameManager.Instance.questManager.questDict[id]);
+        GameManager.Instance.questManager.questDict.Remove(id);
+        for (int j = 0; j < questList.Count; j++)
+        {
+            QuestText[j].text = questList[j].questExplan;
         }
         count--;
         QuestText[count].text = "";

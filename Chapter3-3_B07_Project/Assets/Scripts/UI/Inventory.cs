@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+
 public class ItemSlot
 {
 	public ItemData item;
@@ -32,11 +33,11 @@ public class Inventory : MonoBehaviour
 	public GameObject unEquipButton;
 
 	private int curEquipIndex;
-	private Dictionary<ItemData, int> ItemTotalCount;
+	public Dictionary<ItemData, int> ItemTotalCount;
 
 	private void Awake()
 	{
-		ItemTotalCount = new Dictionary<ItemData, int>();
+		
 	}
 
 	private void Start()
@@ -53,21 +54,28 @@ public class Inventory : MonoBehaviour
 		}
 		ClearSelectedItemWindow();
 
+		AddItem(GameManager.Instance.itemManager.crystal); // 테스트
+		AddItem(GameManager.Instance.itemManager.Gold);
 		AddItem(GameManager.Instance.itemManager.HpPotion);
-		AddItem(GameManager.Instance.itemManager.MpPotion);
 		AddItem(GameManager.Instance.itemManager.Sword);
+		AddItem(GameManager.Instance.itemManager.MpPotion);
+		AddItem(GameManager.Instance.itemManager.MagicSword);
 	}
 
 	public void Toggle()
 	{
 		if (inventoryWindow.activeInHierarchy)
 		{
+			UIManager.Instance.MouseLock();
 			inventoryWindow.SetActive(false);
+			UIManager.Instance.IsOnUI = false;
 		}
-		else
+		else if (!UIManager.Instance.IsOnUI)
 		{
+			UIManager.Instance.MouseUnlock();
 			inventoryWindow.SetActive(true);
-		}
+            UIManager.Instance.IsOnUI = true;
+        }
 	}
 
 	public void OnInventoryButton(InputAction.CallbackContext context)
@@ -84,7 +92,7 @@ public class Inventory : MonoBehaviour
 		{
 			ItemSlot slotInfo = GetItemStack(item);
 			if (slotInfo != null)
-			{
+			{				
 				slotInfo.quantity++;
 				UpdateUI();
 				return;
@@ -95,15 +103,24 @@ public class Inventory : MonoBehaviour
 
 		if (emptySlotInfo != null)
 		{
+		
 			emptySlotInfo.item = item;
-			emptySlotInfo.quantity = 1;
+			if (emptySlotInfo.item.type == ItemType.Equipable) //테스트
+			{
+				emptySlotInfo.quantity = 1;
+			}
+			else
+			{
+				emptySlotInfo.quantity = 200;
+			}		
+						
 			UpdateUI();
 			return;
 		}
 		return;
 	}
 
-	private void UpdateUI()
+	public void UpdateUI()
 	{
 		for (int i = 0; i < slots.Length; i++)
 		{
@@ -157,12 +174,12 @@ public class Inventory : MonoBehaviour
 			case ItemType.Consumable:
 				{
 					selectedItemTypeDescription.text = "소모품";
-					if(selectedItem.item.Ctype == ConsumableType.HP)
+					if (selectedItem.item.Ctype == ConsumableType.HP)
 					{
 						selectedItemStatType.text = selectedItem.item.Ctype.ToString() + " " + "+";
-						selectedItemStatDescription.text = selectedItem.item.consumableDatas[0].value.ToString();	
+						selectedItemStatDescription.text = selectedItem.item.consumableDatas[0].value.ToString();
 					}
-					else if(selectedItem.item.Ctype == ConsumableType.MP)
+					else if (selectedItem.item.Ctype == ConsumableType.MP)
 					{
 						selectedItemStatType.text = selectedItem.item.Ctype.ToString() + " " + "+";
 						selectedItemStatDescription.text = selectedItem.item.consumableDatas[0].value.ToString();
@@ -173,22 +190,24 @@ public class Inventory : MonoBehaviour
 						selectedItemStatType.text = selectedItem.item.Ctype.ToString() + " " + "+";
 						selectedItemStatDescription.text = selectedItem.item.consumableDatas[0].value.ToString();
 					}
-						
+
 					break;
 				}
 			case ItemType.Equipable:
 				{
 					selectedItemTypeDescription.text = "장비";
 					selectedItemStatType.text = "공격력" + " " + "+";
-					selectedItemStatDescription.text = selectedItem.item.AttackPower.ToString() ;
+					selectedItemStatDescription.text = selectedItem.item.AttackPower.ToString();
 					break;
 				}
 		}
-		
+
 		selectedItemName.text = selectedItem.item.ItemName;
 		selectedItemDescription.text = selectedItem.item.ItemDescription;
 		selectedItemStatTitle.text = "아이템 효과";
 		selectedItemTypeTitle.text = "아이템 타입";
+		selectedItemStatTitle.gameObject.SetActive(selectedItem.item.type == ItemType.Consumable || selectedItem.item.type == ItemType.Equipable);
+		selectedItemTypeTitle.gameObject.SetActive(selectedItem.item.type == ItemType.Consumable || selectedItem.item.type == ItemType.Equipable);
 		useButton.SetActive(selectedItem.item.type == ItemType.Consumable);
 		equipButton.SetActive(selectedItem.item.type == ItemType.Equipable && !uiSlot[index].equipped);
 		unEquipButton.SetActive(selectedItem.item.type == ItemType.Equipable && uiSlot[index].equipped);
@@ -197,6 +216,7 @@ public class Inventory : MonoBehaviour
 
 	public void OnUseButton()
 	{
+		PlayerUI playerUI = GameManager.Instance.uiManager.gameObject.GetComponentInChildren<PlayerUI>();
 		if (selectedItem.item.type == ItemType.Consumable)
 		{
 			for (int i = 0; i < selectedItem.item.consumableDatas.Length; i++)
@@ -204,8 +224,10 @@ public class Inventory : MonoBehaviour
 				switch (selectedItem.item.consumableDatas[i].type)
 				{
 					case ConsumableType.HP:
-						break; // 플레이어 컨디션 매니저가 생겼을 때
+						playerUI.Healing(selectedItem.item.consumableDatas[i].value, "HP");
+						break; 
 					case ConsumableType.MP:
+						playerUI.Healing(selectedItem.item.consumableDatas[i].value, "MP");
 						break;
 				}
 			}
@@ -237,7 +259,7 @@ public class Inventory : MonoBehaviour
 		UnEquip(selectedItemIndex);
 	}
 
-	private void RemoveSelectedItem()
+	public void RemoveSelectedItem()
 	{
 		selectedItem.quantity--;
 
@@ -265,7 +287,7 @@ public class Inventory : MonoBehaviour
 		}
 	}
 
-	private void ClearSelectedItemWindow()
+	public void ClearSelectedItemWindow()
 	{
 		selectedItem = null;
 		selectedItemName.text = string.Empty;
