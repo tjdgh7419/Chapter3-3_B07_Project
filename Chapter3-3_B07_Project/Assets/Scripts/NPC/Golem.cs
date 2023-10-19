@@ -18,5 +18,6 @@ public class Golem : Monster
     protected override void Update()
     {
         base.Update();
+        hpBar.fillAmount = hp / maxHp;
     }
 }
