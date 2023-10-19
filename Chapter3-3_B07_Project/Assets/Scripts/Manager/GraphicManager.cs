@@ -20,6 +20,8 @@ public class GraphicManager : MonoBehaviour
 
     [SerializeField] private Light mainLight;
 
+    private GameObject hit;
+
     // Start is called before the first frame update
     private void Awake()
     {
@@ -40,8 +42,8 @@ public class GraphicManager : MonoBehaviour
 
         if (Effact)
         {
-            prefabs.Add(Instantiate(hitEffatPrefab));
-            
+            hit = Instantiate(hitEffatPrefab);
+            prefabs.Add(hit);
         }
         if (!Shadow && mainLight != null)
         {
@@ -51,8 +53,11 @@ public class GraphicManager : MonoBehaviour
 
     public void MonsterHit(Vector3 pos)
     {
-        prefabs[0].transform.position = pos;
-        prefabs[0].GetComponent<ParticleSystem>().Play();
+        if (hit != null)
+        {
+            hit.transform.position = pos;
+            hit.GetComponent<ParticleSystem>().Play();
+        }
     }
 
     public void SetGraphicSetting(bool _effact, bool _shadow)
