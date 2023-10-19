@@ -135,7 +135,7 @@ public class Monster : MonoBehaviour
             dead = true;
             animator.SetTrigger("dead");
             GiveItems();
-            GameManager.Instance.questManager.ClearQuest(type);
+            //GameManager.Instance.questManager.ClearQuest(type);
             Invoke("ActiveFalse", 2f);
         }
     }
