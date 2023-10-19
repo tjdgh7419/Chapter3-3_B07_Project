@@ -26,7 +26,9 @@ public class InputController : MonoBehaviour
 			action.started += CallOnInteraction;
 			action = playerInput.actions.FindAction("Pause");
 			action.started += CallOnPause;
-		}
+            action = playerInput.actions.FindAction("Quest");
+            action.started += CallOnQuest;
+        }
 	}
 
 	public void CallOnMove(InputAction.CallbackContext callbackContext)
@@ -60,4 +62,8 @@ public class InputController : MonoBehaviour
 			Time.timeScale = 0;			
 		}	
 	}
+    public void CallOnQuest(InputAction.CallbackContext callbackContext)
+    {
+        UIManager.Instance.OpenUI<QuestListPanel>();
+    }
 }
