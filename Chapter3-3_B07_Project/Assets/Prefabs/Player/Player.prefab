@@ -23,12 +23,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 112600527648691567}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.5, z: 1.5}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.000014066696, y: 0, z: 1.1000029}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 9095495320378216140}
+  m_Father: {fileID: 5655321870292938273}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &236652731715081092
@@ -441,6 +441,7 @@ Transform:
   m_Children:
   - {fileID: 7490033478882793722}
   - {fileID: 281772533570096475}
+  - {fileID: 5187334864022128490}
   m_Father: {fileID: 9095495320378216140}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6864,10 +6865,9 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5655321870292938273}
-  - {fileID: 5187334864022128490}
   - {fileID: 7949301477452271282}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -128.459, z: 0}
 --- !u!114 &5541298437838131390
 MonoBehaviour:
@@ -7037,6 +7037,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 0a7033a4-01e7-48fb-ac81-fe4520a3ee7b
     m_ActionName: Player/Pause[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: dd1979b1-e2a6-48eb-890f-8cc81899d6ac
+    m_ActionName: Player/Quest[/Keyboard/q]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

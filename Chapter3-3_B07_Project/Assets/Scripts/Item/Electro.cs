@@ -22,9 +22,10 @@ public class Electro : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-        if(timer > 5)
+        if(timer > 1)
         {
             timer = 0;
+            GetComponent<Rigidbody>().velocity = Vector3.zero;
             gameObject.SetActive(false);
         }
     }
