@@ -7,6 +7,9 @@ public class GraphicManager : MonoBehaviour
 {
     public static GraphicManager Instance;
 
+    public GameObject Effacts;
+    public GameObject SpawnPoint;
+
     [SerializeField] private GameObject hitEffatPrefab;
     [SerializeField] private GameObject electroPrefab;
     [SerializeField] private List<GameObject> prefabs;
@@ -27,7 +30,7 @@ public class GraphicManager : MonoBehaviour
     {
         for (int i = 0; i < 3; i++)
         {
-            GameObject go = Instantiate(electroPrefab);
+            GameObject go = Instantiate(electroPrefab,Effacts.transform);
             go.GetComponent<Electro>().EffactSettingHow(Effact);
             prefabs.Add(go);
         }
