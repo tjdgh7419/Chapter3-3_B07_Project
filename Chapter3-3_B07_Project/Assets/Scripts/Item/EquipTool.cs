@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EquipTool : Equip
@@ -39,10 +40,13 @@ public class EquipTool : Equip
             swordEffect.Play();
         }
 	}
-    public void OnHit()
+	private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawRay(_cam.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0)));
+    }
+	public void OnHit()
     {
 		Ray ray = _cam.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
-        Debug.DrawRay(gameObject.transform.position ,new Vector3(Screen.width / 2, Screen.height / 2, 0), Color.red);
         isHit = Physics.Raycast(ray, out RaycastHit hit, attackDistance);
         if (isHit)
         {

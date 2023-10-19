@@ -49,6 +49,7 @@ MonoBehaviour:
   Sword: {fileID: 11400000, guid: f94d020980219e947be9cb39907cdba5, type: 2}
   crystal: {fileID: 11400000, guid: fabdb4ca7df36cd4b8a76abb5807c0c4, type: 2}
   Gold: {fileID: 11400000, guid: f3b8c94828eb7b249aa2a89ee1143a18, type: 2}
+  MagicSword: {fileID: 11400000, guid: bd9b909ac78121948a9086a0acb2bf9c, type: 2}
 --- !u!1 &5292250852785198316
 GameObject:
   m_ObjectHideFlags: 0
