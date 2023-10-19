@@ -163,6 +163,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Golem
       objectReference: {fileID: 0}
+    - target: {fileID: 100038, guid: d19f0e375a0203a4ca72964404dbd39e, type: 3}
+      propertyPath: m_TagString
+      value: Monster
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d19f0e375a0203a4ca72964404dbd39e, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
