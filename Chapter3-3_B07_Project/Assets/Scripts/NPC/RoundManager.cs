@@ -10,14 +10,14 @@ public class RoundManager : MonoBehaviour
     public TextMeshProUGUI roundText;
     public TextMeshProUGUI timerText;
     public int[,] monstersCount =
-        { {10, 0, 0 }, { 0, 10, 0 }, { 5, 5, 0 }, { 0, 0, 10 }, { 0, 5, 5 },
+        { {10, 0, 0 }, { 0, 10, 0 }, { 5, 5, 0 }, { 4, 4, 4 }, { 0, 5, 5 },
         { 10, 0, 5 }, { 5, 5, 5 }, { 20, 0, 0 }, { 0, 20, 0 }, { 0, 0, 15 }
         , { 10, 10, 0 }, { 10, 10, 5 }, { 20, 20, 0 }, {20, 20, 15 }};
-    public int currentRound = 1;
-    private float roundDuration = 60.0f; // 3분
-    private float breakDuration = 10.0f; // 1분
+    public int currentRound = 0;
+    private float roundDuration = 120.0f; // 2분
+    private float breakDuration = 30.0f; // 0.5분
     private int totalRounds = 15;
-    private bool isBreakTime = false;
+    private bool isBreakTime = true;
 
     private MonsterManager monsterManager;
     private void Start()
@@ -34,6 +34,8 @@ public class RoundManager : MonoBehaviour
 
     private IEnumerator StartRound()
     {
+        roundDuration = 120f;
+        breakDuration = 30f;
         if (currentRound > totalRounds)
         {
             // 게임 종료
@@ -62,7 +64,7 @@ public class RoundManager : MonoBehaviour
     public void SpawnWithRound()
     {
         Debug.Log(monstersCount[currentRound - 1, 0]);
-        if (currentRound != 15)
+        if (currentRound % 5 != 0)
         {
             if (monstersCount[currentRound - 1, 0] > 0)
             {
@@ -77,7 +79,7 @@ public class RoundManager : MonoBehaviour
                 StartCoroutine(SummonMonster(2));
             }
         }
-        else if(currentRound == 15)
+        else
         {
             GameManager.Instance.monsterManager.CreateBossMob();
         }
@@ -98,13 +100,13 @@ public class RoundManager : MonoBehaviour
         // 타이머 표시
         if (isBreakTime)
         {
-            
-            timerText.text = "Break Time: 00 : " + Mathf.Ceil(breakDuration - Time.timeSinceLevelLoad);
+            breakDuration -= Time.deltaTime;
+            timerText.text = "Break Time: 00 : " + (int)breakDuration;
         }
         else
         {
-            int time = (int)Mathf.Ceil(roundDuration - Time.timeSinceLevelLoad);
-            timerText.text = $"{time / 60} : {time % 60}";
+            roundDuration -= Time.deltaTime;
+            timerText.text = $"{(int)roundDuration / 60} : {(int)roundDuration % 60}";
         }
     }
 }
