@@ -15,7 +15,10 @@ public class QuestManager : MonoBehaviour
         if(questDict.ContainsKey(id))
         {
             questDict[id].QuestClear();
-            questDict.Remove(id);
+            var ui = UIManager.Instance.OpenUI<QuestListPanel>();
+            ui.ClearQuest(id);
+            ui.gameObject.SetActive(false);
+            UIManager.Instance.MouseLock();
         }
     }
 }

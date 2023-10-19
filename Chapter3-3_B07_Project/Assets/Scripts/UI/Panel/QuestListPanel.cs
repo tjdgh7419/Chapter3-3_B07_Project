@@ -47,7 +47,19 @@ public class QuestListPanel : GameUIBase
     {
         GameManager.Instance.questManager.questDict.Remove(questList[i].questId);
         questList.RemoveAt(i);
-        for(int j = 0; j < questList.Count; j++)
+        for (int j = 0; j < questList.Count; j++)
+        {
+            QuestText[j].text = questList[j].questExplan;
+        }
+        count--;
+        QuestText[count].text = "";
+        QuestText[count].gameObject.SetActive(false);
+    }
+    public void ClearQuest(int id)
+    {
+        questList.Remove(GameManager.Instance.questManager.questDict[id]);
+        GameManager.Instance.questManager.questDict.Remove(id);
+        for (int j = 0; j < questList.Count; j++)
         {
             QuestText[j].text = questList[j].questExplan;
         }
