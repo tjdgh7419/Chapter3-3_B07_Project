@@ -8,6 +8,8 @@ public class UIManager : MonoBehaviour
     public static UIManager Instance;
 
     private Dictionary<string, GameObject> _uiList = new Dictionary<string, GameObject>();
+
+    public bool IsOnUI = false;
     private void Awake()
     {
         Instance = this;
@@ -33,6 +35,7 @@ public class UIManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         var obj = _uiList[typeof(T).Name];
         obj.SetActive(true);
+        IsOnUI = true;
         return obj.GetComponent<T>();
     }
 

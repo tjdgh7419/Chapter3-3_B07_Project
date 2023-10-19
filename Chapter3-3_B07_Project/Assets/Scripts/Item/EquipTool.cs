@@ -35,7 +35,7 @@ public class EquipTool : Equip
 
 	public override void OnAttackInput()
 	{
-        if (!attacking )
+        if (!attacking && !UIManager.Instance.IsOnUI)
         {
             attacking = true;
             animator.SetTrigger(AnimAttack);

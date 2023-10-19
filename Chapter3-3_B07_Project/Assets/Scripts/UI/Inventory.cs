@@ -68,12 +68,14 @@ public class Inventory : MonoBehaviour
 		{
 			UIManager.Instance.MouseLock();
 			inventoryWindow.SetActive(false);
+			UIManager.Instance.IsOnUI = false;
 		}
-		else
+		else if (!UIManager.Instance.IsOnUI)
 		{
 			UIManager.Instance.MouseUnlock();
 			inventoryWindow.SetActive(true);
-		}
+            UIManager.Instance.IsOnUI = true;
+        }
 	}
 
 	public void OnInventoryButton(InputAction.CallbackContext context)

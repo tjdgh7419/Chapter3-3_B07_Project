@@ -40,8 +40,16 @@ public class InputController : MonoBehaviour
 
 	public void CallOnLookRotation(InputAction.CallbackContext callbackContext)
 	{
-		Vector2 mouseDelta = callbackContext.ReadValue<Vector2>();
-		OnLookRotation?.Invoke(mouseDelta);
+		if (!UIManager.Instance.IsOnUI)
+		{
+            Vector2 mouseDelta = callbackContext.ReadValue<Vector2>();
+            OnLookRotation?.Invoke(mouseDelta);
+        }
+		else
+		{
+            Vector2 mouseDelta = Vector2.zero;
+            OnLookRotation?.Invoke(mouseDelta);
+        }
 	}
 
 	public void CallOnJump(InputAction.CallbackContext callbackContext)
@@ -51,12 +59,15 @@ public class InputController : MonoBehaviour
 
 	public void CallOnInteraction(InputAction.CallbackContext callbackContext)
 	{
-		GameManager.Instance.interactionManager.CallShowWindow();
+		if (!UIManager.Instance.IsOnUI)
+        {
+            GameManager.Instance.interactionManager.CallShowWindow();
+        }
 	}
 
 	public void CallOnPause(InputAction.CallbackContext callbackContext)
 	{
-		if (Time.timeScale != 0)
+		if (Time.timeScale != 0 && !UIManager.Instance.IsOnUI)
 		{
 			UIManager.Instance.OpenUI<PausePanel>();
 			Time.timeScale = 0;			
@@ -64,6 +75,9 @@ public class InputController : MonoBehaviour
 	}
     public void CallOnQuest(InputAction.CallbackContext callbackContext)
     {
-        UIManager.Instance.OpenUI<QuestListPanel>();
+		if (!UIManager.Instance.IsOnUI)
+		{
+            UIManager.Instance.OpenUI<QuestListPanel>();
+        }
     }
 }

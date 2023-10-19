@@ -120,19 +120,25 @@ public class CraftPanel : GameUIBase
 		}
 	}
 
+	private void CreaftPopUp()
+	{
+		UIManager.Instance.MouseUnlock();
+		UIManager.Instance.IsOnUI = true;
+    }
+
 	public void OnCraftButton()
 	{
 		var UIPopup = UIManager.Instance.OpenUI<UIPopUp>();
 		Inventory inventoryData = GameManager.Instance.inventory;
 		if (MakableChk())
 		{
-			UIPopup.SetAction("제작", "제작에 실패하셨습니다.", null , () => UIManager.Instance.MouseUnlock());
+			UIPopup.SetAction("제작", "제작에 실패하셨습니다.", null , CreaftPopUp);
 			UIPopup.OffCheackButton();
 			return;
 		}
 		else
 		{		
-			UIPopup.SetAction("제작", "제작에 성공하셨습니다.", null, () => UIManager.Instance.MouseUnlock());
+			UIPopup.SetAction("제작", "제작에 성공하셨습니다.", null, CreaftPopUp);
 			SoundManager.Instance.EffactMusic.CreftSoundPlay();
 			UIPopup.OffCheackButton();
 			for (int i = 0; i < selectedCraftItem.item.resources.Length; i++)

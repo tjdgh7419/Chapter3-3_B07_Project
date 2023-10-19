@@ -102,6 +102,7 @@ public class NPC : MonoBehaviour
                 panel.quest = this.gameObject.GetComponent<Quest>();
             }
             window.SetActive(true);
+            UIManager.Instance.IsOnUI = true;
             canTalk = false;
         }
     }

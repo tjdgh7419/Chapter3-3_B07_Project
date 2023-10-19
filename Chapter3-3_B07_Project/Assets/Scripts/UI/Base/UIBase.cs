@@ -21,5 +21,6 @@ public class UIBase : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         gameObject.SetActive(false);
         SoundManager.Instance.EffactMusic.Click1SoundPlay();
+        UIManager.Instance.IsOnUI = false;
     }
 }

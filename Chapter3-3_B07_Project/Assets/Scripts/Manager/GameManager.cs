@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour
 	private void Start()
 	{
 		uiManager.OpenUI<PlayerUI>();
+		UIManager.Instance.IsOnUI = false;
 		SoundManager.Instance.BackMusic.WaveOff();
 	}
 
