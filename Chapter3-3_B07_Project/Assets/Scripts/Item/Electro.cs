@@ -18,6 +18,7 @@ public class Electro : MonoBehaviour
 
     public void UseSkill()
     {
+        gameObject.SetActive(true);
         effactStart?.Invoke();
     }
 
@@ -40,5 +41,6 @@ public class Electro : MonoBehaviour
             GameObject go = Instantiate(prefabs, this.transform);
             effactStart = () => go.GetComponent<ParticleSystem>().Play();
         }
+        gameObject.SetActive(false);
     }
 }
