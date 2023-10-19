@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class QuestPanel : GameUIBase
 {
     [SerializeField] private Button acceptButton;
-
+    public Quest quest;
     [Header("Text")]
     [SerializeField] private TextMeshProUGUI questInfoText;
     [SerializeField] private TextMeshProUGUI questResultText;
@@ -20,7 +20,10 @@ public class QuestPanel : GameUIBase
     {
         base.Awake();
         acceptButton.onClick.AddListener(OpenUI_Quest);
-        SetQuest("웨어울프 10마리 잡기","");
+    }
+    private void OnEnable()
+    {
+        SetQuest(quest.questExplan, quest.questCompenExplan);
     }
     void OpenUI_Quest()
     {
@@ -38,6 +41,7 @@ public class QuestPanel : GameUIBase
     private void YesClick()
     {
         questListPanel.SetQuestList(questInfoText.text);
+        GameManager.Instance.questManager.AddQuest(quest);
         gameObject.SetActive(false);
         GameManager.Instance.interactionManager.CallCloseWindow();
     }
