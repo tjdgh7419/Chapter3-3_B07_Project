@@ -29,28 +29,20 @@ public class QuestPanel : GameUIBase
     {
         var uiPopUp = UIManager.Instance.OpenUI<UIPopUp>();
         SoundManager.Instance.EffactMusic.Click2SoundPlay();
-		if (!GameManager.Instance.questManager.questDict.ContainsKey(quest.questId))
-		{
-			uiPopUp.SetAction("퀘스트", "정말로 퀘스트를 수락하시겠습니까?", YesClick, UIManager.Instance.MouseUnlock);
-		}
-		else
-		{
-			uiPopUp.SetAction("오류", "이미 받은 퀘스트입니다.", null, ()=>gameObject.SetActive(false));
-            uiPopUp.OffCheackButton();
-		}
-		
+        uiPopUp.SetAction("퀘스트", questListPanel.SetQuestList(quest), null, Click);
+        uiPopUp.OffCheackButton();
     }
 
     public void SetQuest(Quest quest)
     {
+        if (quest == null)
+            return;
         questInfoText.text = $"{quest.questExplan}";
         questResultText.text = $"퀘스트 보상\n{quest.questCompenExplan}";
     }
 
-    private void YesClick()
+    private void Click()
     {
-        questListPanel.SetQuestList(quest);
-        GameManager.Instance.questManager.AddQuest(quest);
         gameObject.SetActive(false);
         GameManager.Instance.interactionManager.CallCloseWindow();
     }       
