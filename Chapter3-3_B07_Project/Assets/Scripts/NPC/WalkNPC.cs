@@ -23,7 +23,6 @@ public class WalkNPC : NPC
     }
     protected override void Start()
     {
-        npcSO.npcType = 1;
         _name.text = npcSO.npcName;
         npcAI = NPCAIState.Walk;
         talk.gameObject.SetActive(false);

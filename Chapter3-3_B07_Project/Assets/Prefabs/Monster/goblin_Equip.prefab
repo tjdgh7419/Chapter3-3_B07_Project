@@ -20596,12 +20596,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 2
   mobName: "[E]\uACE0\uBE14\uB9B0"
-  attack: 5
-  attackDelay: 1
-  attackDistance: 6
-  hp: 15
-  speed: 10
-  detectDistance: 11
+  attack: 3
+  attackDelay: 2
+  attackDistance: 3
+  hp: 12
+  speed: 8
+  detectDistance: 10
   items:
   - {fileID: 11400000, guid: fabdb4ca7df36cd4b8a76abb5807c0c4, type: 2}
   - {fileID: 11400000, guid: f3b8c94828eb7b249aa2a89ee1143a18, type: 2}
