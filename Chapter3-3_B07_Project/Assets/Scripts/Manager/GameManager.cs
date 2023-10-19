@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
 	public InteractionManager interactionManager;
 	public RoundManager roundManager;
 	public MonsterManager monsterManager;
+	public QuestManager questManager;
 	public Inventory inventory;
 	public CraftPanel craft;
 	public PlayerConditionManager playerConditionManager;
