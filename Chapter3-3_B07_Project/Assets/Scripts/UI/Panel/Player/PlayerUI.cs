@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Runtime.CompilerServices;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -44,6 +45,10 @@ public class PlayerUI : MonoBehaviour
         currentMp = PCM.mp.curValue;
 
         UpdateBar();
+    }
+
+    private void Update()
+    {
         UpdateCastleHP();
     }
 
