@@ -186,9 +186,10 @@ public class CraftPanel : GameUIBase
 		if (!chk) return true;
 		else return false;
 	}
-	public void OnCraftExitButton()
-	{
-		GameManager.Instance.interactionManager.OnCloseWindow();
 
+	protected override void Close()
+	{
+		base.Close();
+		GameManager.Instance.interactionManager.OnCloseWindow();
 	}
 }
