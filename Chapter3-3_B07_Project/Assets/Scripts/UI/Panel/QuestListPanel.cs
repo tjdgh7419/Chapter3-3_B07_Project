@@ -30,10 +30,11 @@ public class QuestListPanel : GameUIBase
 
     public string SetQuestList(Quest quest)
     {
-        if(count == 3)
+        if(count == 3 || GameManager.Instance.questManager.questDict.ContainsKey(quest.questId))
         {
             return "퀘스트 추가에 실패하였습니다.";
         }
+        GameManager.Instance.questManager.AddQuest(quest);
         questList.Add(quest);
         QuestText[count].text = quest.questExplan;
         QuestText[count].gameObject.SetActive(true);
