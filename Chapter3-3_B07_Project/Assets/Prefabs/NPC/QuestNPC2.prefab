@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5581046455382795435}
   - component: {fileID: 2123624860285884079}
   - component: {fileID: 7841208733906168608}
+  - component: {fileID: -254897394811988100}
   m_Layer: 0
   m_Name: QuestNPC2
   m_TagString: Untagged
@@ -109,6 +110,26 @@ MonoBehaviour:
   player: {fileID: 0}
   talk: {fileID: 0}
   _name: {fileID: 0}
+--- !u!114 &-254897394811988100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 168015316788594428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bad4119a0cbf8f04885c61e55c034d8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questId: 4
+  questCompenExplan: 
+  questName: "\uD2B8\uB864 \uD1F4\uCE58"
+  questExplan: "\uD2B8\uB864 \uC880 \uC7A1\uC544\uC8FC\uC138\uC694"
+  questCompenItems:
+  - {fileID: 11400000, guid: fabdb4ca7df36cd4b8a76abb5807c0c4, type: 2}
+  - {fileID: 11400000, guid: f3b8c94828eb7b249aa2a89ee1143a18, type: 2}
+  questCompenItemsCount: 0a00000064000000
 --- !u!1 &1090829305006546456
 GameObject:
   m_ObjectHideFlags: 0

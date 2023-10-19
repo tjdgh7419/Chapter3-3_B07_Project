@@ -23,7 +23,7 @@ public class QuestPanel : GameUIBase
     }
     private void OnEnable()
     {
-        //SetQuest(quest.questExplan, quest.questCompenExplan);
+        SetQuest(quest);
     }
     void OpenUI_Quest()
     {
@@ -32,16 +32,16 @@ public class QuestPanel : GameUIBase
         uiPopUp.SetAction("퀘스트", "정말로 퀘스트를 수락하시겠습니까?", YesClick);
     }
 
-    public void SetQuest(string info, string result)
+    public void SetQuest(Quest quest)
     {
-        questInfoText.text = $"{info}";
-        questResultText.text = $"퀘스트 보상\n{result}";
+        questInfoText.text = $"{quest.questExplan}";
+        questResultText.text = $"퀘스트 보상\n{quest.questCompenExplan}";
     }
 
     private void YesClick()
     {
-        questListPanel.SetQuestList(questInfoText.text);
-        //GameManager.Instance.questManager.AddQuest(quest);
+        questListPanel.SetQuestList(quest);
+        GameManager.Instance.questManager.AddQuest(quest);
         gameObject.SetActive(false);
         GameManager.Instance.interactionManager.CallCloseWindow();
     }
