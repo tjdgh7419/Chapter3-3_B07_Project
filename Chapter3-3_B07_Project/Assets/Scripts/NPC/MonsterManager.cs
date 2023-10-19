@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using static UnityEditor.PlayerSettings;
 
@@ -24,7 +25,12 @@ public class MonsterManager : MonoBehaviour
             Queue<GameObject> objectPool = new Queue<GameObject>();
             for(int i = 0; i< pool.size; i++)
             {
-                GameObject obj = Instantiate(pool.prefab, spawnPos);
+                float spawnX = Random.Range(spawnPos.position.x - 10, spawnPos.position.x + 10);
+                float spawnZ = Random.Range(spawnPos.position.z - 10, spawnPos.position.z + 10);
+
+                Vector3 ranPos = new Vector3(spawnX, spawnPos.position.y, spawnZ);
+
+                GameObject obj = Instantiate(pool.prefab, ranPos, Quaternion.identity);
                 obj.SetActive(false);
                 objectPool.Enqueue(obj);
             }

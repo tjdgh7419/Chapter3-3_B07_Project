@@ -136,6 +136,8 @@ public class Monster : MonoBehaviour
         StartCoroutine(SetDetectDistance());
         if(hp <= 0f && !dead)
         {
+            agent.speed = 0;
+            agent.isStopped = true;
             dead = true;
             animator.SetTrigger("dead");
             GiveItems();
