@@ -24,6 +24,10 @@ public class EquipTool : Equip
         _cam = Camera.main;
         animator = GetComponent<Animator>();
     }
+	private void Start()
+	{
+        swordEffect.Stop();
+	}
 
 	public override void OnAttackInput()
 	{
@@ -37,14 +41,14 @@ public class EquipTool : Equip
 	}
     public void OnHit()
     {
-        Ray ray = _cam.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
-
+		Ray ray = _cam.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
+        Debug.DrawRay(gameObject.transform.position ,new Vector3(Screen.width / 2, Screen.height / 2, 0), Color.red);
         isHit = Physics.Raycast(ray, out RaycastHit hit, attackDistance);
         if (isHit)
         {
-            if (hit.collider.TryGetComponent(out Monster monster))
+			if (hit.collider.TryGetComponent(out Monster monster))
             {
-                if (monster != null)
+				if (monster != null)
                 {
                     Debug.Log(damage);
                     monster.TakeDamage(damage);
@@ -52,6 +56,8 @@ public class EquipTool : Equip
             }
         }
     }
+
+
     private void AttackDelay()
     {
         attacking = false;
