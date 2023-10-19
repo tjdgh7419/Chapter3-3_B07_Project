@@ -27,8 +27,6 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI monsterAtkText;
     [SerializeField] private TextMeshProUGUI monsterHPText;
 
-    private RoundManager round;
-
     private float maxHp;
     private float maxMp;
     private float currentHp;
@@ -40,21 +38,13 @@ public class PlayerUI : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
 
-        round = GameManager.Instance.roundManager;
-
         maxHp = PCM.hp.maxValue;
         maxMp = PCM.mp.maxValue;
         currentHp = PCM.hp.curValue;
         currentMp = PCM.mp.curValue;
 
         UpdateBar();
-    }
-
-    private void UpdateRoundInfo()
-    {
-        monsterNameText.text = $"{round.monsterObject.GetComponent<Monster>().name}";
-        monsterAtkText.text = $"{round.monsterObject.GetComponent<Monster>().attack}";
-        monsterHPText.text = $"{round.monsterObject.GetComponent<Monster>().hp}";
+        UpdateCastleHP();
     }
 
     private void UpdateCastleHP()
