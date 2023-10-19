@@ -41,7 +41,7 @@ public class QuestPanel : GameUIBase
     private void YesClick()
     {
         questListPanel.SetQuestList(quest);
-        GameManager.Instance.questManager.AddQuest(quest);
+        //GameManager.Instance.questManager.AddQuest(quest);
         gameObject.SetActive(false);
         GameManager.Instance.interactionManager.CallCloseWindow();
     }
