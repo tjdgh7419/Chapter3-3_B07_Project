@@ -25,14 +25,17 @@ public class GraphicManager : MonoBehaviour
 
     void Start()
     {
+        for (int i = 0; i < 3; i++)
+        {
+            GameObject go = Instantiate(electroPrefab);
+            go.GetComponent<Electro>().EffactSettingHow(Effact);
+            prefabs.Add(go);
+        }
+
         if (Effact)
         {
             prefabs.Add(Instantiate(hitEffatPrefab));
-            for (int i = 0; i < 3; i++)
-            {
-                GameObject go = Instantiate(electroPrefab);
-                prefabs.Add(go);
-            }
+            
         }
         if (!Shadow && mainLight != null)
         {
