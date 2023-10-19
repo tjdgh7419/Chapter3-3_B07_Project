@@ -15,10 +15,11 @@ public class EGoblin : Monster
         aiState = MobAIState.Run;
         agent.isStopped = false;
         animator.SetBool("run", true);
-        attack += GameManager.Instance.roundManager.currentRound * 1f;
-        hp += GameManager.Instance.roundManager.currentRound * 1f;
-        itemsCount[0] += GameManager.Instance.roundManager.currentRound * 4;
-        itemsCount[1] += GameManager.Instance.roundManager.currentRound * 4;
+        int round = GameManager.Instance.roundManager.currentRound - 1;
+        attack += round * 0.5f;
+        hp += round * 0.5f;
+        itemsCount[0] += round *3;
+        itemsCount[1] += round * 3;
     }
     protected override void Update()
     {

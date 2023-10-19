@@ -25648,7 +25648,7 @@ Transform:
   m_GameObject: {fileID: 6337214028473264009}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3692859360878774410}
@@ -25661,7 +25661,7 @@ Transform:
   - {fileID: 5935799108095330202}
   - {fileID: 630020208139761204}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1726960576284811735
 Animator:
@@ -25769,11 +25769,11 @@ MonoBehaviour:
   type: 3
   mobName: "\uD649\uACE0\uBE14\uB9B0"
   attack: 15
-  attackDelay: 1
-  attackDistance: 8
+  attackDelay: 3
+  attackDistance: 2
   hp: 95
   speed: 10
-  detectDistance: 15
+  detectDistance: 10
   items:
   - {fileID: 11400000, guid: fabdb4ca7df36cd4b8a76abb5807c0c4, type: 2}
   - {fileID: 11400000, guid: f3b8c94828eb7b249aa2a89ee1143a18, type: 2}

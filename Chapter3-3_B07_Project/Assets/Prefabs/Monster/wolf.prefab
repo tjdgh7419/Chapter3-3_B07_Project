@@ -9905,7 +9905,7 @@ Transform:
   m_GameObject: {fileID: 2779154715075035626}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7392806486277461066}
@@ -9998,12 +9998,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 1
   mobName: "\uB291\uB300"
-  attack: 4
-  attackDelay: 0.8
-  attackDistance: 4
+  attack: 3
+  attackDelay: 1.5
+  attackDistance: 2.5
   hp: 8
-  speed: 15
-  detectDistance: 15
+  speed: 12
+  detectDistance: 10
   items:
   - {fileID: 11400000, guid: fabdb4ca7df36cd4b8a76abb5807c0c4, type: 2}
   - {fileID: 11400000, guid: f3b8c94828eb7b249aa2a89ee1143a18, type: 2}

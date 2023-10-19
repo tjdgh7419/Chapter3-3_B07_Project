@@ -29,7 +29,6 @@ public class NPC : MonoBehaviour
     }
     protected virtual void Start()
     {
-        npcSO.npcType = 0;
         npcAI = NPCAIState.Idle;
         talk.transform.position = talkPos.transform.position;
         talk.gameObject.SetActive(false);
@@ -98,6 +97,10 @@ public class NPC : MonoBehaviour
         if(npcSO.interact && npcAI == NPCAIState.Interact)
         {
             Cursor.lockState = CursorLockMode.None;
+            if(window.TryGetComponent<QuestPanel>(out QuestPanel panel))
+            {
+                panel.quest = this.gameObject.GetComponent<Quest>();
+            }
             window.SetActive(true);
             canTalk = false;
         }
