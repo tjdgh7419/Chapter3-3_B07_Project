@@ -49,6 +49,10 @@ public class GraphicManager : MonoBehaviour
         {
             mainLight.shadows = LightShadows.None;
         }
+        else
+        {
+            mainLight.shadows = LightShadows.Soft;
+        }
     }
 
     public void MonsterHit(Vector3 pos)
