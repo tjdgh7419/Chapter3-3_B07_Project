@@ -116,7 +116,6 @@ public class NPC : MonoBehaviour
     }
     IEnumerator CancelInteract()
     {
-        UIManager.Instance.MouseLock();
         npcAI = NPCAIState.Idle;
         fieldOfView = 0;
         yield return new WaitForSeconds(3f);

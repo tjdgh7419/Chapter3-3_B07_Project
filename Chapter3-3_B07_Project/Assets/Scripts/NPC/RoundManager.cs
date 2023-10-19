@@ -66,7 +66,6 @@ public class RoundManager : MonoBehaviour
     }
     public void SpawnWithRound()
     {
-        Debug.Log(monstersCount[currentRound - 1, 0]);
         if (currentRound % 5 != 0)
         {
             if (monstersCount[currentRound - 1, 0] > 0)
