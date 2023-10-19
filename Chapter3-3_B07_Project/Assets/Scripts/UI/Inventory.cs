@@ -59,6 +59,7 @@ public class Inventory : MonoBehaviour
 		AddItem(GameManager.Instance.itemManager.HpPotion);
 		AddItem(GameManager.Instance.itemManager.Sword);
 		AddItem(GameManager.Instance.itemManager.MpPotion);
+		AddItem(GameManager.Instance.itemManager.MagicSword);
 	}
 
 	public void Toggle()

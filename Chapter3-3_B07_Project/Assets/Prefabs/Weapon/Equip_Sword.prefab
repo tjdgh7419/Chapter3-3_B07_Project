@@ -131,7 +131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackRate: 0.8
-  attackDistance: 2
+  attackDistance: 4
   doesDealDamage: 1
   damage: 100
   swordEffect: {fileID: 5436023981332319159}
