@@ -45,5 +45,10 @@ public class QuestPanel : GameUIBase
     {
         gameObject.SetActive(false);
         GameManager.Instance.interactionManager.CallCloseWindow();
-    }       
+    }
+    protected override void Close()
+    {
+        base.Close();
+        GameManager.Instance.interactionManager.CallCloseWindow();
+    }
 }
