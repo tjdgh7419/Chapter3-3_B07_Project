@@ -19,12 +19,12 @@
 "성지키기"는 플레이어에게 즐거운 게임 경험을 제공하며, 각 라운드가 더욱 도전적이고 흥미로워집니다. 팀 무정무계획은 게임 개발에 열정적으로 참여하여 이 프로젝트를 가능하게 했습니다.
 
 
-## 기능 구현 설명
+# 기능 구현 설명
 
-### 강성호
+## 강성호
 
 
-#### 플레이어 
+### 플레이어 
 
 
 ##### 스탯
@@ -35,7 +35,7 @@
 - 사진첨부
 - 공격 시 화면 정중앙에서 레이를 쏴 맞은 상대의 태그 확인후 데미지 처리
 - 공격 애니메이션 구현
-#### 아이템
+### 아이템
 ##### 아이템 스탯
 - 스크립터블 오브젝트로 아이템의 종류 및 기능을 구현
 - 사진첨부
@@ -49,23 +49,70 @@
 - 사진첨부
 
 
-#### 게임매니저 관리
+### 게임매니저 관리
 게임내에 있는 모든 매니저 스크립트를 게임매니저에서 관리
 
-### 조범준
+## 조범준
 
-#### 씬
+### 씬
 
-##### 로딩씬
-
-#### UI
+##### 시작 씬
+- 게임 시작시 나타낼 시작 씬 구현
+- 사진
+##### 로딩 씬
+- 씬 전환시 중간에 로딩상태를 나타내기 위한 로딩씬 구현
+- 사진
+### UI
 
 ##### UI매니저
+# 코드
+
+    private void InitUIList()
+    {
+        int uiCount = transform.childCount;
+
+        for (int i = 0; i < uiCount; i++)
+        {
+            Transform go = transform.GetChild(i);
+            _uiList.Add(go.name, go.gameObject);
+            go.gameObject.SetActive(false);
+        }
+    }
+
+    public T OpenUI<T>()
+    {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        var obj = _uiList[typeof(T).Name];
+        obj.SetActive(true);
+        IsOnUI = true;
+        return obj.GetComponent<T>();
+    }
+
+    public void MouseUnlock()
+    {
+        if (!Cursor.visible)
+        {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+        }
+    }
+
+    public void MouseLock()
+    {
+        if (Cursor.visible)
+        {
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+    }
+
+
 - 자신의 하단에 있는 UI오브젝트들을 저장
 - 저장한 오브젝트의 활성화를 위한 OpenUI 함수 및 비활성화 시 사용될 Close 함수
 - 마우스 활성 여부를 정할 함수 제작
 - UI가 켜져 있을때를 확인하기 위한 IsOnUI 다른 많은 스크립트에서 불려서 사용됨
-- 사진첨부
+
 ##### 플레이어 UI
 - 코루틴을 활용하여 체력과 마나의 닳는 것을 보여주어 시각적인 재미를 부여함
 - 현재 플레이어 HP를 받아와 즉각적인 반응 관찰 가능
@@ -97,6 +144,10 @@
 - 공격시 검에서 나올 검기 파티클로 제작
 - 마법 검 사용시 나타나는 파티클 제작
 - 피격시 나타날 파티클 제작
-#### 기타 디테일 관리
+- 동영상
+### 기타 디테일 관리
 - 시각적인 다채로움을 위해 로딩 씬과 시작씬에 맵 및 카메라 무빙 구현
 - 플레이시의 재미를 느끼게 하기 위해 게임 맵 조정
+
+## 김민태
+
