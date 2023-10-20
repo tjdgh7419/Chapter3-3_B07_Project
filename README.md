@@ -30,8 +30,26 @@
 - 스크립터블 오브젝트로 캐릭터의 베이스 스텟을 잡고 추가 스텟 구현시 플레이어 컨디션 스크립트에서 조정
 - 사진첨부
 ##### 전투
+```
+    if (TryGetComponent(out PlayerInput playerInput))
+		{
+			InputAction action = playerInput.actions.FindAction("Move");
+			action.performed += CallOnMove;
+			action.canceled += CallOnMove;
+			action = playerInput.actions.FindAction("Look");
+			action.performed += CallOnLookRotation;
+			action.canceled += CallOnLookRotation;
+			action = playerInput.actions.FindAction("Jump");
+			action.started += CallOnJump;
+			action = playerInput.actions.FindAction("Interaction");
+			action.started += CallOnInteraction;
+			action = playerInput.actions.FindAction("Pause");
+			action.started += CallOnPause;
+            action = playerInput.actions.FindAction("Quest");
+            action.started += CallOnQuest;
+        }
+```
 - 인풋 시스템을 활용하여 플레이어의 이동, 시선처리, 공격 및 기타 상호작용 등을 조작
-- 사진첨부
 - 공격 시 화면 정중앙에서 레이를 쏴 맞은 상대의 태그 확인후 데미지 처리
 - 공격 애니메이션 구현
 ### 아이템
