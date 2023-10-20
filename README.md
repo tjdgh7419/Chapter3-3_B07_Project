@@ -282,3 +282,84 @@ public bool MakableChk()
 
 ## 김민태
 
+### 게임 씬 구현
+- 실제 플레이 될 게임 씬의 전반적인 느낌 및 배칭 시스템을 통한 드로우콜 줄이는 작업
+### NPC
+- 기본 NPC의 정보를 스크립티블 오브젝트에 저장하여 NPC 스크립트가 정보값을 받아와서 사용
+- 플레이어가 근처에 올 시 상호 작용 준비를 통하여 플레이어의 상호작용 인풋액션에 반응할 수 있게 함
+##### 퀘스트 NPC
+- 플레이어와의 상호 작용시 현재 NPC가 가지고 있는 퀘스트 정보를 퀘스트패널에 띄움
+##### 제작 NPC
+- 플레이어와의 상호 작용시 제작창을 띄움
+```
+public void StartInteract()
+    {
+        if(npcSO.interact && npcAI == NPCAIState.Interact)
+        {
+            UIManager.Instance.MouseUnlock();
+            if(window.TryGetComponent<QuestPanel>(out QuestPanel panel))
+            {
+                panel.quest = this.gameObject.GetComponent<Quest>();
+            }
+            window.SetActive(true);
+            UIManager.Instance.IsOnUI = true;
+            canTalk = false;
+        }
+    }
+```
+### 퀘스트
+- 퀘스트 스크립트를 통하여 퀘스트의 정보를 저장하고 각각의 퀘스트NPC가 퀘스트를 저장함
+##### 퀘스트 매니저
+- 현재 플레이어가 진행중인 퀘스트를 딕셔너리를 통하여 관리 함
+- 퀘스트 클리어시 플레이어에게 보상 제공
+
+### 몬스터
+
+##### 몬스터 AI
+- 네비매시를 활용하여 현재 플레이어와의 거리에 따른 몬스터의 행동을 결정
+```
+ protected virtual void Update()
+    {
+        playerDistance = Vector3.Distance(this.gameObject.transform.position, player.transform.position);
+        switch (aiState)
+        {
+            case MobAIState.Idle:
+                if (playerDistance < detectDistance)
+                {
+                    aiState = MobAIState.Battle;
+                    agent.isStopped = false;
+                    animator.SetBool("run", true);
+                }
+                break;
+            case MobAIState.Battle:
+                AttackingUpdate();
+                break;
+            case MobAIState.Run:
+                if (playerDistance < detectDistance)
+                {
+                    aiState = MobAIState.Battle;
+                }
+                if (Vector3.Distance(this.transform.position, agent.destination) <= 0.1f)
+                {
+                    agent.isStopped = true;
+                    animator.SetBool("run", false);
+                    aiState = MobAIState.Idle;
+                }
+                break;
+        }
+    }
+```
+##### 기본 웨이브 몬스터
+- 각각의 라운드 마다 몬스터가 생성되며 기본적으로는 성을 부수기 위해 돌진하는것이 일반적
+##### 네임드 몬스터
+- 라운드 마다 생성되는 몬스터와 달리 필드에 존재하는 몬스터로 플레이어가 가까이 오거나 공격시 전투 시작
+- 퀘스트와 연동되어 처치시 퀘스트가 있다면 퀘스트 클리어가 가능하도록 구현
+##### 보스 몬스터
+- 특정 라운드 마다 소환되며 강력한 공격과 체력을 가지고 있음
+
+## 팀원들의 소감 및 한마디
+- 강성호 :
+- 조범준 :
+- 김민태 : 일도 많고 탈도 많고 계획도 정말 없을줄은 몰랐지만 아무튼 완성해서 다행입니다 ㅎㅎ.
+
+# 감사합니다
