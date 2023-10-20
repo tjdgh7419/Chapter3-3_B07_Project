@@ -65,8 +65,7 @@
 ### UI
 
 ##### UI매니저
-# 코드
-
+```
     public bool IsOnUI;
     private void InitUIList()
     {
@@ -87,6 +86,7 @@
     {
         
     }
+```
     - 마우스 활성 여부를 정할 함수 제작
 - 비활성화 시 사용될 Close 함수 구현
 - UI가 켜져 있을때를 확인하기 위한 IsOnUI 다른 많은 스크립트에서 불려서 사용됨
