@@ -62,7 +62,10 @@ public void OnHit()
 ### 아이템
 ##### 아이템 스탯
 - 스크립터블 오브젝트로 아이템의 종류 및 기능을 구현
+
+
 ![아이템](https://github.com/tjdgh7419/Chapter3-3_B07_Project/assets/100994140/6ad02c8a-5406-4ea8-96b7-12e4bd1a8dc0)
+
 
 ##### 인벤토리
 ```
