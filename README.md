@@ -35,37 +35,95 @@ if (TryGetComponent(out PlayerInput playerInput))
 {
 	InputAction action = playerInput.actions.FindAction("Move");
 	action.performed += CallOnMove;
-	action.canceled += CallOnMove;
-	action = playerInput.actions.FindAction("Look");
-	action.performed += CallOnLookRotation;
-	action.canceled += CallOnLookRotation;
-	action = playerInput.actions.FindAction("Jump");
-	action.started += CallOnJump;
-	action = playerInput.actions.FindAction("Interaction");
-	action.started += CallOnInteraction;
-	action = playerInput.actions.FindAction("Pause");
-	action.started += CallOnPause;
-action = playerInput.actions.FindAction("Quest");
-action.started += CallOnQuest;
+	...
 }
 ```
 - 인풋 시스템을 활용하여 플레이어의 이동, 시선처리, 공격 및 기타 상호작용 등을 조작
+```
+public void OnHit()
+    {
+	Ray ray = _cam.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
+        isHit = Physics.Raycast(ray, out RaycastHit hit, attackDistance);
+        if (isHit)
+        {
+		if (hit.collider.TryGetComponent(out Monster monster))
+            {
+		if (monster != null)
+                {
+                    monster.TakeDamage(damage);
+                    GameManager.Instance.garphicManager.MonsterHit(hit.point);
+                }
+            }
+        }
+    }
+```
 - 공격 시 화면 정중앙에서 레이를 쏴 맞은 상대의 태그 확인후 데미지 처리
 - 공격 애니메이션 구현
 ### 아이템
 ##### 아이템 스탯
 - 스크립터블 오브젝트로 아이템의 종류 및 기능을 구현
-- 사진첨부
+![아이템](https://github.com/tjdgh7419/Chapter3-3_B07_Project/assets/100994140/6ad02c8a-5406-4ea8-96b7-12e4bd1a8dc0)
 
-- 
 ##### 인벤토리
+```
+public void OnInventoryButton(InputAction.CallbackContext context)
+public void AddItem(ItemData item)
+{
+	if (item.canStack)
+	{
+		ItemSlot slotInfo = GetItemStack(item);
+		if (slotInfo != null)
+		{				
+			slotInfo.quantity++;
+			UpdateUI();
+			return;
+		}
+	}
+
+	ItemSlot emptySlotInfo = GetEmptySlot();
+
+	if (emptySlotInfo != null)
+	{
+		...
+		UpdateUI();
+		return;
+	}
+	return;
+}
+private ItemSlot GetItemStack(ItemData item)
+...
+```
 - 인벤토리 스크립트에서 현재 플레이어가 가지고 있는 아이템데이터를 받아와 UI에 나타내며 각각의 아이템의 종류마다 사용 및 장착, 장착헤제 기능을 구현
-- 사진첨부
 ##### 제작 
+```
+public bool MakableChk()
+{		
+	Inventory inventoryData = GameManager.Instance.inventory;
+	bool chk = false;
+	for (int i = 0; i < selectedCraftItem.item.resources.Length; i++)
+	{
+		chk = false;
+		for (int j = 0; j < inventoryData.slots.Length; j++)
+		{
+			if (selectedCraftItem.item.resources[i] == inventoryData.slots[j].item)
+			{
+				if (selectedCraftItem.item.resourceCount[i] <= inventoryData.slots[j].quantity)
+				{
+					chk = true;
+					break;					
+				}
+				else
+				{
+					return true;
+				}
+			}			
+		}
+	}
+	if (!chk) return true;
+	else return false;
+}
+```
 - NPC와 상호 작용시 제작창을 띄우며 제작에 필요한 아이템은 인벤토리 내에 있는 아이템들을 사용하고 있으며 만약 아이템이 없거나 부족 할 시 제작에 불가능하게 구현
-- 사진첨부
-
-
 ### 게임매니저 관리
 게임내에 있는 모든 매니저 스크립트를 게임매니저에서 관리
 
@@ -86,11 +144,13 @@ action.started += CallOnQuest;
     public bool IsOnUI;
     private void InitUIList()
     {
+	...
         - 자신의 하단에 있는 UI오브젝트들을 저장
     }
 
     public T OpenUI<T>()
     {
+	...
         - 저장한 오브젝트의 활성화를 위한 OpenUI 함수
     }
 
@@ -98,11 +158,7 @@ action.started += CallOnQuest;
     {
         
     }
-
-    public void MouseLock()
-    {
-        
-    }
+	...
 ```
 - 마우스 활성 여부를 정할 함수 제작
 - 비활성화 시 사용될 Close 함수 구현
@@ -117,17 +173,18 @@ action.started += CallOnQuest;
         {
             while (true)
             {
-    
+    		...
             }
         }
         else
         {
             while (true)
             {
-                
+                ...
             }
         }
     }
+...
 ```
 - 코루틴을 활용하여 체력과 마나의 닳는 것을 보여주어 시각적인 재미를 부여함
 - 현재 플레이어 HP를 받아와 즉각적인 반응 관찰 가능
@@ -155,6 +212,7 @@ action.started += CallOnQuest;
         EffactToggle.isOn = graphic[0];
         ShadowToggle.isOn = graphic[1];
     }
+...
 ```  
 - 패널의 닫힘과 씬에 따른 행동을 취함
 - 그래픽/ 오디오 버튼을 누르면 패널을 교체해주는 역할
@@ -175,6 +233,7 @@ action.started += CallOnQuest;
 
         OnConfirm = onConfirm;
     }
+...
   ```  
 - UI내에서의 상호작용시 팝업창을 띄움
 - SetAction 으로 텍스트들과 함수를 받아와서 확인버튼을 누르면 해당 함수가 실행되게 구현
