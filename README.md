@@ -202,7 +202,11 @@ public bool MakableChk()
 - 코루틴을 활용하여 체력과 마나의 닳는 것을 보여주어 시각적인 재미를 부여함
 - 현재 플레이어 HP를 받아와 즉각적인 반응 관찰 가능
 - 피격시 나타나는 UI 구현
-- 사진첨부
+
+
+![제목 없음](https://github.com/tjdgh7419/Chapter3-3_B07_Project/assets/100994140/dda9ea22-8bc7-4ebe-8b1a-c7dea0b77197)
+
+
 ##### 환경설정 UI
 ```
     public void OnPreferencesSave()
@@ -232,7 +236,10 @@ public bool MakableChk()
 - 게임 종료 버튼을 누르면 팝업창을 띄워서 종료 여부를 파악
 - UIManager에 설정값을 저장하여 씬이 넘어가도 설정이 불려올수있도록 구현
 - 게임 종료 버튼 구현
-- 사진첨부
+
+![캡처3](https://github.com/tjdgh7419/Chapter3-3_B07_Project/assets/100994140/9e14b778-2539-487a-bcaa-a8222c745419)
+
+
 ##### 퀘스트 UI
 - NPC가 주는 퀘스트 및 현재 진행중인 퀘스트 목록 UI 구현
 - 포기 버튼 클릭시 현재 진행중인 퀘스트 목록에서 퀘스트 삭제
