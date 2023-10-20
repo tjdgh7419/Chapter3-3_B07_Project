@@ -97,6 +97,12 @@ private ItemSlot GetItemStack(ItemData item)
 ...
 ```
 - 인벤토리 스크립트에서 현재 플레이어가 가지고 있는 아이템데이터를 받아와 UI에 나타내며 각각의 아이템의 종류마다 사용 및 장착, 장착헤제 기능을 구현
+
+
+![인벤토리](https://github.com/tjdgh7419/Chapter3-3_B07_Project/assets/100994140/39e2c7b0-f427-4799-ae9e-7854466d20bc)
+
+
+
 ##### 제작 
 ```
 public bool MakableChk()
