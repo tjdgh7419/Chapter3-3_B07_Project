@@ -236,7 +236,12 @@ public bool MakableChk()
 ##### 퀘스트 UI
 - NPC가 주는 퀘스트 및 현재 진행중인 퀘스트 목록 UI 구현
 - 포기 버튼 클릭시 현재 진행중인 퀘스트 목록에서 퀘스트 삭제
-- 사진첨부
+
+![캡처](https://github.com/tjdgh7419/Chapter3-3_B07_Project/assets/100994140/9db38e56-39d2-4250-bce0-9b472533a411)  ![캡처2](https://github.com/tjdgh7419/Chapter3-3_B07_Project/assets/100994140/33bdac52-e5fb-4db7-8843-9e03bded09a5)
+
+
+
+
 ##### UI 팝업창
 ```
     public void SetAction(string _headingText, string _explanationText, Action onConfirm = null)
