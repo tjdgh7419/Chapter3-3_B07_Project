@@ -204,7 +204,8 @@ public bool MakableChk()
 - 피격시 나타나는 UI 구현
 
 
-![제목 없음](https://github.com/tjdgh7419/Chapter3-3_B07_Project/assets/100994140/dda9ea22-8bc7-4ebe-8b1a-c7dea0b77197)
+![제목 없음2](https://github.com/tjdgh7419/Chapter3-3_B07_Project/assets/100994140/894531ee-2709-446d-a2ee-80910b228116)
+
 
 
 ##### 환경설정 UI
