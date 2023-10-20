@@ -67,58 +67,80 @@
 ##### UI매니저
 # 코드
 
+    public bool IsOnUI;
     private void InitUIList()
     {
-        int uiCount = transform.childCount;
-
-        for (int i = 0; i < uiCount; i++)
-        {
-            Transform go = transform.GetChild(i);
-            _uiList.Add(go.name, go.gameObject);
-            go.gameObject.SetActive(false);
-        }
+        - 자신의 하단에 있는 UI오브젝트들을 저장
     }
 
     public T OpenUI<T>()
     {
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
-        var obj = _uiList[typeof(T).Name];
-        obj.SetActive(true);
-        IsOnUI = true;
-        return obj.GetComponent<T>();
+        - 저장한 오브젝트의 활성화를 위한 OpenUI 함수
     }
 
     public void MouseUnlock()
     {
-        if (!Cursor.visible)
-        {
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
-        }
+        
     }
 
     public void MouseLock()
     {
-        if (Cursor.visible)
+        
+    }
+    - 마우스 활성 여부를 정할 함수 제작
+- 비활성화 시 사용될 Close 함수 구현
+- UI가 켜져 있을때를 확인하기 위한 IsOnUI 다른 많은 스크립트에서 불려서 사용됨
+##### 플레이어 UI
+# 코드
+
+    IEnumerator TakeDamage(string type = null)
+    {
+        yield return null;
+
+        if (type == "MP")
         {
-            Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Locked;
+            while (true)
+            {
+    
+            }
+        }
+        else
+        {
+            while (true)
+            {
+                
+            }
         }
     }
 
-
-- 자신의 하단에 있는 UI오브젝트들을 저장
-- 저장한 오브젝트의 활성화를 위한 OpenUI 함수 및 비활성화 시 사용될 Close 함수
-- 마우스 활성 여부를 정할 함수 제작
-- UI가 켜져 있을때를 확인하기 위한 IsOnUI 다른 많은 스크립트에서 불려서 사용됨
-
-##### 플레이어 UI
 - 코루틴을 활용하여 체력과 마나의 닳는 것을 보여주어 시각적인 재미를 부여함
 - 현재 플레이어 HP를 받아와 즉각적인 반응 관찰 가능
 - 피격시 나타나는 UI 구현
 - 사진첨부
 ##### 환경설정 UI
+# 코드
+
+    public void OnPreferencesSave()
+    {
+        UIManager.Instance.SetAudioSetting(MasterSlider.value, MusicSlider.value, EffactSlider.value);
+        UIManager.Instance.SetGraphicSetting(EffactToggle.isOn, ShadowToggle.isOn);
+    }
+
+    public void CallAudioSetting()
+    {
+        float[] audios = UIManager.Instance.GetAudioSetting();
+        MasterSlider.value = audios[0];
+        MusicSlider.value = audios[1];
+        EffactSlider.value = audios[2];
+    }
+
+    public void CallGraphicSetting()
+    {
+        bool[] graphic = UIManager.Instance.GetGraphicSetting();
+        EffactToggle.isOn = graphic[0];
+        ShadowToggle.isOn = graphic[1];
+    }
+    
 - 패널의 닫힘과 씬에 따른 행동을 취함
 - 그래픽/ 오디오 버튼을 누르면 패널을 교체해주는 역할
 - 게임 종료 버튼을 누르면 팝업창을 띄워서 종료 여부를 파악
@@ -130,6 +152,16 @@
 - 포기 버튼 클릭시 현재 진행중인 퀘스트 목록에서 퀘스트 삭제
 - 사진첨부
 ##### UI 팝업창
+# 코드
+
+    public void SetAction(string _headingText, string _explanationText, Action onConfirm = null)
+    {
+        headingText.text = _headingText;
+        explanationText.text = _explanationText;
+
+        OnConfirm = onConfirm;
+    }
+    
 - UI내에서의 상호작용시 팝업창을 띄움
 - SetAction 으로 텍스트들과 함수를 받아와서 확인버튼을 누르면 해당 함수가 실행되게 구현
 - 사진첨부
